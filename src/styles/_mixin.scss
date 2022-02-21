@@ -1,0 +1,33 @@
+@mixin flex($jc, $at) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $at;
+}
+
+@mixin tablet {
+    @media only screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media only screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin pc {
+    @media only screen and (min-width: 1025px) {
+        @content;
+    }
+}
+
+@mixin text-overflow($column) {
+    width: 100%;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $column;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}

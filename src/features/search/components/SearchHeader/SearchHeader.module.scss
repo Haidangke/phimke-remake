@@ -1,0 +1,133 @@
+@use 'styles/' as *;
+
+.root {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    transition: $transition-base;
+    background-color: $whiteColor;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.isDown {
+    top: 0px;
+}
+
+.wrapper {
+    width: 100%;
+}
+.inputWrapper,
+.titleWrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    border-bottom: 1px solid rgba($blackColor, 0.1);
+}
+.input,
+.title {
+    background-color: $whiteColor;
+    border-top: 1px solid rgba($blackColor, 0.1);
+}
+.inputWrapper {
+    @include flex(unset, center);
+    height: 44px;
+
+    & > svg {
+        color: $blackColor;
+        font-size: 2.4rem;
+    }
+}
+.inputTag {
+    padding: 6px 10px;
+    width: 100%;
+    height: 100%;
+    font-size: 1.6rem;
+}
+.inputTag::placeholder {
+    font-size: 1.5rem;
+}
+.titleContent {
+    @include flex(unset, center);
+    height: 50px;
+    font-size: 2.2rem;
+    color: $blackColor;
+    font-weight: 700;
+
+    & > svg {
+        font-size: 2rem;
+        margin-right: 10px;
+    }
+}
+.list {
+    width: 100%;
+    overflow: auto;
+    margin-top: 10px;
+}
+.item {
+    width: 100%;
+    background-color: $whiteColor;
+}
+.item:last-child > a {
+    border-bottom: none;
+}
+.itemOther {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.4rem;
+}
+.itemWrapper {
+    @include flex(unset, flex-start);
+    max-width: 1220px;
+    padding: 10px 0;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba($blackColor, 0.1);
+}
+.image {
+    width: 112px;
+    height: 56px;
+    & > img {
+        width: 100%;
+        height: 100%;
+    }
+}
+.itemRight {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-left: 8px;
+}
+.name {
+    position: absolute;
+    top: 0;
+    color: $blackColor;
+    line-height: 1;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.button {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    text-align: center;
+    cursor: pointer;
+}
+.buttonWrapper {
+    font-size: 16px;
+    background-color: $lightBlue;
+    padding: 6px 0;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+@include mobile {
+    .itemWrapper {
+        padding: 6px 20px;
+    }
+    .inputWrapper,
+    .titleWrapper {
+        padding: 0 20px;
+    }
+    .button {
+        padding: 0px 20px;
+    }
+}

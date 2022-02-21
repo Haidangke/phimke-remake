@@ -1,0 +1,216 @@
+@use 'styles/' as *;
+
+.header {
+    margin-bottom: 64px;
+}
+.root {
+    width: 100%;
+    height: 64px;
+    background-color: $darkBlue;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: $transition-base;
+}
+.isDown {
+    top: -64px;
+}
+
+.wrapper {
+    @include flex(space-between, center);
+    max-width: 1400px;
+    height: 100%;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+.left {
+    @include flex(none, center);
+}
+
+.right {
+    @include flex(none, center);
+}
+.language {
+    position: relative;
+}
+.languageHeader {
+    text-transform: uppercase;
+    font-size: 1.54rem;
+    border: 1px solid $whiteColor;
+    width: 28px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: $transition-base;
+    &:hover {
+        background-color: $whiteColor;
+        color: $blackColor;
+    }
+}
+.languageBody {
+    position: absolute;
+    // display: none;
+    background-color: $whiteColor;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $blackColor;
+    width: 300px;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 16px;
+}
+.languageTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+.languageMain {
+    position: relative;
+    & > span {
+        display: block;
+        font-size: 1.6rem;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 8px;
+    }
+}
+.languageChoose {
+    height: 38px;
+    background-color: rgb(228, 231, 235);
+    color: $blackColor;
+    font-size: 1.6rem;
+    @include flex(unset, center);
+    text-indent: 10px;
+    border-radius: 4px;
+    transition: $transition-base;
+    cursor: pointer;
+    &:hover {
+        background-color: #ced3db;
+    }
+}
+.languageList {
+    position: absolute;
+    background-color: $whiteColor;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding: 12px 0;
+}
+.languageItem {
+    padding: 8px 16px;
+    font-size: 1.44rem;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(228, 231, 235);
+    }
+}
+.languageReload {
+    width: fit-content;
+    padding: 10px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    background-color: $lightBlue;
+    color: $whiteColor;
+    line-height: 1.2;
+    border-radius: 4px;
+    margin-top: 24px;
+    transition: $transition-base;
+    & > svg {
+        font-size: 1.6rem;
+        margin-right: 6px;
+    }
+    &:hover {
+        background-color: $blackColor;
+        color: $whiteColor;
+    }
+    cursor: pointer;
+}
+
+.menu {
+    display: none;
+}
+
+.logo {
+    letter-spacing: 0.2rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    background: linear-gradient(to right, $lightGreen 30%, $lightBlue 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    & > a {
+        font-size: 3rem;
+    }
+}
+.navigate {
+    margin-left: 14px;
+}
+.navigateItem {
+    position: relative;
+    margin: 0 2px;
+    padding: 8px;
+    font-size: 1.52rem;
+    font-weight: 400;
+    transition: $transition-base;
+    opacity: 0.7;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+.navigateItemActive {
+    opacity: 1;
+    font-weight: 600;
+}
+.auth {
+    margin-right: 14px;
+    margin-left: 10px;
+}
+.search {
+    @include flex(center, center);
+    & > svg {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 2.8rem;
+    }
+    cursor: pointer;
+}
+
+.searchContent {
+    display: none;
+}
+
+.isSearch {
+    display: block;
+}
+
+@include mobile {
+    .navigate {
+        display: none;
+    }
+    .wrapper {
+        padding: 0 20px;
+    }
+    .menu {
+        @include flex(center, center);
+        & * {
+            font-size: 2.2rem;
+            color: $whiteColor;
+            stroke: $whiteColor;
+        }
+    }
+    .logo > a {
+        font-size: 2.6rem;
+    }
+    .auth {
+        display: none;
+    }
+    .language {
+        display: none;
+    }
+}

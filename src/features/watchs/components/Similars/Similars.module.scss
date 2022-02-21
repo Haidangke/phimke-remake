@@ -1,0 +1,55 @@
+@use 'styles/' as *;
+
+.root {
+    color: none;
+}
+.title {
+    font-size: 1.94rem;
+    color: $blackColor;
+    text-transform: capitalize;
+    margin-bottom: 14px;
+    margin-top: -4px;
+    line-height: 1;
+    font-weight: 600;
+}
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(100% / 2 - 5px);
+    width: calc(100% / 2 - 5px);
+}
+
+.name {
+    font-size: 1.52rem;
+    color: $blackColor;
+    flex: 1;
+    @include text-overflow(2);
+    line-height: 1.2;
+    padding-top: 6px;
+    margin-bottom: 10px;
+}
+.genres {
+    color: $blackColor;
+    flex: 2;
+    @include text-overflow(2);
+    font-size: 1.2rem;
+}
+.time {
+    opacity: 0.8;
+    font-size: 1.4rem;
+    color: $blackColor;
+    flex: 1;
+}
+
+@include mobile {
+    .list {
+        margin-bottom: 20px;
+    }
+}

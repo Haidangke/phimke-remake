@@ -1,0 +1,80 @@
+@use 'styles/' as *;
+.root {
+    overflow: hidden;
+    width: 100%;
+}
+
+.wrapper {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.banner {
+    max-width: 100%;
+    height: 300px;
+    margin: 0 auto 30px;
+    position: relative;
+}
+.overplay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: linear-gradient(to right, rgba($darkBlue, 0.8) 0%, rgba($darkBlue, 0) 100%);
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.content {
+    position: relative;
+    @include flex(center, none);
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 20px 40px;
+    z-index: 2;
+    gap: 10px;
+}
+.title {
+    font-size: 4.8rem;
+    line-height: 1;
+    font-weight: 700;
+}
+.description {
+    font-size: 3.2rem;
+    line-height: 1.3;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+@include tablet {
+}
+
+@include mobile {
+    .root {
+        margin-top: 0;
+    }
+    .banner {
+        height: 50vw;
+        width: 100vw;
+    }
+    .title {
+        font-size: 3rem;
+    }
+    .content {
+        padding: 10px 20px;
+        margin-left: 0;
+        gap: 16px;
+    }
+    .introduce {
+        display: none;
+    }
+    .description {
+        margin-bottom: 0;
+        font-size: 2.4rem;
+    }
+}

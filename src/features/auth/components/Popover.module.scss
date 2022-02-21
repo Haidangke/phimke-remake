@@ -1,0 +1,56 @@
+@use 'styles/' as *;
+@keyframes fadeInPopupAuth {
+    from {
+        top: 100%;
+        opacity: 0.6;
+    }
+    to {
+        top: calc(100% + 10px);
+        opacity: 1;
+    }
+}
+.root {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 10px);
+    width: max-content;
+    border-radius: 4px;
+
+    background-color: $whiteColor;
+    border: 1px solid rgba(33, 37, 41, 0.15);
+    animation-name: fadeInPopupAuth;
+    animation-duration: 0.4s;
+}
+
+.info {
+    @include flex(center, none);
+    color: black;
+    padding: 8px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.name {
+    color: $blackColor;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.list {
+    padding: 8px 0;
+    border-top: 1px solid var(--background-color1);
+}
+
+.item {
+    @include flex(center, space-between);
+    padding: 8px 0;
+    font-size: 1.4rem;
+    transition: $transition-base;
+    color: $blackColor;
+    cursor: pointer;
+
+    &:hover {
+        color: $whiteColor;
+        background-color: $darkBlue;
+    }
+}

@@ -1,0 +1,138 @@
+@use 'styles/' as *;
+.root {
+    @include flex(center, center);
+    max-height: 100vh;
+    height: 100vh;
+}
+
+.background,
+.overplay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.background {
+    position: fixed;
+    z-index: 1;
+}
+
+.overplay {
+    position: absolute;
+    background: linear-gradient(to left bottom, transparent 25%, #000000 100%);
+    z-index: 2;
+}
+.wrapper {
+    position: relative;
+    width: 450px;
+    height: 600px;
+    padding: 24px;
+    background-color: $whiteColor;
+    z-index: 3;
+    border-radius: 4px;
+}
+
+.title {
+    margin: 10px 0 30px;
+    color: $blackColor;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    text-align: center;
+}
+
+.item {
+    display: flex;
+    height: 46px;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: $transition-base;
+    cursor: pointer;
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 49px;
+}
+.itemImage {
+    @include flex(center, center);
+    padding: 0 20px;
+    & > svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.describe {
+    flex: 1;
+    height: 100%;
+    line-height: 46px;
+    margin-right: 44px;
+
+    color: black;
+
+    letter-spacing: 0.05rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+
+    & > a {
+        font-size: 1.2rem;
+        color: black;
+    }
+}
+
+@include pc {
+    .item:hover {
+        background-color: $darkBlue;
+    }
+    .item:hover > .describe {
+        color: $whiteColor;
+    }
+}
+
+@include mobile {
+    .root {
+        align-items: flex-start;
+    }
+
+    .wrapper {
+        max-width: 80%;
+        height: 650px;
+
+        margin-top: 40px;
+    }
+    .logo {
+        margin: 0 auto;
+        margin-top: 40px;
+        width: 30px;
+        height: 30px;
+    }
+    .title {
+        margin: 20px 0;
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+    .item:active {
+        opacity: 0.9;
+    }
+
+    .itemImage {
+        flex-basis: 50px;
+    }
+
+    .describe {
+        margin-right: 0;
+        font-size: 1.4rem;
+    }
+}

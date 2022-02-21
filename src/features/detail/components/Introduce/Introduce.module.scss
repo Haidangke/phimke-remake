@@ -1,0 +1,305 @@
+@use 'styles/' as *;
+.root {
+    position: relative;
+    width: 100%;
+    min-height: 510px;
+}
+.wrapper {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 30px 40px;
+}
+.titleName,
+.release,
+.itemGenres,
+.overview,
+.runtime,
+.other,
+.root > svg {
+    color: $blackColor;
+}
+
+.isDark {
+    .titleName,
+    .release,
+    .itemGenres,
+    .overview,
+    .runtime,
+    .other,
+    .certification,
+    .textScore,
+    .root > svg {
+        color: $whiteColor;
+    }
+
+    .certification {
+        border: 1px solid rgba($whiteColor, 0.4);
+    }
+    .watchs {
+        background-color: $whiteColor;
+        color: $blackColor;
+        & > svg,
+        & > svg > path {
+            color: $blackColor;
+            stroke: $blackColor;
+        }
+    }
+}
+
+.overplay {
+    color: $blackColor;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.backdrop {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 40px;
+}
+.poster {
+    width: 300px;
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.image {
+    width: 100%;
+    height: 100%;
+    object-position: top;
+}
+.info {
+    max-width: 980px;
+}
+
+.titleName {
+    display: inline-block;
+    text-align: left;
+    font-size: 3.5rem;
+    font-weight: 800;
+}
+.titleYear {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-left: 8px;
+}
+.fact {
+    @include flex(unset, center);
+    color: $blackColor;
+    margin-bottom: 20px;
+    & > svg {
+        margin: 0 6px;
+    }
+}
+.factTop {
+    @include flex(unset, center);
+}
+
+.certification {
+    color: rgba($blackColor, 0.8);
+    border: 1px solid rgba($blackColor, 0.4);
+    height: 100%;
+    padding: 2px 4px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 2px;
+    letter-spacing: 0.05rem;
+}
+.release {
+    font-size: 1.6rem;
+    & > svg {
+        margin: 0 6px;
+    }
+}
+.genres {
+    @include flex(center, unset);
+    flex-wrap: wrap;
+}
+.runtime {
+    font-size: 1.6rem;
+}
+.itemGenres {
+    margin-left: 10px;
+    font-size: 1.6rem;
+}
+.action {
+    @include flex(unset, center);
+}
+.score {
+    width: 60px;
+    height: 60px;
+}
+.textScore {
+    color: $blackColor;
+    font-size: 1.7rem;
+    font-weight: 700;
+    width: 30px;
+    line-height: 1.2;
+    margin: 0 10px;
+}
+.watchs {
+    background-color: $blackColor;
+    color: $whiteColor;
+    & > svg,
+    & > svg > path {
+        color: $whiteColor;
+        stroke: $whiteColor;
+    }
+}
+
+.watchs {
+    @include flex(center, center);
+    padding: 0 12px;
+    min-width: 90px;
+    height: 40px;
+    margin-left: 20px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: $transition-base;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.overview {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.other {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.profile {
+    flex-basis: calc(100% / 3);
+    margin-bottom: 20px;
+}
+.profileTitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.profileContent {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.mobile {
+    position: relative;
+    width: 100vw;
+    height: calc(100vw / 2.2);
+    .posterMobile {
+        border-radius: 4px;
+        overflow: hidden;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: calc(((100vw / 2.2) - 40px) / 1.5);
+        min-width: calc(((100vw / 2.2) - 40px) / 1.5);
+        height: calc((100vw / 2.2) - 40px);
+        min-height: calc((100vw / 2.2) - 40px);
+        z-index: 2;
+    }
+    .backdropMobile {
+        height: 100%;
+    }
+    .overplayMobile {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+}
+
+@include pc {
+    .titleName {
+        @include text-overflow(1);
+    }
+}
+
+@include mobile {
+    .root {
+        position: unset;
+        min-height: unset;
+    }
+    .wrapper {
+        position: relative;
+        padding: 0;
+    }
+    .backdrop {
+        display: none;
+    }
+    .poster {
+        display: none;
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+    }
+    .titleName {
+        padding: 16px 20px;
+        margin: 0;
+        order: -1;
+        font-size: calc(1rem + 3vw);
+        font-weight: 600;
+        text-align: center;
+    }
+    .titleYear {
+        opacity: 0.8;
+        font-size: 2.2rem;
+    }
+    .fact {
+        margin: 0 auto;
+        order: 1;
+        flex-direction: column;
+    }
+    .genres {
+        margin-top: 10px;
+    }
+    .action {
+        @include flex(center, center);
+        order: 0;
+        padding: 0 20px 16px;
+    }
+    .main {
+        padding: 0 20px;
+        padding-bottom: 20px;
+        order: 2;
+    }
+
+    .score {
+        width: 44px;
+        height: 44px;
+    }
+    .textScore {
+        font-size: 1.6rem;
+        width: min-content;
+    }
+    .watchs,
+    .trailer {
+        padding: 0 16px;
+        height: 36px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-left: 10px;
+    }
+    .overview {
+        margin-top: 10px;
+    }
+}

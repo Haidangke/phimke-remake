@@ -1,0 +1,29 @@
+@use 'styles/' as *;
+.title {
+    font-size: 2.56rem;
+    font-weight: 600;
+    color: $blackColor;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 20px;
+}
+.main {
+    display: flex;
+    gap: 30px;
+}
+.left {
+    flex-wrap: 260px;
+    width: 260px;
+}
+.right {
+    flex: 1;
+}
+
+@include mobile {
+    .left {
+        width: 100%;
+    }
+    .main {
+        flex-direction: column;
+    }
+}
