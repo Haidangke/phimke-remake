@@ -1,11 +1,12 @@
 import { useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { GrMenu } from 'react-icons/gr';
-import { IoClose, IoSearchSharp } from 'react-icons/io5';
+import { IoClose } from 'react-icons/io5';
+import { FiSearch } from 'react-icons/fi';
 import clsx from 'clsx';
 
 import styles from './Header.module.scss';
-import { navigateConfig } from 'config/navigate';
+import { navigate } from 'config/navigate';
 import Sidebar from 'components/SideBar';
 import useScroll from 'hooks/useScroll';
 import useOnClickOutside from 'hooks/useOnClickOutside';
@@ -13,10 +14,8 @@ import SearchHeader from 'features/search/components/SearchHeader';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { setIsSearch } from 'features/search/searchSlice';
 import Auth from 'features/auth';
-import { languageSelector } from 'features/setting/settingSlice';
 
 function Header() {
-    const language = useAppSelector(languageSelector);
     const { pathname } = useLocation();
     const dispatch = useAppDispatch();
     const [isShow, setIsShow] = useState<boolean>(false);
@@ -53,19 +52,17 @@ function Header() {
                             <Link to='/'>phimke</Link>
                         </div>
                         <div className={styles.navigate}>
-                            {navigateConfig
-                                .filter((item) => item.language === language)[0]
-                                .data.map((item) => (
-                                    <Link
-                                        key={item.path}
-                                        className={clsx(styles.navigateItem, {
-                                            [styles.navigateItemActive]: item.path === pathname,
-                                        })}
-                                        to={item.path}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
+                            {navigate.map((item) => (
+                                <Link
+                                    key={item.path}
+                                    className={clsx(styles.navigateItem, {
+                                        [styles.navigateItemActive]: item.path === pathname,
+                                    })}
+                                    to={item.path}
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
                         </div>
                     </div>
 
@@ -75,7 +72,7 @@ function Header() {
                         </div>
                         <div className={styles.search}>
                             {!isSearch ? (
-                                <IoSearchSharp onClick={handleSearch} />
+                                <FiSearch onClick={handleSearch} />
                             ) : (
                                 <IoClose onClick={() => dispatch(setIsSearch(false))} />
                             )}

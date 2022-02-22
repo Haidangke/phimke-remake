@@ -1,0 +1,19 @@
+@use 'styles/' as *;
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    height: fit-content;
+    bottom: 10px;
+}
+.swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+.swiper-pagination-bullet-active {
+    background-color: white;
+}
+
+@include mobile {
+    .swiper-container-horizontal > .swiper-pagination-bullets {
+        bottom: 2px;
+    }
+}

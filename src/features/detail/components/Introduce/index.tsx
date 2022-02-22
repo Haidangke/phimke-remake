@@ -6,16 +6,16 @@ import styles from './Introduce.module.scss';
 import Score from 'components/Score';
 import Image from 'components/ImageLoading';
 import { useAppSelector } from 'app/hooks';
-import { isMobile, MobileView } from 'react-device-detect';
 import { resizeImage } from 'utils/resizeImage';
+import useResize from 'hooks/useResize';
 
 function Introduce() {
     const { pathname } = useLocation();
-    console.log();
+    const { onMobile } = useResize();
     const { detail, background } = useAppSelector((state) => state.detail);
     return (
         <div className={styles.root}>
-            <MobileView>
+            {onMobile && (
                 <div className={styles.mobile}>
                     <div
                         className={styles.overplayMobile}
@@ -36,7 +36,8 @@ function Introduce() {
                         />
                     </div>
                 </div>
-            </MobileView>
+            )}
+
             <div
                 className={clsx(styles.wrapper, {
                     [styles.isDark]: background.isDark,
@@ -55,7 +56,7 @@ function Introduce() {
                     style={{
                         backgroundImage: `linear-gradient( to right, rgba(${background.color}, 1) , rgba(${
                             background.color
-                        },${isMobile ? 1 : 0.8}))`,
+                        },${onMobile ? 1 : 0.8}))`,
                     }}
                 ></div>
 
@@ -95,7 +96,7 @@ function Introduce() {
                             <div className={styles.score}>
                                 <Score
                                     vote_average={detail.score}
-                                    textSize={isMobile ? 25 : 34}
+                                    textSize={onMobile ? 25 : 34}
                                     backgroundPadding={0}
                                 />
                             </div>
@@ -106,6 +107,7 @@ function Introduce() {
                         </div>
                         <div className={styles.main}>
                             <div className={styles.description}>
+                                <div className={styles.titleOverview}>Tóm tắt</div>
                                 <div className={styles.overview}>{detail.introduction}</div>
                             </div>
                         </div>

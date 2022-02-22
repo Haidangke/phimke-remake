@@ -21,6 +21,7 @@ import './InputRange.scss';
 import styles from './Player.module.scss';
 import useResize from 'hooks/useResize';
 import { Subtitle } from 'models/common';
+import iOS from 'utils/onIOS';
 
 interface PLayerProps {
     url: string;
@@ -116,13 +117,12 @@ function Player({
         );
     }
 
-    if (onMobile)
+    if (iOS())
         return (
             <div className={styles.player}>
-                <div className={styles.video} onClick={() => !onMobile && setPlaying(!playing)}>
+                <div className={styles.video}>
                     <ReactPlayer
                         key={url}
-                        style={{ cursor: hoverEnabled ? 'pointer' : 'none' }}
                         width='100%'
                         height='100%'
                         url={url}

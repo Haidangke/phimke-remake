@@ -1,5 +1,3 @@
-import { Config } from 'models/common';
-
 interface Navigate {
     path: string;
     name: string;
@@ -8,51 +6,18 @@ interface Navigate {
 export const navigate: Navigate[] = [
     {
         path: '/',
-        name: 'Home',
+        name: 'Khám phá',
     },
     {
-        path: '/discover/movie',
-        name: 'Movie',
+        path: '/discover/1',
+        name: 'Điện ảnh',
     },
     {
-        path: '/discover/tv',
-        name: 'TV Show',
-    },
-];
-
-export const navigateConfig: Config<Navigate>[] = [
-    {
-        language: 'en',
-        data: [
-            {
-                path: '/',
-                name: 'Home',
-            },
-            {
-                path: '/discover/movie',
-                name: 'Movie',
-            },
-            {
-                path: '/discover/tv',
-                name: 'TV Show',
-            },
-        ],
+        path: '/discover/2',
+        name: 'Truyền hình',
     },
     {
-        language: 'vi',
-        data: [
-            {
-                path: '/',
-                name: 'Trang chủ',
-            },
-            {
-                path: '/discover/movie',
-                name: 'Phim chiếu rạp',
-            },
-            {
-                path: '/discover/tv',
-                name: 'Phim bộ',
-            },
-        ],
+        path: '/discover/3',
+        name: 'Hoạt hình',
     },
 ];

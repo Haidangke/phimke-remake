@@ -1,17 +1,19 @@
-import { navigate } from 'config/navigate';
-import React, { Dispatch, ReactElement, SetStateAction } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Sidebar.module.scss';
+import { Dispatch, SetStateAction } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import clsx from 'clsx';
+
+import { navigate } from 'config/navigate';
+import styles from './Sidebar.module.scss';
 import useScroll from 'hooks/useScroll';
 
-interface Props {
+interface SidebarProps {
     isShow: boolean;
     setIsShow: Dispatch<SetStateAction<boolean>>;
 }
 
-function Sidebar({ isShow, setIsShow }: Props): ReactElement {
+function Sidebar({ isShow, setIsShow }: SidebarProps) {
     const { result, y } = useScroll();
+    const { pathname } = useLocation();
 
     return (
         <div
@@ -21,9 +23,16 @@ function Sidebar({ isShow, setIsShow }: Props): ReactElement {
             })}
         >
             <div className={styles.list}>
-                {navigate.map((x) => (
-                    <Link onClick={() => setIsShow(false)} key={x.name} to={x.path} className={styles.item}>
-                        {x.name}
+                {navigate.map((item) => (
+                    <Link
+                        onClick={() => setIsShow(false)}
+                        key={item.name}
+                        to={item.path}
+                        className={clsx(styles.item, {
+                            [styles.itemActive]: item.path === pathname,
+                        })}
+                    >
+                        {item.name}
                     </Link>
                 ))}
             </div>

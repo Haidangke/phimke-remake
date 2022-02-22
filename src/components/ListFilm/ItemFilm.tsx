@@ -12,6 +12,7 @@ function ItemFilm({ item }: ItemFilmProps) {
     return (
         <Link key={item.id} to={`/${item.category}/${item.id}`} className={styles.item}>
             <div className={styles.top}>
+                <div className={styles.overplay}></div>
                 <LazyLoadImage
                     className={styles.image}
                     alt={item.title}

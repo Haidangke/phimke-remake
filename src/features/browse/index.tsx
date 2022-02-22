@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import ImageBanner from 'assets/banner.jpg';
 import ListFilm from 'components/ListFilm';
 import styles from './Browse.module.scss';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { browseSelector, fetchData, indexSelector, setIndex } from './browseSlice';
 import ListFilmLoading from 'components/ListFilm/ListFilmLoading';
+import Banner from 'features/banner';
 
 function Browse() {
     const browse = useAppSelector(browseSelector);
@@ -26,16 +26,7 @@ function Browse() {
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
-                <section className={styles.banner}>
-                    <div className={styles.overplay}></div>
-                    <img src={ImageBanner} alt='banner' className={styles.image} />
-                    <div className={styles.content}>
-                        <div className={styles.title}>Welcome.</div>
-                        <div className={styles.description}>
-                            Millions of movies, TV shows and people to discover. Explore now.
-                        </div>
-                    </div>
-                </section>
+                <Banner />
                 <div className={styles.main}>
                     <InfiniteScroll
                         dataLength={browse?.length || 0}

@@ -156,7 +156,7 @@
     margin: 0 2px;
     padding: 8px;
     font-size: 1.52rem;
-    font-weight: 400;
+
     transition: $transition-base;
     opacity: 0.7;
 
@@ -166,7 +166,6 @@
 }
 .navigateItemActive {
     opacity: 1;
-    font-weight: 600;
 }
 .auth {
     margin-right: 14px;

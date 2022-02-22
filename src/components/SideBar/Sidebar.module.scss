@@ -5,9 +5,8 @@
     left: 0;
     top: 64px;
     transform: translateX(-100%);
-    width: 90%;
+    width: 60%;
     height: calc(100vh - 64px);
-    padding: 20px;
     background: rgba($darkBlue, 0.9);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -24,9 +23,15 @@
 .list {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 .item {
-    font-size: 2.08rem;
-    padding-bottom: 10px;
-    font-weight: 600;
+    font-size: 1.6rem;
+
+    margin-bottom: 4px;
+    padding: 3px 0 3px 20px;
+}
+.itemActive {
+    border-left: 2px solid white;
+    padding-left: 18px;
 }

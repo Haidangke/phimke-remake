@@ -42,6 +42,16 @@ export type SubtitlingList = Array<{
     translateType: string;
 }>;
 
+export type RefList = Array<{
+    category: number;
+    coverHorizontalUrl: string;
+    coverVerticalUrl: string;
+    drameTypeVo: any;
+    id: string;
+    name: string;
+    seriesNo: number;
+}>;
+
 export interface Detail {
     aliasName: string;
     areaList: Array<{
@@ -49,7 +59,7 @@ export interface Detail {
         name: string;
     }>;
     areaNameList: string[];
-    category: 0;
+    category: number;
     collect: boolean;
     coverHorizontalUrl: string;
     coverVerticalUrl: string;
@@ -92,15 +102,7 @@ export interface Detail {
         year: number;
     }>;
     name: string;
-    refList: Array<{
-        category: number;
-        coverHorizontalUrl: string;
-        coverVerticalUrl: string;
-        drameTypeVo: any;
-        id: string;
-        name: string;
-        seriesNo: number;
-    }>;
+    refList: RefList;
     reserved: boolean;
     score: number;
     seriesNo: number;

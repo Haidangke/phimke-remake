@@ -26,7 +26,7 @@ function App() {
                             <Header />
                             <Routes>
                                 <Route path='/' element={<HomePage />} />
-                                <Route path='/discover/*' element={<DiscoverPage />} />
+                                <Route path='/discover/:id' element={<DiscoverPage />} />
                                 <Route path='/:category/:id/*' element={<DetailPage />} />
                                 <Route path='/search/:keyword' element={<SearchPage />} />
                                 <Route path='*' element={<NotFoundPage />} />

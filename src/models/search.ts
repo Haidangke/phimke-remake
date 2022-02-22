@@ -1,16 +1,18 @@
+export interface ScreeningItems {
+    id: number;
+    items: Array<{
+        name: string;
+        params: string;
+        screeningType: string;
+    }>;
+    name: string;
+}
+
 export type SearchConfig = Array<{
     id: number;
     name: string;
     params: string;
-    screeningItems: Array<{
-        id: number;
-        items: Array<{
-            name: string;
-            params: string;
-            screeningType: string;
-        }>;
-        name: string;
-    }>;
+    screeningItems: Array<ScreeningItems>;
 }>;
 
 export interface TopSearchKeywordsParams {
@@ -61,4 +63,27 @@ export interface SearchLeaderBoard {
 
 export interface TopSearchKeywords {
     searchResults: string[];
+}
+
+export interface SearchResults {
+    coverVerticalUrl: string;
+    domainType: number;
+    id: string;
+    name: string;
+    sort: string;
+}
+
+export interface AdvancedSearch {
+    searchResults: Array<SearchResults>;
+}
+
+export interface AdvancedSearchParams {
+    size: number;
+    params: string;
+    area: string;
+    category: string;
+    year: string;
+    subtitles: string;
+    order: string;
+    [key: string]: any;
 }

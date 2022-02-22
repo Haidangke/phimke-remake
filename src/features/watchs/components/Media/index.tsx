@@ -65,7 +65,7 @@ function Media() {
                     firstDefinition={detail?.episodeVo[curEpisode]?.definitionList[0]?.description}
                 />
             )}
-            {category &&
+            {detail.category === 1 &&
                 (!isError ? (
                     <div className={styles.episodes}>
                         {detail?.episodeVo?.length > 0 &&

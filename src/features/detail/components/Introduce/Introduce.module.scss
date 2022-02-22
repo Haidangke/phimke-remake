@@ -44,6 +44,9 @@
             stroke: $blackColor;
         }
     }
+    .titleOverview {
+        color: white;
+    }
 }
 
 .overplay {
@@ -167,18 +170,20 @@
     margin-left: 20px;
     font-size: 1.6rem;
     font-weight: 600;
-    border-radius: 4px;
     cursor: pointer;
     transition: $transition-base;
     &:hover {
         opacity: 0.8;
     }
 }
-
+.titleOverview {
+    font-size: 2.1rem;
+    margin: 20px 0 10px;
+    color: black;
+}
 .overview {
     font-size: 1.6rem;
     font-weight: 500;
-    margin-top: 20px;
 }
 .other {
     display: flex;
@@ -265,12 +270,25 @@
         font-size: 2.2rem;
     }
     .fact {
-        margin: 0 auto;
+        width: 100%;
         order: 1;
         flex-direction: column;
     }
     .genres {
-        margin-top: 10px;
+        margin-top: 20px;
+        background-color: rgba(0, 0, 0, 0.05);
+        width: 100%;
+        padding: 10px 0;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .isDark {
+        .genres {
+            background-color: rgba(255, 255, 255, 0.05);
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: none;
+            border-left: none;
+        }
     }
     .action {
         @include flex(center, center);
@@ -289,7 +307,7 @@
     }
     .textScore {
         font-size: 1.6rem;
-        width: min-content;
+        width: auto;
     }
     .watchs,
     .trailer {
@@ -299,7 +317,14 @@
         font-weight: 500;
         margin-left: 10px;
     }
+    .titleOverview {
+        margin: 0;
+    }
     .overview {
         margin-top: 10px;
+    }
+
+    .release > svg:nth-child(2) {
+        display: none;
     }
 }
