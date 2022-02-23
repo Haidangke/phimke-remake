@@ -62,25 +62,29 @@ function Media() {
                     isError={isError}
                     definitionList={detail?.episodeVo[curEpisode]?.definitionList}
                     setDefinition={setDefinition}
-                    firstDefinition={detail?.episodeVo[curEpisode]?.definitionList[0]?.description}
+                    // firstDefinition={detail?.episodeVo[curEpisode]?.definitionList[0]?.description}
+                    curDefinition={definition}
                 />
             )}
             {detail.category === 1 &&
                 (!isError ? (
-                    <div className={styles.episodes}>
-                        {detail?.episodeVo?.length > 0 &&
-                            detail.episodeVo.map((episode, index) => (
-                                <div
-                                    onClick={() => setCurEpisode(index)}
-                                    key={episode.id}
-                                    className={clsx(styles.episode, {
-                                        [styles.episodeActive]: index === curEpisode,
-                                    })}
-                                >
-                                    Episode {index + 1}
-                                </div>
-                            ))}
-                    </div>
+                    <>
+                        <div className={styles.titleEpisode}>Các tập</div>
+                        <div className={styles.episodes}>
+                            {detail?.episodeVo?.length > 0 &&
+                                detail.episodeVo.map((episode, index) => (
+                                    <div
+                                        onClick={() => setCurEpisode(index)}
+                                        key={episode.id}
+                                        className={clsx(styles.episode, {
+                                            [styles.episodeActive]: index === curEpisode,
+                                        })}
+                                    >
+                                        Tập {index + 1}
+                                    </div>
+                                ))}
+                        </div>
+                    </>
                 ) : (
                     <div className={styles.episodes}>Không tìm thấy dữ liệu phù hợp (Error Code: 404)</div>
                 ))}

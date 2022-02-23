@@ -19,9 +19,16 @@
     transform: translate(-50%, -50%);
 }
 
+.titleEpisode {
+    color: $blackColor;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
 .episodes {
     display: flex;
-    margin: 4px 0 12px;
+    margin: 4px 0 24px;
     width: 100%;
     flex-wrap: wrap;
     gap: 10px;
@@ -66,7 +73,9 @@
         height: 40px;
         width: 40px;
     }
-    .seasons,
+    .titleEpisode {
+        padding-left: 20px;
+    }
     .episodes {
         padding: 0 20px;
     }

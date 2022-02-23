@@ -22,17 +22,8 @@ function Login() {
 
     return (
         <div className={styles.root}>
-            <div className={styles.background}>
-                <img
-                    src='https://image.tmdb.org/t/p/original//c6H7Z4u73ir3cIoCteuhJh7UCAR.jpg'
-                    alt='background'
-                />
-                <div className={styles.overplay}></div>
-            </div>
-
             <div className={styles.wrapper}>
                 <div className={styles.title}>Đăng nhập vào Phimke</div>
-
                 <div className={styles.list}>
                     <div className={styles.item} onClick={handleLoginWithEmail}>
                         <div className={styles.itemImage}>

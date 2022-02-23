@@ -28,18 +28,16 @@ const detailSlice = createSlice({
             state.isError = false;
             state.isFetched = false;
         },
-        fetchDataSuccess(state) {
+        fetchDataSuccess(state, action: PayloadAction<Detail>) {
             state.isLoading = false;
             state.isFetched = true;
             state.isError = false;
+            state.detail = action.payload;
         },
         fetchDataFailed(state) {
             state.isLoading = false;
             state.isFetched = true;
             state.isError = true;
-        },
-        setDetail(state, action: PayloadAction<Detail>) {
-            state.detail = action.payload;
         },
 
         setBackground(state, action: PayloadAction<Background>) {
@@ -48,5 +46,5 @@ const detailSlice = createSlice({
     },
 });
 
-export const { fetchData, fetchDataFailed, fetchDataSuccess, setBackground, setDetail } = detailSlice.actions;
+export const { fetchData, fetchDataFailed, fetchDataSuccess, setBackground } = detailSlice.actions;
 export default detailSlice.reducer;

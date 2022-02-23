@@ -7,7 +7,6 @@ import searchSlice from 'features/search/searchSlice';
 import discoverSlice from 'features/discover/discoverSlice';
 import watchSlice from 'features/watchs/watchsSlice';
 import authReducer from 'features/auth/authSlice';
-import settingSlice from 'features/setting/settingSlice';
 import browseSlice from 'features/browse/browseSlice';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -18,7 +17,6 @@ const rootReducer = combineReducers({
     search: searchSlice,
     discover: discoverSlice,
     watchs: watchSlice,
-    setting: settingSlice,
     browse: browseSlice
 });
 export const store = configureStore({

@@ -7,9 +7,10 @@ import Media from './components/Media';
 import { useQuery } from 'react-query';
 import searchApi from 'apis/searchApi';
 import TableFilm from 'components/TableFilm';
+import NotFound from 'components/NotFound';
 
 function Watchs() {
-    const { detail, isLoading } = useAppSelector((state) => state.detail);
+    const { detail, isLoading, isError } = useAppSelector((state) => state.detail);
     const similars = useQuery(
         ['similar', detail],
         async () =>
@@ -23,25 +24,26 @@ function Watchs() {
                 order: '',
             })
     );
-    console.log({ detail });
+
+    if (isError) return <NotFound />;
 
     return (
         <div className={styles.root}>
-            <div className={styles.name}>{detail.name}</div>
             <div className={styles.media}>{<Media />}</div>
             <div className={styles.main}>
                 <div className={styles.left}>{detail.id && <Comment filmId={detail.id} />}</div>
                 <div className={styles.right}>
                     {detail?.refList?.length > 0 && <Similars data={detail?.refList} isLoading={isLoading} />}
-                    <div>
-                        {similars?.data?.searchResults && (
+                    {similars?.data?.searchResults && (
+                        <>
+                            <div className={styles.titleSimilar}>Các phim tương tự</div>
                             <TableFilm
                                 data={similars.data.searchResults
                                     .filter((similar) => similar.id !== detail.id.toString())
                                     .splice(0, 6)}
                             />
-                        )}
-                    </div>
+                        </>
+                    )}
                 </div>
             </div>
         </div>

@@ -54,7 +54,7 @@ function Discover() {
     const data = parseInt(id) === 1 ? movie : parseInt(id) === 2 ? tv : anime;
 
     return (
-        <>
+        <div className={styles.root}>
             <Filter id={parseInt(id)} />
             <InfiniteScroll
                 dataLength={data.filter.size}
@@ -70,7 +70,7 @@ function Discover() {
                     <TableFilm data={data.data} />
                 )}
             </InfiniteScroll>
-        </>
+        </div>
     );
 }
 

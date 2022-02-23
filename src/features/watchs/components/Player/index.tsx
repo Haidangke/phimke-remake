@@ -12,7 +12,7 @@ import { BiFullscreen, BiExitFullscreen } from 'react-icons/bi';
 import { MdVolumeOff, MdVolumeUp } from 'react-icons/md';
 import { BsArrowClockwise, BsArrowCounterclockwise, BsPip } from 'react-icons/bs';
 
-import { DefinitionList, SubtitlingList } from 'models/loklok';
+import { DefinitionList } from 'models/loklok';
 import convertSecondToTime from 'utils/convertSecondsToTime';
 
 import 'react-input-range/lib/css/index.css';
@@ -22,6 +22,7 @@ import styles from './Player.module.scss';
 import useResize from 'hooks/useResize';
 import { Subtitle } from 'models/common';
 import iOS from 'utils/onIOS';
+import { useAppSelector } from 'app/hooks';
 
 interface PLayerProps {
     url: string;
@@ -31,7 +32,7 @@ interface PLayerProps {
     isError: boolean;
     definitionList: DefinitionList;
     setDefinition: Dispatch<SetStateAction<string>>;
-    firstDefinition: string;
+    curDefinition: string;
 }
 
 function Player({
@@ -42,7 +43,7 @@ function Player({
     isError,
     definitionList,
     setDefinition,
-    firstDefinition,
+    curDefinition,
 }: PLayerProps) {
     const { onMobile } = useResize();
     const [playing, setPlaying] = useState(false);
@@ -304,7 +305,7 @@ function Player({
                                                     key={definition.code}
                                                     className={clsx(styles.itemControl, {
                                                         [styles.itemControlActive]:
-                                                            firstDefinition === definition.code,
+                                                            curDefinition === definition.code,
                                                     })}
                                                 >
                                                     {definition.description}

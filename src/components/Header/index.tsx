@@ -10,7 +10,7 @@ import { navigate } from 'config/navigate';
 import Sidebar from 'components/SideBar';
 import useScroll from 'hooks/useScroll';
 import useOnClickOutside from 'hooks/useOnClickOutside';
-import SearchHeader from 'features/search/components/SearchHeader';
+import SearchHeader from 'features/search/components';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { setIsSearch } from 'features/search/searchSlice';
 import Auth from 'features/auth';

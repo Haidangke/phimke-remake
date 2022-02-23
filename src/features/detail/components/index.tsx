@@ -15,28 +15,26 @@ function Introduce() {
     const { detail, background } = useAppSelector((state) => state.detail);
     return (
         <div className={styles.root}>
-            {onMobile && (
-                <div className={styles.mobile}>
-                    <div
-                        className={styles.overplayMobile}
-                        style={{
-                            backgroundImage: `linear-gradient( to right, rgba(${background.color}, 1) 20%, rgba(${background.color}, 0) 50%)`,
-                        }}
-                    ></div>
-                    <div className={styles.posterMobile}>
-                        <Image
-                            smallSrc={resizeImage(detail.coverVerticalUrl)}
-                            largeSrc={detail.coverVerticalUrl}
-                        />
-                    </div>
-                    <div className={styles.backdropMobile}>
-                        <Image
-                            smallSrc={resizeImage(detail.coverHorizontalUrl)}
-                            largeSrc={detail.coverHorizontalUrl}
-                        />
-                    </div>
+            <div className={styles.mobile}>
+                <div
+                    className={styles.overplayMobile}
+                    style={{
+                        backgroundImage: `linear-gradient( to right, rgba(${background.color}, 1) 20%, rgba(${background.color}, 0) 50%)`,
+                    }}
+                ></div>
+                <div className={styles.posterMobile}>
+                    <Image
+                        smallSrc={resizeImage(detail.coverVerticalUrl)}
+                        largeSrc={detail.coverVerticalUrl}
+                    />
                 </div>
-            )}
+                <div className={styles.backdropMobile}>
+                    <Image
+                        smallSrc={resizeImage(detail.coverHorizontalUrl)}
+                        largeSrc={detail.coverHorizontalUrl}
+                    />
+                </div>
+            </div>
 
             <div
                 className={clsx(styles.wrapper, {

@@ -12,7 +12,7 @@ import Skeleton from 'react-loading-skeleton';
 
 function Banner() {
     SwiperCore.use([Pagination]);
-    const { data, isLoading } = useQuery('banner', async () => await searchApi.searchLeaderBoard());
+    const { data } = useQuery('banner', async () => await searchApi.searchLeaderBoard());
 
     if (data?.list.length === 0 || !data?.list) {
         return (

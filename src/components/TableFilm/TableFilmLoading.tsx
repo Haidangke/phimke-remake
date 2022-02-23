@@ -3,7 +3,7 @@ import styles from './TableFilm.module.scss';
 
 function TableFilmLoading({ quantity, mt }: { quantity: number; mt: number }) {
     return (
-        <div className={styles.loading} style={{ marginTop: mt }}>
+        <div  style={{ marginTop: mt }}>
             <div className={styles.list}>
                 {Array(quantity)
                     .fill(1)

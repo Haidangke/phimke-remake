@@ -82,6 +82,28 @@
     @include text-overflow(1);
 }
 
+@include tablet {
+    .list {
+        height: 270px;
+        margin-bottom: 16px;
+    }
+    .item:nth-child(1) {
+        margin-left: 20px;
+    }
+    .title {
+        margin: 0;
+        padding: 0 20px;
+    }
+    .top {
+        height: 225px;
+    }
+
+    .image {
+        height: 225px;
+        width: 150px;
+    }
+}
+
 @include mobile {
     .root {
         margin-bottom: 10px;

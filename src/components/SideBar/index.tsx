@@ -1,10 +1,13 @@
 import { Dispatch, SetStateAction } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 
 import { navigate } from 'config/navigate';
 import styles from './Sidebar.module.scss';
 import useScroll from 'hooks/useScroll';
+import { useAppSelector } from 'app/hooks';
+import { authSelector } from 'features/auth/authSlice';
+import { auth } from 'Firebase/config';
 
 interface SidebarProps {
     isShow: boolean;
@@ -12,9 +15,15 @@ interface SidebarProps {
 }
 
 function Sidebar({ isShow, setIsShow }: SidebarProps) {
+    const history = useNavigate();
     const { result, y } = useScroll();
     const { pathname } = useLocation();
+    const { isLoggedIn, user } = useAppSelector(authSelector);
+    const { photoURL, displayName } = user;
 
+    const handleLogout = () => {
+        auth.signOut();
+    };
     return (
         <div
             className={clsx(styles.root, {
@@ -22,6 +31,25 @@ function Sidebar({ isShow, setIsShow }: SidebarProps) {
                 [styles.isDown]: !result && y > 100,
             })}
         >
+            <div className={styles.auth}>
+                {isLoggedIn && (
+                    <div className={styles.info}>
+                        <img className={styles.avatar} src={photoURL} alt={displayName} />
+                        <div className={styles.name}>{displayName}</div>
+                    </div>
+                )}
+
+                {isLoggedIn ? (
+                    <div className={styles.status} onClick={handleLogout}>
+                        Đăng xuất
+                    </div>
+                ) : (
+                    <div className={styles.status} onClick={() => history('/login')}>
+                        Đăng nhập
+                    </div>
+                )}
+            </div>
+
             <div className={styles.list}>
                 {navigate.map((item) => (
                     <Link

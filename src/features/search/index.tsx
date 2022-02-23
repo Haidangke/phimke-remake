@@ -1,15 +1,14 @@
 import searchApi from 'apis/searchApi';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import ImageLazyLoad from 'components/ImageLazyLoad';
 import Skeleton from 'react-loading-skeleton';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { resizeImage } from 'utils/resizeImage';
 import styles from './Search.module.scss';
 
 function Search() {
     const { keyword } = useParams();
-    const { data, isLoading } = useQuery(
+    const { data, isLoading, isFetched } = useQuery(
         ['listFilmSearch', keyword],
         async () =>
             await searchApi.searchWithKeyword({
@@ -17,6 +16,14 @@ function Search() {
                 size: 50,
             })
     );
+
+    if (isFetched && data?.searchResults.length === 0) {
+        return (
+            <div className={styles.root}>
+                <div className={styles.error}>Không có bộ phim nào với từ khóa là {keyword}</div>
+            </div>
+        );
+    }
     return (
         <div className={styles.root}>
             <div className={styles.keyword}>Kết quả cho "{keyword}"</div>
@@ -36,12 +43,12 @@ function Search() {
                 <div className={styles.list}>
                     {data?.searchResults.map((film) => (
                         <Link key={film.id} className={styles.item} to={`/${film.domainType}/${film.id}`}>
-                            <LazyLoadImage
-                                className={styles.image}
-                                alt={film.name}
-                                src={resizeImage(film.coverVerticalUrl, '500')}
-                                effect='opacity'
+                            <ImageLazyLoad
+                                coverVerticalUrl={film.coverVerticalUrl}
+                                size='500'
+                                name={film.name}
                             />
+
                             <div className={styles.name}></div>
                         </Link>
                     ))}

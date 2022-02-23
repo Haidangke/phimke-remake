@@ -17,10 +17,8 @@
     height: 28px;
     width: 28px;
     margin-left: 18px;
-
-    & > img {
-        border-radius: 50px;
-    }
+    border-radius: 50px;
+    overflow: hidden;
 }
 
 @include mobile {

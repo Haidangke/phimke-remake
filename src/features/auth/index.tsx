@@ -21,8 +21,6 @@ function Auth() {
     useEffect(() => {
         setIsLoading(true);
         const unlisten = auth.onAuthStateChanged((user) => {
-            console.log('b');
-
             if (user) {
                 const { email, displayName, photoURL } = user;
                 const userId = user.uid;

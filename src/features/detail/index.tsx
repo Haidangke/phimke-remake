@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { fetchData } from './detailSlice';
 import styles from './Detail.module.scss';
 import Loading from 'components/Loading/Loading';
-import Introduce from './components/Introduce';
+import Introduce from './components';
 import ListFilm from 'components/ListFilm';
 import { RecommendContentVO } from 'models/loklok';
 import WatchsPage from 'features/watchs';
@@ -14,7 +14,7 @@ import WatchsPage from 'features/watchs';
 function Detail() {
     const dispatch = useAppDispatch();
     const { category, id } = useParams();
-    const { isError, isLoading, detail } = useAppSelector((state) => state.detail);
+    const { isError, isLoading, detail, isFetched } = useAppSelector((state) => state.detail);
 
     const recommendations: RecommendContentVO[] = detail?.likeList?.map((item) => ({
         id: item.id,
@@ -27,27 +27,25 @@ function Detail() {
         dispatch(fetchData({ id, category }));
     }, [category, id, dispatch]);
 
-    return (
+    return isError || ((category as string) !== '1' && (category as string) !== '0') ? (
+        <div className={styles.error}>
+            <div className={styles.contentError}>Oops! We can't find the page you're looking for !!!</div>
+        </div>
+    ) : (
         <Routes>
             <Route
                 path='/'
                 element={
-                    isError ? (
-                        <div className={styles.error}>
-                            <div className={styles.contentError}>
-                                Oops! We can't find the page you're looking for !!!
-                            </div>
-                        </div>
-                    ) : isLoading ? (
+                    isLoading || !isFetched ? (
                         <Loading space={110} />
                     ) : (
                         <div className={styles.root}>
                             <Introduce />
                             <BrowserView className={styles.main}>
-                                <ListFilm data={recommendations} title='Recommendations' />
+                                <ListFilm data={recommendations} title='Đề xuất' />
                             </BrowserView>
                             <MobileView className={styles.main}>
-                                <ListFilm data={recommendations} title='Recommendations' />
+                                <ListFilm data={recommendations} title='Đề xuất' />
                             </MobileView>
                         </div>
                     )

@@ -1,15 +1,18 @@
 @use 'styles/' as *;
 .root {
     display: flex;
-    max-width: 1320px;
-    margin: 0 auto;
-    padding-top: 20px;
+}
+
+@include tablet {
+    .root {
+        width: 100%;
+        flex-wrap: wrap;
+    }
 }
 
 @include mobile {
     .root {
         width: 100%;
-        padding: 20px 20px 0 20px;
         flex-wrap: wrap;
     }
 }

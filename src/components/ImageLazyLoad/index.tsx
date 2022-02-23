@@ -6,6 +6,7 @@ interface ImageLazyLoadProps {
     name: string;
     coverVerticalUrl: string;
     size: string;
+    horizontal?: boolean;
 }
 
 function ImageLazyLoad({ name, coverVerticalUrl, size }: ImageLazyLoadProps) {

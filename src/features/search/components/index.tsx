@@ -26,8 +26,10 @@ function SearchHeader() {
     };
 
     const handleNavigate = () => {
-        navigate(`search/${query}`);
-        dispatch(setIsSearch(false));
+        if (query) {
+            navigate(`search/${query}`);
+            dispatch(setIsSearch(false));
+        }
     };
 
     const handleKeyDown = (e: any) => {
@@ -74,33 +76,35 @@ function SearchHeader() {
                 </div>
             </div>
             <div className={styles.wrapper}>
-                {listWithKeyword?.searchResults && (
+                {listWithKeyword?.searchResults?.length > 1 && (
                     <div className={styles.list}>
-                        {listWithKeyword?.searchResults?.map((film) => (
-                            <div key={film.id} className={styles.item}>
+                        {listWithKeyword?.searchResults.slice(0, 6).map((film) => (
+                            <div key={film?.id} className={styles.item}>
                                 <Link
                                     onClick={() => dispatch(setIsSearch(false))}
-                                    to={`/${film.domainType}/${film.id}`}
+                                    to={`/${film?.domainType}/${film?.id}`}
                                     className={styles.itemWrapper}
                                 >
                                     <div className={styles.image}>
                                         <img
-                                            src={resizeImage(film.coverHorizontalUrl, '200')}
-                                            alt={film.name}
+                                            src={resizeImage(film?.coverHorizontalUrl, '200')}
+                                            alt={film?.name}
                                         />
                                     </div>
 
                                     <div className={styles.itemRight}>
                                         <div className={styles.name}>
-                                            {film.name} ( {film.releaseTime} )
+                                            {film?.name} ( {film?.releaseTime} )
                                         </div>
                                     </div>
                                 </Link>
                             </div>
                         ))}
-                        <div onClick={() => handleNavigate()} className={styles.button}>
-                            <div className={styles.buttonWrapper}>View all results</div>
-                        </div>
+                        {listWithKeyword?.searchResults?.length > 7 && (
+                            <div onClick={() => handleNavigate()} className={styles.button}>
+                                <div className={styles.buttonWrapper}>View all results</div>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

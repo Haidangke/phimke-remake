@@ -1,6 +1,6 @@
 import { Background } from 'models/common';
 import { call, takeLatest, put } from 'redux-saga/effects';
-import { setDetail, fetchDataSuccess, setBackground, fetchDataFailed } from './detailSlice';
+import { fetchDataSuccess, setBackground, fetchDataFailed } from './detailSlice';
 
 import getBackground from 'utils/getBackground';
 import { Detail } from 'models/loklok';
@@ -8,8 +8,12 @@ import loklokApi from 'apis/loklokApi';
 
 function* fetchDetails(id: any, category: number) {
     const response: Detail = yield call(loklokApi.getDetail, id, category);
-    yield put(setDetail(response));
-    yield call(fetchBackground, response?.coverVerticalUrl || response?.coverHorizontalUrl);
+    if (response) {
+        yield call(fetchBackground, response?.coverVerticalUrl || response?.coverHorizontalUrl);
+        yield put(fetchDataSuccess(response));
+    } else {
+        yield put(fetchDataFailed());
+    }
 }
 
 function* fetchBackground(poster_path: any) {
@@ -31,7 +35,6 @@ function* fetchData(action: any) {
     const category = action.payload.category;
     try {
         yield call(fetchDetails, id, category);
-        yield put(fetchDataSuccess());
     } catch (error) {
         console.log(error);
         yield put(fetchDataFailed());

@@ -1,11 +1,8 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useAppSelector } from 'app/hooks';
-import { resizeImage } from 'utils/resizeImage';
-
 import styles from './Similars.module.scss';
 import { useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { RefList } from 'models/loklok';
+import ImageLazyLoad from 'components/ImageLazyLoad';
 
 interface SimilarsProps {
     isLoading: boolean;
@@ -13,7 +10,7 @@ interface SimilarsProps {
 }
 
 function Similars({ data, isLoading }: SimilarsProps) {
-    const { id } = useParams();
+    const { id, category } = useParams();
 
     return (
         <div className={styles.root}>
@@ -33,16 +30,14 @@ function Similars({ data, isLoading }: SimilarsProps) {
                           ?.filter((film) => film.id !== (id as string))
                           .map((film) => (
                               <div key={film.id} className={styles.item}>
-                                  <LazyLoadImage
-                                      className={styles.image}
-                                      alt={film.name}
-                                      src={resizeImage(
-                                          film.coverHorizontalUrl || film.coverVerticalUrl,
-                                          '400'
-                                      )}
-                                      effect='opacity'
+                                  <ImageLazyLoad
+                                      name={film.name}
+                                      coverVerticalUrl={film.coverVerticalUrl}
+                                      size='300'
                                   />
-                                  <div className={styles.name}>{film.name}</div>
+                                  <div className={styles.info}>
+                                      {parseInt(category as string) === 1 ? 'Mùa' : 'Phần'}: {film.seriesNo}
+                                  </div>
                               </div>
                           ))}
             </div>

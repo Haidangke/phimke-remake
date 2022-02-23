@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import  { memo, useState } from 'react';
 import clsx from 'clsx';
 import styles from './Image.module.scss';
 
