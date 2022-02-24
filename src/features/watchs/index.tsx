@@ -29,6 +29,7 @@ function Watchs() {
 
     return (
         <div className={styles.root}>
+            <div className={styles.name}>{detail.name}</div>
             <div className={styles.media}>{<Media />}</div>
             <div className={styles.main}>
                 <div className={styles.left}>{detail.id && <Comment filmId={detail.id} />}</div>
@@ -40,7 +41,7 @@ function Watchs() {
                             <TableFilm
                                 data={similars.data.searchResults
                                     .filter((similar) => similar.id !== detail.id.toString())
-                                    .splice(0, 6)}
+                                    .splice(0, 9)}
                             />
                         </>
                     )}

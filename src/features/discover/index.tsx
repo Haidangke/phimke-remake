@@ -27,7 +27,7 @@ function Discover() {
     const tv = useAppSelector(discoverTvSelector);
     const anime = useAppSelector(discoverAnimeSelector);
 
-    const fetchMoreData = () => {
+    function fetchMoreData() {
         if (id) {
             if (parseInt(id) === 1) {
                 dispatch(setFilterMovie({ ...movie.filter, size: movie.filter.size + 25 }));
@@ -37,39 +37,56 @@ function Discover() {
                 dispatch(setFilterAnime({ ...anime.filter, size: anime.filter.size + 25 }));
             }
         }
-    };
+    }
 
     useEffect(() => {
         if (id) {
-            if (parseInt(id) === 1) {
-                dispatch(dispatch(fetchMovie(movie.filter)));
-            } else if (parseInt(id) === 2) {
-                dispatch(dispatch(fetchTv(tv.filter)));
-            } else {
-                dispatch(dispatch(fetchAnime(anime.filter)));
+            if (
+                parseInt(id) === 1 &&
+                (movie.filter.size === movie.data.length + 25 || movie.filter.size === 50)
+            ) {
+                dispatch(fetchMovie(movie.filter));
+            } else if (
+                parseInt(id) === 2 &&
+                (tv.filter.size === tv.data.length + 25 || tv.filter.size === 50)
+            ) {
+                dispatch(fetchTv(tv.filter));
+            } else if (
+                parseInt(id) === 3 &&
+                (anime.filter.size === anime.data.length + 25 || anime.filter.size === 50)
+            ) {
+                dispatch(fetchAnime(anime.filter));
             }
         }
-    }, [anime.filter, dispatch, id, movie.filter, tv.filter]);
+    }, [
+        anime.data.length,
+        anime.filter,
+        dispatch,
+        id,
+        movie.data.length,
+        movie.filter,
+        tv.data.length,
+        tv.filter,
+    ]);
+
     if (!id) return <NotFound />;
     const data = parseInt(id) === 1 ? movie : parseInt(id) === 2 ? tv : anime;
 
     return (
         <div className={styles.root}>
             <Filter id={parseInt(id)} />
-            <InfiniteScroll
-                dataLength={data.filter.size}
-                next={fetchMoreData}
-                hasMore={true}
-                loader={<TableFilmLoading mt={0} quantity={6} />}
-            >
-                {data.data?.length === 0 && data.isFetched ? (
-                    <div className={styles.notData}>Không tìm thấy phim nào !</div>
-                ) : data.data?.length === 0 ? (
-                    <TableFilmLoading mt={20} quantity={12} />
-                ) : (
+            {data.isLoading ? (
+                <TableFilmLoading mt={20} quantity={12} />
+            ) : (
+                <InfiniteScroll
+                    dataLength={data.filter.size}
+                    next={fetchMoreData}
+                    hasMore={data.hasMore}
+                    loader={<TableFilmLoading mt={0} quantity={12} />}
+                >
                     <TableFilm data={data.data} />
-                )}
-            </InfiniteScroll>
+                </InfiniteScroll>
+            )}
         </div>
     );
 }

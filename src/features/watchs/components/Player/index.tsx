@@ -5,6 +5,7 @@ import ReactLoading from 'react-loading';
 import { VideoSeekSlider } from 'react-video-seek-slider';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import clsx from 'clsx';
+import { isMobile } from 'react-device-detect';
 
 import { MdPlayDisabled } from 'react-icons/md';
 import { IoIosPlay, IoMdSettings, IoIosPause } from 'react-icons/io';
@@ -21,8 +22,6 @@ import './InputRange.scss';
 import styles from './Player.module.scss';
 import useResize from 'hooks/useResize';
 import { Subtitle } from 'models/common';
-import iOS from 'utils/onIOS';
-import { useAppSelector } from 'app/hooks';
 
 interface PLayerProps {
     url: string;
@@ -118,7 +117,7 @@ function Player({
         );
     }
 
-    if (iOS())
+    if (isMobile)
         return (
             <div className={styles.player}>
                 <div className={styles.video}>

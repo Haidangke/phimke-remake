@@ -3,6 +3,12 @@
     display: flex;
 }
 
+.itemLoading {
+    height: 36px;
+    width: 120px !important;
+    margin-right: 10px;
+}
+
 @include tablet {
     .root {
         width: 100%;
@@ -14,5 +20,11 @@
     .root {
         width: 100%;
         flex-wrap: wrap;
+    }
+    .itemLoading {
+        width: calc((100vw - 40px) / 3 - 8px) !important;
+    }
+    .root > span:nth-child(3) > span {
+        margin-right: 0;
     }
 }

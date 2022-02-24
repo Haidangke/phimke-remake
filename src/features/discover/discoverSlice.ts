@@ -8,6 +8,7 @@ export interface Data {
     isLoading: boolean;
     isFetched: boolean;
     isError: boolean;
+    hasMore: boolean;
 }
 
 interface InitialState {
@@ -20,47 +21,50 @@ const initialState: InitialState = {
     movie: {
         filter: {
             size: 50,
-            params: '',
+            params: 'MOVIE,TVSPECIAL',
             area: '',
             category: '',
             year: '',
             subtitles: '',
-            order: '',
+            order: 'up',
         },
         data: [],
         isLoading: false,
         isFetched: false,
         isError: false,
+        hasMore: true,
     },
     tv: {
         filter: {
             size: 50,
-            params: '',
+            params: 'TV,SETI,MINISERIES,VARIETY,TALK,COMIC,DOCUMENTARY',
             area: '',
             category: '',
             year: '',
             subtitles: '',
-            order: '',
+            order: 'up',
         },
         data: [],
         isLoading: false,
         isFetched: false,
         isError: false,
+        hasMore: true,
     },
     anime: {
         filter: {
             size: 50,
-            params: '',
+            params: 'COMIC',
             area: '',
             category: '',
             year: '',
             subtitles: '',
-            order: '',
+            order: 'up',
         },
         data: [],
         isLoading: false,
         isFetched: false,
         isError: false,
+        hasMore: true,
     },
 };
 
@@ -70,15 +74,17 @@ const discoverSlice = createSlice({
     reducers: {
         setFilterMovie(state, action: PayloadAction<AdvancedSearchParams>) {
             state.movie.filter = action.payload;
+            state.movie.isLoading = true;
         },
         setFilterTv(state, action: PayloadAction<AdvancedSearchParams>) {
             state.tv.filter = action.payload;
+            state.tv.isLoading = true;
         },
         setFilterAnime(state, action: PayloadAction<AdvancedSearchParams>) {
             state.anime.filter = action.payload;
+            state.anime.isLoading = true;
         },
         fetchMovie(state, action: PayloadAction<AdvancedSearchParams>) {
-            state.movie.isLoading = true;
             state.movie.isFetched = false;
             state.movie.isError = false;
         },
@@ -94,21 +100,26 @@ const discoverSlice = createSlice({
             state.movie.isFetched = true;
             state.movie.isError = false;
         },
+        setHasMoreMovie(state) {
+            state.movie.hasMore = false;
+        },
         fetchMovieFailed(state) {
             state.movie.isLoading = false;
             state.movie.isFetched = true;
             state.movie.isError = true;
         },
         fetchTv(state, action: PayloadAction<AdvancedSearchParams>) {
-            state.tv.isLoading = true;
             state.tv.isFetched = false;
             state.tv.isError = false;
         },
         setTv(state, action: PayloadAction<SearchResults[]>) {
             state.tv.data = action.payload;
-            state.movie.isLoading = false;
-            state.movie.isFetched = true;
-            state.movie.isError = false;
+            state.tv.isLoading = false;
+            state.tv.isFetched = true;
+            state.tv.isError = false;
+        },
+        setHasMoreTv(state) {
+            state.tv.hasMore = false;
         },
         fetchTvSuccess(state, action: PayloadAction<SearchResults[]>) {
             state.tv.data = state.tv.data.concat(action.payload);
@@ -122,7 +133,6 @@ const discoverSlice = createSlice({
             state.tv.isError = true;
         },
         fetchAnime(state, action: PayloadAction<AdvancedSearchParams>) {
-            state.anime.isLoading = true;
             state.anime.isFetched = false;
             state.anime.isError = false;
         },
@@ -134,9 +144,12 @@ const discoverSlice = createSlice({
         },
         setAnime(state, action: PayloadAction<SearchResults[]>) {
             state.anime.data = action.payload;
-            state.movie.isLoading = false;
-            state.movie.isFetched = true;
-            state.movie.isError = false;
+            state.anime.isLoading = false;
+            state.anime.isFetched = true;
+            state.anime.isError = false;
+        },
+        setHasMoreAnime(state) {
+            state.anime.hasMore = false;
         },
         fetchAnimeFailed(state) {
             state.anime.isLoading = false;
@@ -166,6 +179,9 @@ export const {
     setMovie,
     setTv,
     setAnime,
+    setHasMoreMovie,
+    setHasMoreAnime,
+    setHasMoreTv,
 } = discoverSlice.actions;
 
 export default discoverSlice.reducer;

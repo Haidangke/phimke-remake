@@ -1,5 +1,5 @@
 import styles from './Similars.module.scss';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { RefList } from 'models/loklok';
 import ImageLazyLoad from 'components/ImageLazyLoad';
@@ -11,6 +11,11 @@ interface SimilarsProps {
 
 function Similars({ data, isLoading }: SimilarsProps) {
     const { id, category } = useParams();
+    const navigate = useNavigate();
+
+    if (data.length === 0) {
+        return <div></div>;
+    }
 
     return (
         <div className={styles.root}>
@@ -29,7 +34,11 @@ function Similars({ data, isLoading }: SimilarsProps) {
                     : data
                           ?.filter((film) => film.id !== (id as string))
                           .map((film) => (
-                              <div key={film.id} className={styles.item}>
+                              <div
+                                  onClick={() => navigate(`/${film.category}/${film.id}`)}
+                                  key={film.id}
+                                  className={styles.item}
+                              >
                                   <ImageLazyLoad
                                       name={film.name}
                                       coverVerticalUrl={film.coverVerticalUrl}

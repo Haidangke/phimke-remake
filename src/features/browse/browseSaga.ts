@@ -2,7 +2,7 @@ import loklokApi from 'apis/loklokApi';
 import { fetchDataFailed } from 'features/detail/detailSlice';
 import { Home } from 'models/loklok';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { fetchDataSuccess, setBanner } from './browseSlice';
+import { fetchDataSuccess, setBanner, setHasMore } from './browseSlice';
 
 function* fetchData(action: any) {
     try {
@@ -15,6 +15,9 @@ function* fetchData(action: any) {
 
 function* fetchBrowse(page: any) {
     const response: Home = yield call(loklokApi.getHome, page);
+    if (response.recommendItems.length === 0) {
+        yield put(setHasMore());
+    }
 
     if (page === 0) {
         response.recommendItems.splice(0, 1);
@@ -30,7 +33,6 @@ function* fetchBanner() {
     const banner = response.recommendItems.filter(
         (recommendItem) => recommendItem.homeSectionType === 'BANNER'
     )[0];
-    console.log({ banner, response });
     yield put(setBanner(banner));
 }
 

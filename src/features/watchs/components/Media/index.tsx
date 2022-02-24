@@ -62,7 +62,6 @@ function Media() {
                     isError={isError}
                     definitionList={detail?.episodeVo[curEpisode]?.definitionList}
                     setDefinition={setDefinition}
-                    // firstDefinition={detail?.episodeVo[curEpisode]?.definitionList[0]?.description}
                     curDefinition={definition}
                 />
             )}

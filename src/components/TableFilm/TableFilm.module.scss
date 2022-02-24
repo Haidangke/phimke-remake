@@ -12,10 +12,14 @@
 .item {
     flex-basis: calc(100% / 6 - 50px / 6);
     width: calc(100% / 6 - 50px / 6);
-    padding-bottom: calc((100% / 6 - 50px / 6) * 1.5);
+    padding-bottom: calc((100% / 6 - 50px / 6) * 1.5 + 30px);
     position: relative;
     margin-right: 10px;
     margin-bottom: 10px;
+}
+
+.item > span > img {
+    height: calc(100% - 30px) !important;
 }
 
 .image {
@@ -23,6 +27,21 @@
     top: 0;
     width: 100%;
     height: 100%;
+}
+
+.name {
+    bottom: 0;
+    position: absolute;
+    z-index: 2;
+    color: $blackColor;
+    background-color: $whiteColor;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    @include text-overflow(1);
+    overflow: hidden;
 }
 
 @include pc {
@@ -54,5 +73,8 @@
     }
     .item:nth-child(3n) {
         margin-right: 0;
+    }
+    .name {
+        font-size: 1.4rem;
     }
 }

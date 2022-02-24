@@ -18,7 +18,9 @@ function SearchHeader() {
     const navigate = useNavigate();
     const { result, y } = useScroll();
     const inputRef = useRef<HTMLInputElement>(null);
-    const { listWithKeyword, query, isLoading, isSearch } = useAppSelector((state) => state.search);
+    const { listWithKeyword, query, isLoading, isSearch, isFetched } = useAppSelector(
+        (state) => state.search
+    );
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const query = e.target.value;
@@ -65,7 +67,7 @@ function SearchHeader() {
                         onKeyDown={handleKeyDown}
                         onChange={handleOnChange}
                         type='text'
-                        placeholder='Search for a movie, tv show, person...'
+                        placeholder='Tìm phim điện ảnh, truyền hình,...'
                         className={styles.inputTag}
                     />
                     {isLoading ? (
@@ -76,6 +78,9 @@ function SearchHeader() {
                 </div>
             </div>
             <div className={styles.wrapper}>
+                {listWithKeyword?.searchResults?.length === 0 && isFetched && (
+                    <div className={styles.notData}>Không tìm thấy phim trùng khớp !</div>
+                )}
                 {listWithKeyword?.searchResults?.length > 1 && (
                     <div className={styles.list}>
                         {listWithKeyword?.searchResults.slice(0, 6).map((film) => (
@@ -87,7 +92,7 @@ function SearchHeader() {
                                 >
                                     <div className={styles.image}>
                                         <img
-                                            src={resizeImage(film?.coverHorizontalUrl, '200')}
+                                            src={resizeImage(film?.coverHorizontalUrl, '100')}
                                             alt={film?.name}
                                         />
                                     </div>
@@ -102,7 +107,7 @@ function SearchHeader() {
                         ))}
                         {listWithKeyword?.searchResults?.length > 7 && (
                             <div onClick={() => handleNavigate()} className={styles.button}>
-                                <div className={styles.buttonWrapper}>View all results</div>
+                                <div className={styles.buttonWrapper}>Xem tất cả</div>
                             </div>
                         )}
                     </div>

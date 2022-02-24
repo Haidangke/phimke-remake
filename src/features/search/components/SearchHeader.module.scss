@@ -119,6 +119,17 @@
     margin-bottom: 16px;
 }
 
+.notData {
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.6rem;
+    color: black;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+    font-weight: 500;
+}
+
 @include mobile-tablet {
     .itemWrapper {
         padding: 6px 20px;
@@ -129,5 +140,8 @@
     }
     .button {
         padding: 0px 20px;
+    }
+    .notData {
+        font-size: 1.5rem;
     }
 }

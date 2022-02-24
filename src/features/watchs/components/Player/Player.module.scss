@@ -209,10 +209,7 @@
     padding-left: 20px;
 }
 
-@include tablet {
-}
-
-@include mobile {
+@include mobile-tablet {
     .controls {
         display: block;
     }
@@ -230,5 +227,17 @@
     }
     .seekSlider {
         padding: 0 10px;
+    }
+    .listControl {
+        height: 170px;
+    }
+    .player {
+        padding: 0;
+    }
+    .video {
+        position: unset;
+        width: 100vw;
+        height: 56.25vw;
+        transform: unset;
     }
 }

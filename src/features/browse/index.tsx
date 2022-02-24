@@ -4,12 +4,13 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import ListFilm from 'components/ListFilm';
 import styles from './Browse.module.scss';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { browseSelector, fetchData, indexSelector, setIndex } from './browseSlice';
+import { browseSelector, fetchData, hasMoreSelector, indexSelector, setIndex } from './browseSlice';
 import ListFilmLoading from 'components/ListFilm/ListFilmLoading';
 import Banner from 'features/banner';
 
 function Browse() {
     const browse = useAppSelector(browseSelector);
+    const hasMore = useAppSelector(hasMoreSelector);
 
     const index = useAppSelector(indexSelector);
     const dispatch = useAppDispatch();
@@ -31,7 +32,7 @@ function Browse() {
                     <InfiniteScroll
                         dataLength={browse?.length || 0}
                         next={fetchMoreData}
-                        hasMore={true}
+                        hasMore={hasMore}
                         loader={<ListFilmLoading />}
                     >
                         {browse.length === 0 ? (

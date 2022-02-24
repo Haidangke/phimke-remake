@@ -11,14 +11,13 @@ function TableFilm({ data }: TableFilmProps) {
     return (
         <div className={styles.root}>
             <div className={styles.list}>
-                {data?.map((film) => (
-                    <Link key={film.id} className={styles.item} to={`/${film.domainType}/${film.id}`}>
-                        <ImageLazyLoad name={film.name} coverVerticalUrl={film.coverVerticalUrl} size='400' />
-                        <div className={styles.name}></div>
+                {data?.map((film, index) => (
+                    <Link key={index} className={styles.item} to={`/${film.domainType}/${film.id}`}>
+                        <ImageLazyLoad name={film.name} coverVerticalUrl={film.coverVerticalUrl} size='200' />
+                        <div className={styles.name}>{film.name}</div>
                     </Link>
                 ))}
             </div>
-            )
         </div>
     );
 }

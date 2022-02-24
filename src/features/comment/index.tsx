@@ -76,39 +76,42 @@ function Comment({ filmId }: { filmId: any }) {
                     <span> để bình luận !</span>
                 </div>
             )}
-            <div className='comment-heading'>{totalComment} bình luận</div>
-            {filmId && <CommentUser filmId={filmId} />}
-
-            <div className='comment-main'>
-                {listCommentFrist.slice(0, limitState).map((commentFirst: any) => (
-                    <div key={commentFirst.id} className='comment-group'>
-                        <div className='comment-item'>
-                            <div className='comment-item__container'>
-                                <img
-                                    className='comment-item__avatar'
-                                    src={commentFirst.photoURL}
-                                    alt='avatar'
+            {isLoggedIn && (
+                <>
+                    <div className='comment-heading'>{totalComment} bình luận</div>
+                    {filmId && <CommentUser filmId={filmId} />}
+                    <div className='comment-main'>
+                        {listCommentFrist.slice(0, limitState).map((commentFirst: any) => (
+                            <div key={commentFirst.id} className='comment-group'>
+                                <div className='comment-item'>
+                                    <div className='comment-item__container'>
+                                        <img
+                                            className='comment-item__avatar'
+                                            src={commentFirst.photoURL}
+                                            alt='avatar'
+                                        />
+                                        <CommentInfo comment={commentFirst} />
+                                    </div>
+                                    <CommentInputReply
+                                        filmId={filmId}
+                                        comment={commentFirst}
+                                        commentFirst={commentFirst}
+                                    />
+                                </div>
+                                <CommentListReply
+                                    filmId={filmId}
+                                    comment={commentFirst}
+                                    commentFirst={commentFirst}
                                 />
-                                <CommentInfo comment={commentFirst} />
                             </div>
-                            <CommentInputReply
-                                filmId={filmId}
-                                comment={commentFirst}
-                                commentFirst={commentFirst}
-                            />
-                        </div>
-                        <CommentListReply
-                            filmId={filmId}
-                            comment={commentFirst}
-                            commentFirst={commentFirst}
-                        />
+                        ))}
                     </div>
-                ))}
-            </div>
-            {isLoadComment && (
-                <div className='comment-load' onClick={handleLoadAddCommment}>
-                    Tải thêm bình luận
-                </div>
+                    {isLoadComment && (
+                        <div className='comment-load' onClick={handleLoadAddCommment}>
+                            Tải thêm bình luận
+                        </div>
+                    )}
+                </>
             )}
         </div>
     );

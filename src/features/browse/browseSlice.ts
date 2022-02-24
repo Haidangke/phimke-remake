@@ -9,6 +9,7 @@ interface InitialState {
     isFetched: boolean;
     isError: boolean;
     index: number;
+    hasMore: boolean;
 }
 
 const initialState: InitialState = {
@@ -18,6 +19,7 @@ const initialState: InitialState = {
     isFetched: false,
     isError: false,
     index: 1,
+    hasMore: true,
 };
 
 const browseSlice = createSlice({
@@ -47,12 +49,17 @@ const browseSlice = createSlice({
         setIndex(state) {
             state.index = state.index + 1;
         },
+        setHasMore(state) {
+            state.hasMore = false;
+        },
     },
 });
 
 export const bannerSelector = (state: RootState) => state.browse.banner;
 export const browseSelector = (state: RootState) => state.browse.data;
 export const indexSelector = (state: RootState) => state.browse.index;
+export const hasMoreSelector = (state: RootState) => state.browse.hasMore;
 
-export const { fetchData, fetchDataSuccess, fetchDataFailed, setBanner, setIndex } = browseSlice.actions;
+export const { fetchData, fetchDataSuccess, fetchDataFailed, setBanner, setIndex, setHasMore } =
+    browseSlice.actions;
 export default browseSlice.reducer;

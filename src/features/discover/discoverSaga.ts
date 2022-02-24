@@ -10,6 +10,9 @@ import {
     fetchTvFailed,
     fetchTvSuccess,
     setAnime,
+    setHasMoreAnime,
+    setHasMoreMovie,
+    setHasMoreTv,
     setMovie,
     setTv,
 } from './discoverSlice';
@@ -19,12 +22,19 @@ function* fetchMovie(action: PayloadAction<AdvancedSearchParams>) {
     const size = params.size;
     try {
         const response: AdvancedSearch = yield call(searchApi.advancedSearch, params);
+        const response2: AdvancedSearch = yield call(searchApi.advancedSearch, {
+            ...params,
+            size: params.size + 25,
+        });
+        if (!Boolean(response2.searchResults.length === params.size + 25)) {
+            yield put(setHasMoreMovie());
+        }
         if (size === 50) {
             yield put(setMovie(response.searchResults));
         } else {
             yield put(
                 fetchMovieSuccess(
-                    response.searchResults.splice(
+                    response.searchResults.slice(
                         response.searchResults.length - 25,
                         response.searchResults.length
                     )
@@ -42,12 +52,19 @@ function* fetchTv(action: PayloadAction<AdvancedSearchParams>) {
     const size = params.size;
     try {
         const response: AdvancedSearch = yield call(searchApi.advancedSearch, params);
+        const response2: AdvancedSearch = yield call(searchApi.advancedSearch, {
+            ...params,
+            size: params.size + 25,
+        });
+        if (!Boolean(response2.searchResults.length === params.size + 25)) {
+            yield put(setHasMoreTv());
+        }
         if (size === 50) {
             yield put(setTv(response.searchResults));
         } else {
             yield put(
                 fetchTvSuccess(
-                    response.searchResults.splice(
+                    response.searchResults.slice(
                         response.searchResults.length - 25,
                         response.searchResults.length
                     )
@@ -65,12 +82,19 @@ function* fetchAnime(action: PayloadAction<AdvancedSearchParams>) {
     const size = params.size;
     try {
         const response: AdvancedSearch = yield call(searchApi.advancedSearch, params);
+        const response2: AdvancedSearch = yield call(searchApi.advancedSearch, {
+            ...params,
+            size: params.size + 25,
+        });
+        if (!Boolean(response2.searchResults.length === params.size + 25)) {
+            yield put(setHasMoreAnime());
+        }
         if (size === 50) {
             yield put(setAnime(response.searchResults));
         } else {
             yield put(
                 fetchAnimeSuccess(
-                    response.searchResults.splice(
+                    response.searchResults.slice(
                         response.searchResults.length - 25,
                         response.searchResults.length
                     )

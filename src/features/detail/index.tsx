@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Route, Routes, useParams } from 'react-router-dom';
-import { BrowserView, MobileView } from 'react-device-detect';
 
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { fetchData } from './detailSlice';
@@ -41,12 +40,9 @@ function Detail() {
                     ) : (
                         <div className={styles.root}>
                             <Introduce />
-                            <BrowserView className={styles.main}>
+                            <div className={styles.main}>
                                 <ListFilm data={recommendations} title='Đề xuất' />
-                            </BrowserView>
-                            <MobileView className={styles.main}>
-                                <ListFilm data={recommendations} title='Đề xuất' />
-                            </MobileView>
+                            </div>
                         </div>
                     )
                 }
