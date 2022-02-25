@@ -9,7 +9,9 @@ interface ListFilmProps {
 
 function ListFilm({ data, title }: ListFilmProps) {
     const length = data?.length as number;
-    if (length <= 2 || (data && !data[0].category)) return <div></div>;
+
+    if (length <= 2 || (data && data[0].category === null)) return <div></div>;
+
     return (
         <div className={styles.root}>
             {title && <div className={styles.title}>{title}</div>}

@@ -15,7 +15,6 @@ function* fetchData(action: PayloadAction<MediaParams>) {
         });
         yield put(fetchDataSuccess(response));
     } catch (error) {
-        console.log(error);
         yield put(fetchDataFailed());
     }
 }

@@ -89,3 +89,10 @@
         border-radius: 2px;
     }
 }
+
+@include mobile-tablet {
+    .player {
+        width: 100vw;
+        height: 56.25vw;
+    }
+}

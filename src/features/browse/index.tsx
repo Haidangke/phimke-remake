@@ -23,7 +23,7 @@ function Browse() {
         dispatch(setIndex());
         dispatch(fetchData(index));
     }
-
+ 
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -39,7 +39,7 @@ function Browse() {
                             <ListFilmLoading />
                         ) : (
                             browse
-                                .filter((listFilm) => listFilm.homeSectionId !== 81012)
+                                .filter((x) => x.homeSectionId !== 81012)
                                 .map((listFilm, index) => (
                                     <ListFilm
                                         key={index}

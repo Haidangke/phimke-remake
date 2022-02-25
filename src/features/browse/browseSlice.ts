@@ -3,7 +3,6 @@ import { RootState } from 'app/store';
 import { RecommendItem } from 'models/loklok';
 
 interface InitialState {
-    banner: RecommendItem;
     data: RecommendItem[];
     isLoading: boolean;
     isFetched: boolean;
@@ -13,7 +12,6 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-    banner: {} as RecommendItem,
     data: [],
     isLoading: false,
     isFetched: false,
@@ -43,9 +41,7 @@ const browseSlice = createSlice({
             state.isFetched = true;
             state.isError = true;
         },
-        setBanner(state, action: PayloadAction<RecommendItem>) {
-            state.banner = action.payload;
-        },
+
         setIndex(state) {
             state.index = state.index + 1;
         },
@@ -55,11 +51,9 @@ const browseSlice = createSlice({
     },
 });
 
-export const bannerSelector = (state: RootState) => state.browse.banner;
 export const browseSelector = (state: RootState) => state.browse.data;
 export const indexSelector = (state: RootState) => state.browse.index;
 export const hasMoreSelector = (state: RootState) => state.browse.hasMore;
 
-export const { fetchData, fetchDataSuccess, fetchDataFailed, setBanner, setIndex, setHasMore } =
-    browseSlice.actions;
+export const { fetchData, fetchDataSuccess, fetchDataFailed, setIndex, setHasMore } = browseSlice.actions;
 export default browseSlice.reducer;

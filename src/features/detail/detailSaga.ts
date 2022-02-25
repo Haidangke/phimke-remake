@@ -36,7 +36,6 @@ function* fetchData(action: any) {
     try {
         yield call(fetchDetails, id, category);
     } catch (error) {
-        console.log(error);
         yield put(fetchDataFailed());
     }
 }

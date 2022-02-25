@@ -7,7 +7,6 @@ import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import clsx from 'clsx';
 import { isMobile } from 'react-device-detect';
 
-import { MdPlayDisabled } from 'react-icons/md';
 import { IoIosPlay, IoMdSettings, IoIosPause } from 'react-icons/io';
 import { BiFullscreen, BiExitFullscreen } from 'react-icons/bi';
 import { MdVolumeOff, MdVolumeUp } from 'react-icons/md';
@@ -27,23 +26,12 @@ interface PLayerProps {
     url: string;
     subs: Subtitle[];
     indexSub: number;
-    isLoading: boolean;
-    isError: boolean;
     definitionList: DefinitionList;
     setDefinition: Dispatch<SetStateAction<string>>;
     curDefinition: string;
 }
 
-function Player({
-    url,
-    subs,
-    indexSub,
-    isLoading,
-    isError,
-    definitionList,
-    setDefinition,
-    curDefinition,
-}: PLayerProps) {
+function Player({ url, subs, indexSub, definitionList, setDefinition, curDefinition }: PLayerProps) {
     const { onMobile } = useResize();
     const [playing, setPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
@@ -105,17 +93,6 @@ function Player({
         setIsQuality(false);
         setDisplayTime('00:00');
     }, [url]);
-
-    if (isError && !isLoading) {
-        return (
-            <div className={styles.player}>
-                <div className={styles.error}>
-                    <MdPlayDisabled />
-                    This video file cannot be played. (error code: 224003)
-                </div>
-            </div>
-        );
-    }
 
     if (isMobile)
         return (

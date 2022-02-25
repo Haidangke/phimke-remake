@@ -2,6 +2,7 @@
 .root {
     max-width: 1400px;
     margin: 0 auto;
+    padding-bottom: 20px;
 }
 .media {
     width: 100%;
@@ -29,16 +30,6 @@
 .right {
     flex-basis: 450px;
     width: 450px;
-
-    a {
-        flex-basis: calc(100% / 3 - 20px / 3);
-        width: calc(100% / 3 - 20px / 3);
-        padding-bottom: calc((100% / 3 - 20px / 3) * 1.5);
-    }
-
-    a:nth-child(3n) {
-        margin-right: 0;
-    }
 }
 .titleSimilar {
     font-size: 1.94rem;
@@ -56,6 +47,16 @@
     }
     .main {
         margin: 30px 0;
+    }
+    .right > div > div > a,
+    .right > div > div > div {
+        flex-basis: calc(100% / 3 - 20px / 3);
+        width: calc(100% / 3 - 20px / 3);
+        padding-bottom: calc((100% / 3 - 20px / 3) * 1.5);
+    }
+    .right > div > div > a:nth-child(3n),
+    .right > div > div > div:nth-child(3n) {
+        margin-right: 0;
     }
 }
 

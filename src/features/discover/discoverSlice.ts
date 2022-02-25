@@ -156,6 +156,15 @@ const discoverSlice = createSlice({
             state.anime.isFetched = true;
             state.anime.isError = true;
         },
+        setSizeMovie(state) {
+            state.movie.filter.size = state.movie.filter.size + 25;
+        },
+        setSizeTv(state) {
+            state.tv.filter.size = state.tv.filter.size + 25;
+        },
+        setSizeAnime(state) {
+            state.anime.filter.size = state.anime.filter.size + 25;
+        }
     },
 });
 
@@ -182,6 +191,9 @@ export const {
     setHasMoreMovie,
     setHasMoreAnime,
     setHasMoreTv,
+    setSizeMovie,
+    setSizeTv,
+    setSizeAnime
 } = discoverSlice.actions;
 
 export default discoverSlice.reducer;

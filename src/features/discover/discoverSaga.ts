@@ -42,7 +42,6 @@ function* fetchMovie(action: PayloadAction<AdvancedSearchParams>) {
             );
         }
     } catch (error) {
-        console.log(error);
         yield put(fetchMovieFailed());
     }
 }
@@ -72,7 +71,6 @@ function* fetchTv(action: PayloadAction<AdvancedSearchParams>) {
             );
         }
     } catch (error) {
-        console.log(error);
         yield put(fetchTvFailed());
     }
 }
@@ -102,7 +100,6 @@ function* fetchAnime(action: PayloadAction<AdvancedSearchParams>) {
             );
         }
     } catch (error) {
-        console.log(error);
         yield put(fetchAnimeFailed());
     }
 }

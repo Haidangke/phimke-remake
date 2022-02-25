@@ -58,13 +58,12 @@ function Media() {
                     url={media.mediaUrl}
                     subs={subs}
                     indexSub={indexSub}
-                    isLoading={isLoading}
-                    isError={isError}
                     definitionList={detail?.episodeVo[curEpisode]?.definitionList}
                     setDefinition={setDefinition}
                     curDefinition={definition}
                 />
             )}
+
             {detail.category === 1 &&
                 (!isError ? (
                     <>

@@ -4,42 +4,56 @@ import Comment from 'features/comment';
 import Similars from './components/Similars';
 import styles from './Watchs.module.scss';
 import Media from './components/Media';
-import { useQuery } from 'react-query';
 import searchApi from 'apis/searchApi';
 import TableFilm from 'components/TableFilm';
 import NotFound from 'components/NotFound';
+import { useEffect, useState } from 'react';
+import { AdvancedSearch } from 'models/search';
+import TableFilmLoading from 'components/TableFilm/TableFilmLoading';
+import useResize from 'hooks/useResize';
 
 function Watchs() {
+    const { onPc } = useResize();
     const { detail, isLoading, isError } = useAppSelector((state) => state.detail);
-    const similars = useQuery(
-        ['similar', detail],
-        async () =>
-            await searchApi.advancedSearch({
-                size: 10,
-                params: '',
-                area: detail.areaList[0].id.toString(),
-                category: detail.tagList[0].id.toString(),
-                year: '',
-                subtitles: '',
-                order: '',
-            })
-    );
+    const [similars, setSimilars] = useState<AdvancedSearch>();
+
+    useEffect(() => {
+        (async function () {
+            if (detail.id) {
+                const response = await searchApi.advancedSearch({
+                    size: 10,
+                    params: detail.drameTypeVo?.drameType,
+                    area: detail.areaList.map((x) => x.id).join(','),
+                    category: detail.tagList.map((x) => x.id).join(','),
+                    year: '',
+                    subtitles: '',
+                    order: '',
+                });
+                setSimilars(response);
+            }
+        })();
+    }, [detail.areaList, detail.drameTypeVo?.drameType, detail.id, detail.tagList]);
 
     if (isError) return <NotFound />;
-
     return (
         <div className={styles.root}>
-            <div className={styles.name}>{detail.name}</div>
+            <div className={styles.name}>
+                {detail.seriesNo
+                    ? detail.name + ' ( ' + (detail.category === 1 ? 'Mùa' : 'Phần') + detail.seriesNo + ' )'
+                    : detail.name}
+            </div>
             <div className={styles.media}>{<Media />}</div>
             <div className={styles.main}>
-                <div className={styles.left}>{detail.id && <Comment filmId={detail.id} />}</div>
+                <div className={styles.left}>{detail.id && onPc && <Comment filmId={detail.id} />}</div>
                 <div className={styles.right}>
                     {detail?.refList?.length > 0 && <Similars data={detail?.refList} isLoading={isLoading} />}
-                    {similars?.data?.searchResults && (
+                    <div className={styles.titleSimilar}>Các phim tương tự</div>
+                    {!similars?.searchResults ? (
+                        <TableFilmLoading quantity={9} mt={20} />
+                    ) : (
                         <>
-                            <div className={styles.titleSimilar}>Các phim tương tự</div>
                             <TableFilm
-                                data={similars.data.searchResults
+                                data={similars.searchResults
                                     .filter((similar) => similar.id !== detail.id.toString())
                                     .splice(0, 9)}
                             />

@@ -2,13 +2,13 @@ import { useAppSelector } from 'app/hooks';
 import {
     fetchMovie,
     discoverMovieSelector,
-    setFilterMovie,
     discoverTvSelector,
     discoverAnimeSelector,
-    setFilterTv,
-    setFilterAnime,
     fetchTv,
     fetchAnime,
+    setSizeMovie,
+    setSizeTv,
+    setSizeAnime,
 } from 'features/discover/discoverSlice';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useDispatch } from 'react-redux';
@@ -29,12 +29,12 @@ function Discover() {
 
     function fetchMoreData() {
         if (id) {
-            if (parseInt(id) === 1) {
-                dispatch(setFilterMovie({ ...movie.filter, size: movie.filter.size + 25 }));
-            } else if (parseInt(id) === 2) {
-                dispatch(setFilterTv({ ...tv.filter, size: tv.filter.size + 25 }));
-            } else {
-                dispatch(setFilterAnime({ ...anime.filter, size: anime.filter.size + 25 }));
+            if (parseInt(id) === 1 && movie.filter.size === movie.data.length) {
+                dispatch(setSizeMovie());
+            } else if (parseInt(id) === 2 && tv.filter.size === tv.data.length) {
+                dispatch(setSizeTv());
+            } else if (parseInt(id) === 3 && anime.filter.size === anime.data.length) {
+                dispatch(setSizeAnime());
             }
         }
     }
@@ -69,6 +69,8 @@ function Discover() {
         tv.filter,
     ]);
 
+    if (![1, 2, 3].includes(parseInt(id as string))) return <NotFound />;
+
     if (!id) return <NotFound />;
     const data = parseInt(id) === 1 ? movie : parseInt(id) === 2 ? tv : anime;
 
@@ -79,7 +81,7 @@ function Discover() {
                 <TableFilmLoading mt={20} quantity={12} />
             ) : (
                 <InfiniteScroll
-                    dataLength={data.filter.size}
+                    dataLength={data.data.length}
                     next={fetchMoreData}
                     hasMore={data.hasMore}
                     loader={<TableFilmLoading mt={0} quantity={12} />}
