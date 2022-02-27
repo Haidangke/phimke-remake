@@ -2,7 +2,7 @@ import styles from './Similars.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { RefList } from 'models/loklok';
-import ImageLazyLoad from 'components/ImageLazyLoad';
+import { resizeImage } from 'utils/resizeImage';
 
 interface SimilarsProps {
     isLoading: boolean;
@@ -39,11 +39,7 @@ function Similars({ data, isLoading }: SimilarsProps) {
                                   key={film.id}
                                   className={styles.item}
                               >
-                                  <ImageLazyLoad
-                                      name={film.name}
-                                      coverVerticalUrl={film.coverVerticalUrl}
-                                      size='300'
-                                  />
+                                  <img alt={film.name} src={resizeImage(film.coverVerticalUrl, '200')} />
                                   <div className={styles.info}>
                                       {parseInt(category as string) === 1 ? 'Mùa' : 'Phần'}: {film.seriesNo}
                                   </div>

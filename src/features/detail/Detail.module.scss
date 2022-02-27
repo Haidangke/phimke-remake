@@ -1,3 +1,4 @@
+@use 'styles/' as *;
 .root {
     min-height: calc(100vh - 64px);
 }
@@ -24,4 +25,101 @@
     max-width: 1320px;
     margin: 0 auto;
     margin-top: 24px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: $blackColor;
+}
+
+.similars {
+    margin-top: 10px;
+}
+.list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    flex-basis: calc(100% / 6 - 50px / 6);
+    width: calc(100% / 6 - 50px / 6);
+    padding-bottom: calc((100% / 6 - 50px / 6) * 1.5 + 30px);
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.item > img {
+    position: absolute;
+    height: calc(100% - 30px);
+}
+
+.item > span > img {
+    height: calc(100% - 30px) !important;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.name {
+    bottom: 0;
+    position: absolute;
+    z-index: 2;
+    color: $blackColor;
+    background-color: $whiteColor;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    @include text-overflow(1);
+    overflow: hidden;
+}
+
+@include pc {
+    .item:nth-child(6n) {
+        margin-right: 0;
+    }
+}
+
+@include tablet {
+    .item {
+        flex-basis: calc(100% / 4 - 15px / 4);
+        width: calc(100% / 4 - 15px / 4);
+        padding-bottom: calc((100% / 4 - 15px / 4) * 1.5 + 30px);
+        position: relative;
+        margin-right: 5px;
+    }
+    .item:nth-child(4n) {
+        margin-right: 0;
+    }
+}
+
+@include mobile {
+    .item {
+        flex-basis: calc(100% / 3 - 10px / 3);
+        width: calc(100% / 3 - 10px / 3);
+        padding-bottom: calc((100% / 3 - 10px / 3) * 1.5 + 30px);
+        position: relative;
+        margin-right: 5px;
+    }
+    .item:nth-child(3n) {
+        margin-right: 0;
+    }
+    .name {
+        font-size: 1.4rem;
+    }
+}
+
+@include mobile-tablet {
+    .similars,
+    .title {
+        padding: 0 20px;
+    }
 }

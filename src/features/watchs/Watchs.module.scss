@@ -3,7 +3,9 @@
     max-width: 1400px;
     margin: 0 auto;
     padding-bottom: 20px;
+    background-color: $whiteColor;
 }
+
 .media {
     width: 100%;
 }
@@ -18,8 +20,9 @@
     padding: 0 40px;
     height: 40px;
     line-height: 40px;
-    color: rgba(0, 0, 0);
-    font-size: 1.48rem;
+    color: $blackColor;
+    font-size: 1.52rem;
+    font-weight: 600;
 }
 
 .left {

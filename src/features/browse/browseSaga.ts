@@ -11,11 +11,6 @@ function* fetchData(action: any) {
 
         if (response.recommendItems.length === 0) {
             yield put(setHasMore());
-        }
-
-        if (page === 0) {
-            response.recommendItems.splice(0, 1);
-            yield put(fetchDataSuccess(response.recommendItems));
         } else {
             yield put(fetchDataSuccess(response.recommendItems));
         }

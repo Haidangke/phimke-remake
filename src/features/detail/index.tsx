@@ -6,9 +6,10 @@ import { fetchData } from './detailSlice';
 import styles from './Detail.module.scss';
 import Loading from 'components/Loading/Loading';
 import Introduce from './components';
-import ListFilm from 'components/ListFilm';
 import { RecommendContentVO } from 'models/loklok';
 import WatchsPage from 'features/watchs';
+import { Link } from 'react-router-dom';
+import { resizeImage } from 'utils/resizeImage';
 
 function Detail() {
     const dispatch = useAppDispatch();
@@ -41,7 +42,24 @@ function Detail() {
                         <div className={styles.root}>
                             <Introduce />
                             <div className={styles.main}>
-                                <ListFilm data={recommendations} title='Đề xuất' />
+                                <div className={styles.title}>Các phim tương tự</div>
+                                <div className={styles.similars}>
+                                    <div className={styles.list}>
+                                        {recommendations?.map((film, index) => (
+                                            <Link
+                                                key={index}
+                                                className={styles.item}
+                                                to={`/${film.category}/${film.id}`}
+                                            >
+                                                <img
+                                                    alt={film.title}
+                                                    src={resizeImage(film.imageUrl, '200')}
+                                                />
+                                                <div className={styles.name}>{film.title}</div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     )

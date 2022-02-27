@@ -35,6 +35,10 @@
         background-color: #e7ebed;
     }
 }
+.itemActive {
+    background-color: #e7ebed;
+    font-weight: 500;
+}
 
 @include tablet {
     .root {
@@ -56,6 +60,5 @@
     }
     .title {
         font-size: 1.48rem;
-        font-weight: 400;
     }
 }

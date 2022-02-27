@@ -1,4 +1,5 @@
 import { useAppSelector } from 'app/hooks';
+import clsx from 'clsx';
 import { setFilterAnime, setFilterMovie, setFilterTv } from 'features/discover/discoverSlice';
 import useOnClickOutside from 'hooks/useOnClickOutside';
 import { ScreeningItems } from 'models/search';
@@ -49,15 +50,19 @@ function ItemFilter({ filter, id }: ItemFilterProps) {
             </div>
             {isShow && (
                 <div className={styles.list}>
-                    {filter.items.map((item, index) => (
-                        <div
-                            key={index}
-                            onClick={() => setFilter(item.params, item.screeningType)}
-                            className={styles.item}
-                        >
-                            {item.name}
-                        </div>
-                    ))}
+                    {filter.items
+                        .filter((item) => item.params !== '65')
+                        .map((item, index) => (
+                            <div
+                                key={index}
+                                onClick={() => setFilter(item.params, item.screeningType)}
+                                className={clsx(styles.item, {
+                                    [styles.itemActive]: item.params === filterData[item.screeningType],
+                                })}
+                            >
+                                {item.name}
+                            </div>
+                        ))}
                 </div>
             )}
         </div>

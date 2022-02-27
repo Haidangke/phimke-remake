@@ -16,14 +16,14 @@ function Browse() {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(fetchData(0));
+        dispatch(fetchData(1));
     }, [dispatch]);
 
     function fetchMoreData() {
         dispatch(setIndex());
         dispatch(fetchData(index));
     }
- 
+
     return (
         <div className={styles.root}>
             <div className={styles.wrapper}>
@@ -39,7 +39,7 @@ function Browse() {
                             <ListFilmLoading />
                         ) : (
                             browse
-                                .filter((x) => x.homeSectionId !== 81012)
+                                .filter((x) => x.homeSectionId !== 81012 && x.homeSectionId !== 80404)
                                 .map((listFilm, index) => (
                                     <ListFilm
                                         key={index}

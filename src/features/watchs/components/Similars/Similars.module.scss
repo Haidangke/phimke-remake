@@ -29,6 +29,9 @@
     margin-bottom: 5px;
     cursor: pointer;
 }
+.item > img {
+    position: absolute;
+}
 .item > span > img {
     height: calc(100% - 30px);
 }

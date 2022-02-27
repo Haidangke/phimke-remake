@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import { AdvancedSearch } from 'models/search';
 import TableFilmLoading from 'components/TableFilm/TableFilmLoading';
 import useResize from 'hooks/useResize';
+import clsx from 'clsx';
 
 function Watchs() {
     const { onPc } = useResize();
@@ -25,21 +26,25 @@ function Watchs() {
                     params: detail.drameTypeVo?.drameType,
                     area: detail.areaList.map((x) => x.id).join(','),
                     category: detail.tagList.map((x) => x.id).join(','),
-                    year: '',
+                    year: detail.year.toString(),
                     subtitles: '',
-                    order: '',
+                    order: 'up',
                 });
                 setSimilars(response);
             }
         })();
-    }, [detail.areaList, detail.drameTypeVo?.drameType, detail.id, detail.tagList]);
+    }, [detail.areaList, detail.drameTypeVo?.drameType, detail.id, detail.tagList, detail.year]);
 
     if (isError) return <NotFound />;
     return (
-        <div className={styles.root}>
+        <div className={clsx(styles.root)}>
             <div className={styles.name}>
                 {detail.seriesNo
-                    ? detail.name + ' ( ' + (detail.category === 1 ? 'Mùa' : 'Phần') + detail.seriesNo + ' )'
+                    ? detail.name +
+                      ' ( ' +
+                      (detail.category === 1 ? 'Mùa ' : 'Phần ') +
+                      detail.seriesNo +
+                      ' )'
                     : detail.name}
             </div>
             <div className={styles.media}>{<Media />}</div>
@@ -47,7 +52,7 @@ function Watchs() {
                 <div className={styles.left}>{detail.id && onPc && <Comment filmId={detail.id} />}</div>
                 <div className={styles.right}>
                     {detail?.refList?.length > 0 && <Similars data={detail?.refList} isLoading={isLoading} />}
-                    <div className={styles.titleSimilar}>Các phim tương tự</div>
+                    <div className={styles.titleSimilar}>Các phim cùng thể loại</div>
                     {!similars?.searchResults ? (
                         <TableFilmLoading quantity={9} mt={20} />
                     ) : (
