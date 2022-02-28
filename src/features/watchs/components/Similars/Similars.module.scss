@@ -31,10 +31,9 @@
 }
 .item > img {
     position: absolute;
-}
-.item > span > img {
     height: calc(100% - 30px);
 }
+
 .info {
     position: absolute;
     bottom: 0;

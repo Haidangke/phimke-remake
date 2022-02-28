@@ -77,42 +77,48 @@ function SearchHeader() {
                     )}
                 </div>
             </div>
-            <div className={styles.wrapper}>
-                {listWithKeyword?.searchResults?.length === 0 && isFetched && (
-                    <div className={styles.notData}>Không tìm thấy phim trùng khớp !</div>
-                )}
-                {listWithKeyword?.searchResults?.length > 1 && (
-                    <div className={styles.list}>
-                        {listWithKeyword?.searchResults.slice(0, 6).map((film) => (
-                            <div key={film?.id} className={styles.item}>
-                                <Link
-                                    onClick={() => dispatch(setIsSearch(false))}
-                                    to={`/${film?.domainType}/${film?.id}`}
-                                    className={styles.itemWrapper}
-                                >
-                                    <div className={styles.image}>
-                                        <img
-                                            src={resizeImage(film?.coverHorizontalUrl, '100')}
-                                            alt={film?.name}
-                                        />
-                                    </div>
-
-                                    <div className={styles.itemRight}>
-                                        <div className={styles.name}>
-                                            {film?.name} ( {film?.releaseTime} )
+            {!query ? (
+                <div className={styles.wrapper}>
+                    <div className={styles.notQuery}>Vui lòng nhập từ khóa để tìm kiếm !</div>
+                </div>
+            ) : (
+                <div className={styles.wrapper}>
+                    {listWithKeyword?.searchResults?.length === 0 && isFetched && (
+                        <div className={styles.notData}>Không tìm thấy phim trùng khớp !</div>
+                    )}
+                    {listWithKeyword?.searchResults?.length > 0 && (
+                        <div className={styles.list}>
+                            {listWithKeyword?.searchResults.slice(0, 6).map((film) => (
+                                <div key={film?.id} className={styles.item}>
+                                    <Link
+                                        onClick={() => dispatch(setIsSearch(false))}
+                                        to={`/${film?.domainType}/${film?.id}`}
+                                        className={styles.itemWrapper}
+                                    >
+                                        <div className={styles.image}>
+                                            <img
+                                                src={resizeImage(film?.coverVerticalUrl, '100')}
+                                                alt={film?.name}
+                                            />
                                         </div>
-                                    </div>
-                                </Link>
-                            </div>
-                        ))}
-                        {listWithKeyword?.searchResults?.length > 7 && (
-                            <div onClick={() => handleNavigate()} className={styles.button}>
-                                <div className={styles.buttonWrapper}>Xem tất cả</div>
-                            </div>
-                        )}
-                    </div>
-                )}
-            </div>
+
+                                        <div className={styles.itemRight}>
+                                            <div className={styles.name}>
+                                                {film?.name} ( {film?.releaseTime} )
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))}
+                            {listWithKeyword?.searchResults?.length > 7 && (
+                                <div onClick={() => handleNavigate()} className={styles.button}>
+                                    <div className={styles.buttonWrapper}>Xem tất cả</div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 }

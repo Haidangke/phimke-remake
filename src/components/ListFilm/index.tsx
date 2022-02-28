@@ -1,4 +1,5 @@
 import { RecommendContentVO } from 'models/loklok';
+import { convertTitle } from 'utils/convertTitle';
 import ItemFilm from './ItemFilm';
 import styles from './ListFilm.module.scss';
 
@@ -14,7 +15,7 @@ function ListFilm({ data, title }: ListFilmProps) {
 
     return (
         <div className={styles.root}>
-            {title && <div className={styles.title}>{title}</div>}
+            {title && <div className={styles.title}>{convertTitle(title)}</div>}
             <div className={styles.list}>
                 {data?.map((item) => (
                     <ItemFilm key={item.id} item={item} />

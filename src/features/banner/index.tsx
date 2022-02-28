@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import SwiperCore, { Pagination } from 'swiper';
+import SwiperCore, { Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styles from './Banner.module.scss';
@@ -11,7 +11,7 @@ import searchApi from 'apis/searchApi';
 import Skeleton from 'react-loading-skeleton';
 
 function Banner() {
-    SwiperCore.use([Pagination]);
+    SwiperCore.use([Pagination, Autoplay]);
     const { data } = useQuery('banner', async () => await searchApi.searchLeaderBoard());
 
     if (data?.list.length === 0 || !data?.list) {
@@ -33,9 +33,10 @@ function Banner() {
                     pagination
                     loop={true}
                     fadeEffect={{ crossFade: true }}
-                    speed={500}
+                    speed={600}
                     slidesPerView={1}
                     spaceBetween={18}
+                    autoplay={{ delay: 4000, disableOnInteraction: false }}
                 >
                     {data?.list &&
                         data?.list.map((banner, index) => (

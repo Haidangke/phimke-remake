@@ -8,6 +8,7 @@ import styles from './Search.module.scss';
 
 function Search() {
     const { keyword } = useParams();
+
     const { data, isLoading, isFetched } = useQuery(
         ['listFilmSearch', keyword],
         async () =>
@@ -20,10 +21,13 @@ function Search() {
     if (isFetched && data?.searchResults.length === 0) {
         return (
             <div className={styles.root}>
-                <div className={styles.error}>Không có bộ phim nào với từ khóa là {keyword}</div>
+                <div className={styles.error}>
+                    Không có bộ phim nào với từ khóa là <span>{keyword}</span>
+                </div>
             </div>
         );
     }
+
     return (
         <div className={styles.root}>
             <div className={styles.keyword}>Kết quả cho "{keyword}"</div>

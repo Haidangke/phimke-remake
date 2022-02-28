@@ -82,9 +82,13 @@
     border-bottom: 1px solid rgba($blackColor, 0.1);
 }
 .image {
-    width: 112px;
-    height: 56px;
+    // width: 112px;
+    // height: 56px;
+    width: 60px;
+    padding-bottom: calc(50px * 1.4);
+    position: relative;
     & > img {
+        position: absolute;
         width: 100%;
         height: 100%;
     }
@@ -119,7 +123,8 @@
     margin-bottom: 16px;
 }
 
-.notData {
+.notData,
+.notQuery {
     height: 40px;
     line-height: 40px;
     font-size: 1.6rem;
@@ -141,7 +146,9 @@
     .button {
         padding: 0px 20px;
     }
-    .notData {
+    .notData,
+    .notQuery {
         font-size: 1.5rem;
+        padding: 0 50px;
     }
 }

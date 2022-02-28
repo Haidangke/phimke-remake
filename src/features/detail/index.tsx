@@ -37,7 +37,9 @@ function Detail() {
                 path='/'
                 element={
                     isLoading || !isFetched ? (
-                        <Loading space={110} />
+                        <div className={styles.root}>
+                            <Loading space={110} />
+                        </div>
                     ) : (
                         <div className={styles.root}>
                             <Introduce />

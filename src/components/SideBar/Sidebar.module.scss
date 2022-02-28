@@ -30,10 +30,14 @@
 
     margin-bottom: 4px;
     padding: 3px 0 3px 20px;
+    opacity: 0.8;
+    transition: $transition-base;
 }
 .itemActive {
     border-left: 2px solid white;
+    font-weight: 500;
     padding-left: 18px;
+    opacity: 1;
 }
 
 .auth {

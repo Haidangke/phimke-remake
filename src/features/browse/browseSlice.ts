@@ -16,7 +16,7 @@ const initialState: InitialState = {
     isLoading: false,
     isFetched: false,
     isError: false,
-    index: 1,
+    index: 2,
     hasMore: true,
 };
 

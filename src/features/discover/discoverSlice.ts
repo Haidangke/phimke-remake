@@ -26,7 +26,7 @@ const initialState: InitialState = {
             category: '',
             year: '',
             subtitles: '',
-            order: 'up',
+            order: 'count',
         },
         data: [],
         isLoading: false,
@@ -42,7 +42,7 @@ const initialState: InitialState = {
             category: '',
             year: '',
             subtitles: '',
-            order: 'up',
+            order: 'count',
         },
         data: [],
         isLoading: false,
@@ -58,7 +58,7 @@ const initialState: InitialState = {
             category: '',
             year: '',
             subtitles: '',
-            order: 'up',
+            order: 'count',
         },
         data: [],
         isLoading: false,
@@ -164,7 +164,7 @@ const discoverSlice = createSlice({
         },
         setSizeAnime(state) {
             state.anime.filter.size = state.anime.filter.size + 25;
-        }
+        },
     },
 });
 
@@ -193,7 +193,7 @@ export const {
     setHasMoreTv,
     setSizeMovie,
     setSizeTv,
-    setSizeAnime
+    setSizeAnime,
 } = discoverSlice.actions;
 
 export default discoverSlice.reducer;

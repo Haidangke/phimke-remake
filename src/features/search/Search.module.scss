@@ -46,7 +46,13 @@
 
 .error {
     color: $blackColor;
-    font-size: 2rem;
+    font-size: 1.84rem;
+    line-height: 1.4;
+    font-weight: 500;
+    & > span {
+        font-weight: 600;
+        font-size: 1.84rem;
+    }
 }
 
 .dramaType {
@@ -70,6 +76,9 @@
 @include mobile {
     .root {
         padding: 0 20px;
+    }
+    .error {
+        padding-top: 20px;
     }
     .keyword {
         padding-top: 10px;
