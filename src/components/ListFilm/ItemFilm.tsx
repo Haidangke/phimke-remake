@@ -19,7 +19,7 @@ function ItemFilm({ item }: ItemFilmProps) {
                     src={resizeImage(item.imageUrl, '200')}
                     effect='opacity'
                 />
-                <div className='dramaType'></div>
+                <div className={styles.dramaType}>{item.contentType}</div>
             </div>
             <div className={styles.bottom}>
                 <div className={styles.name}>{item.title}</div>

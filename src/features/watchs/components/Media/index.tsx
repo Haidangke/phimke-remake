@@ -1,5 +1,5 @@
-import { Fragment, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Fragment, useCallback, useEffect } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
 import clsx from 'clsx';
 import ReactLoading from 'react-loading';
 
@@ -10,29 +10,39 @@ import styles from './Media.module.scss';
 
 function Media() {
     const dispatch = useAppDispatch();
+
     const { category } = useParams();
     const { detail } = useAppSelector((state) => state.detail);
     const { media, isLoading, isError } = useAppSelector((state) => state.watchs);
 
-    const [curEpisode, setCurEpisode] = useState(0);
-    const [definition, setDefinition] = useState('GROOT_HD');
+    const [searchParams, setSearchParams] = useSearchParams();
+    const episode = parseInt(searchParams.get('episode') || '0') || 0;
+
+    const cdtEpisode = useCallback(
+        (episode: number) =>
+            episode + 1 <= detail.episodeVo.length && episode >= 0 && typeof episode === 'number',
+        [detail?.episodeVo?.length]
+    );
 
     useEffect(() => {
         if ((detail.episodeVo, detail.id)) {
+            if (!cdtEpisode(episode)) {
+                setSearchParams({ episode: '0' });
+            }
             dispatch(
                 fetchData({
                     category,
-                    definition,
+                    definition: 'GROOT_HD',
                     contentId: detail.id,
-                    episodeId: detail.episodeVo[curEpisode].id,
+                    episodeId: detail.episodeVo[episode]?.id,
                 })
             );
         }
-    }, [category, curEpisode, definition, detail.episodeVo, detail.id, dispatch]);
+    }, [category, episode, detail.episodeVo, detail.id, dispatch, setSearchParams, cdtEpisode]);
 
     const subs =
-        detail?.episodeVo?.length > 0
-            ? detail.episodeVo[curEpisode].subtitlingList.map((x) => ({
+        detail?.episodeVo?.length > 0 && cdtEpisode(episode)
+            ? detail.episodeVo[episode].subtitlingList.map((x) => ({
                   label: x.language,
                   kind: 'subtitles',
                   src: 'https://srt-to-vtt.vercel.app?url=' + x.subtitlingUrl,
@@ -41,8 +51,8 @@ function Media() {
             : [];
 
     const indexSub =
-        detail?.episodeVo?.length > 0
-            ? detail?.episodeVo[curEpisode]?.subtitlingList
+        detail?.episodeVo?.length > 0 && cdtEpisode(episode)
+            ? detail?.episodeVo[episode]?.subtitlingList
                   .map((subtitling) => subtitling.languageAbbr)
                   .indexOf('vi')
             : 0;
@@ -54,28 +64,25 @@ function Media() {
                     <ReactLoading type='bars' color='#fff' className={styles.loading} />
                 </div>
             ) : (
-                <Player
-                    url={media.mediaUrl}
-                    subs={subs}
-                    indexSub={indexSub}
-                    definitionList={detail?.episodeVo[curEpisode]?.definitionList}
-                    setDefinition={setDefinition}
-                    curDefinition={definition}
-                />
+                <Player url={media.mediaUrl} subs={subs} indexSub={indexSub} />
             )}
 
             {detail.category === 1 &&
+                detail.id &&
+                cdtEpisode(episode) &&
                 (!isError ? (
                     <>
                         <div className={styles.titleEpisode}>Các tập</div>
                         <div className={styles.episodes}>
                             {detail?.episodeVo?.length > 0 &&
-                                detail.episodeVo.map((episode, index) => (
+                                detail.episodeVo.map((item, index) => (
                                     <div
-                                        onClick={() => setCurEpisode(index)}
-                                        key={episode.id}
+                                        onClick={() => {
+                                            setSearchParams({ episode: index.toString() });
+                                        }}
+                                        key={item.id}
                                         className={clsx(styles.episode, {
-                                            [styles.episodeActive]: index === curEpisode,
+                                            [styles.episodeActive]: index === episode,
                                         })}
                                     >
                                         Tập {index + 1}

@@ -14,7 +14,7 @@ export const navigate: Navigate[] = [
     },
     {
         path: '/discover/2',
-        name: 'Truyền hình',
+        name: 'TV Series',
     },
     {
         path: '/discover/3',

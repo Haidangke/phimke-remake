@@ -78,7 +78,7 @@ function Discover() {
         <div className={styles.root}>
             <Filter id={parseInt(id)} />
             {data.isLoading ? (
-                <TableFilmLoading mt={20} quantity={12} />
+                <TableFilmLoading mt={20} quantity={18} />
             ) : (
                 <InfiniteScroll
                     dataLength={data.data.length}

@@ -37,10 +37,10 @@
     overflow-x: scroll;
 }
 .item {
+    position: relative;
     animation-name: fadeIn;
     animation-duration: 1s;
     cursor: pointer;
-
     transition: $transition-base;
     &:hover {
         opacity: 0.9;
@@ -55,6 +55,8 @@
 .image {
     height: 255px;
     width: 170px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 .overplay {
     position: absolute;
@@ -64,6 +66,21 @@
     background-color: rgba(0, 0, 0, 0.05);
     transition: all 0.3s linear;
     z-index: 2;
+}
+
+.dramaType {
+    z-index: 2;
+    position: absolute;
+    background-color: white;
+    opacity: 0.9;
+    right: 10px;
+    top: 10px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px;
+    font-size: 1.05rem;
+    border-radius: 2px;
 }
 
 .imageLoad {
@@ -131,5 +148,12 @@
     .image {
         height: 225px;
         width: 150px;
+    }
+}
+
+@include mobile-tablet {
+    .dramaType {
+        top: 6px;
+        right: 6px;
     }
 }

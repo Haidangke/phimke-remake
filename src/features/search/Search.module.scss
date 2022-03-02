@@ -74,9 +74,6 @@
 }
 
 @include mobile {
-    .root {
-        padding: 0 20px;
-    }
     .error {
         padding-top: 20px;
     }
@@ -113,5 +110,11 @@
     }
     .item:nth-child(5n) {
         margin-right: 0;
+    }
+}
+
+@include mobile-tablet {
+    .root {
+        padding: 0 20px;
     }
 }

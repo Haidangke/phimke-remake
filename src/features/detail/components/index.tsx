@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import { GoPrimitiveDot } from 'react-icons/go';
 
@@ -8,11 +8,20 @@ import Image from 'components/ImageLoading';
 import { useAppSelector } from 'app/hooks';
 import { resizeImage } from 'utils/resizeImage';
 import useResize from 'hooks/useResize';
+import { dramaTypes } from 'config/dramaType';
 
 function Introduce() {
     const { pathname } = useLocation();
     const { onMobile } = useResize();
     const { detail, background } = useAppSelector((state) => state.detail);
+    const navigate = useNavigate();
+
+    const handleToType = (drameType: string) => {
+        const duplicate = dramaTypes.filter((item) => item.name.includes(drameType));
+        if (duplicate.length > 0) {
+            navigate(duplicate[0].page);
+        }
+    };
     return (
         <div className={styles.root}>
             <div className={styles.mobile}>
@@ -74,7 +83,12 @@ function Introduce() {
 
                         <div className={styles.fact}>
                             <div className={styles.factTop}>
-                                <div className={styles.certification}>{detail?.drameTypeVo?.drameType}</div>
+                                <div
+                                    className={styles.certification}
+                                    onClick={() => handleToType(detail?.drameTypeVo?.drameType)}
+                                >
+                                    {detail?.drameTypeVo?.drameType}
+                                </div>
                                 <div className={styles.release}>
                                     <GoPrimitiveDot />
                                     {detail.year}

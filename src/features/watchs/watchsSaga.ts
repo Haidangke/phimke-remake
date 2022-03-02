@@ -13,6 +13,7 @@ function* fetchData(action: PayloadAction<MediaParams>) {
             episodeId,
             definition,
         });
+
         yield put(fetchDataSuccess(response));
     } catch (error) {
         yield put(fetchDataFailed());

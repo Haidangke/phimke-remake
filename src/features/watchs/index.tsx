@@ -26,7 +26,7 @@ function Watchs() {
                     params: detail.drameTypeVo?.drameType,
                     area: detail.areaList.map((x) => x.id).join(','),
                     category: detail.tagList.map((x) => x.id).join(','),
-                    year: detail.year.toString(),
+                    year: `${detail.year - 6},${detail.year}`,
                     subtitles: '',
                     order: 'up',
                 });
@@ -52,11 +52,12 @@ function Watchs() {
                 <div className={styles.left}>{detail.id && onPc && <Comment filmId={detail.id} />}</div>
                 <div className={styles.right}>
                     {detail?.refList?.length > 0 && <Similars data={detail?.refList} isLoading={isLoading} />}
-                    <div className={styles.titleSimilar}>Các phim cùng thể loại</div>
+
                     {!similars?.searchResults ? (
                         <TableFilmLoading quantity={9} mt={20} />
                     ) : (
                         <>
+                            <div className={styles.titleSimilar}>Các phim cùng thể loại</div>
                             <TableFilm
                                 data={similars.searchResults
                                     .filter((similar) => similar.id !== detail.id.toString())
