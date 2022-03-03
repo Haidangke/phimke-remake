@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 
@@ -20,51 +20,56 @@ function Sidebar({ isShow, setIsShow }: SidebarProps) {
     const { pathname } = useLocation();
     const { isLoggedIn, user } = useAppSelector(authSelector);
     const { photoURL, displayName } = user;
+    const sidebarRef = useRef(null);
 
     const handleLogout = () => {
         auth.signOut();
     };
     return (
-        <div
-            className={clsx(styles.root, {
-                [styles.show]: isShow,
-                [styles.isDown]: !result && y > 100,
-            })}
-        >
-            <div className={styles.auth}>
-                {isLoggedIn && (
-                    <div className={styles.info}>
-                        <img className={styles.avatar} src={photoURL} alt={displayName} />
-                        <div className={styles.name}>{displayName}</div>
-                    </div>
-                )}
+        <>
+            {isShow && <div onClick={() => setIsShow(false)} className={styles.overplay}></div>}
+            <div
+                ref={sidebarRef}
+                className={clsx(styles.root, {
+                    [styles.show]: isShow,
+                    [styles.isDown]: !result && y > 100,
+                })}
+            >
+                <div className={styles.auth}>
+                    {isLoggedIn && (
+                        <div className={styles.info}>
+                            <img className={styles.avatar} src={photoURL} alt={displayName} />
+                            <div className={styles.name}>{displayName}</div>
+                        </div>
+                    )}
 
-                {isLoggedIn ? (
-                    <div className={styles.status} onClick={handleLogout}>
-                        Đăng xuất
-                    </div>
-                ) : (
-                    <div className={styles.status} onClick={() => history('/login')}>
-                        Đăng nhập
-                    </div>
-                )}
-            </div>
+                    {isLoggedIn ? (
+                        <div className={styles.status} onClick={handleLogout}>
+                            Đăng xuất
+                        </div>
+                    ) : (
+                        <div className={styles.status} onClick={() => history('/login')}>
+                            Đăng nhập
+                        </div>
+                    )}
+                </div>
 
-            <div className={styles.list}>
-                {navigate.map((item) => (
-                    <Link
-                        onClick={() => setIsShow(false)}
-                        key={item.name}
-                        to={item.path}
-                        className={clsx(styles.item, {
-                            [styles.itemActive]: item.path === pathname,
-                        })}
-                    >
-                        {item.name}
-                    </Link>
-                ))}
+                <div className={styles.list}>
+                    {navigate.map((item) => (
+                        <Link
+                            onClick={() => setIsShow(false)}
+                            key={item.name}
+                            to={item.path}
+                            className={clsx(styles.item, {
+                                [styles.itemActive]: item.path === pathname,
+                            })}
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

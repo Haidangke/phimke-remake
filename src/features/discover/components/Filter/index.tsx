@@ -17,7 +17,11 @@ function Filter({ id }: FilterProps) {
                 {Array(5)
                     .fill(1)
                     .map((item, index) => (
-                        <Skeleton key={index} className={styles.itemLoading} />
+                        <Skeleton
+                            key={index}
+                            containerClassName={styles.wrapLoading}
+                            className={styles.itemLoading}
+                        />
                     ))}
             </div>
         );

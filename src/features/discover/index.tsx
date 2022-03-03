@@ -12,15 +12,20 @@ import {
 } from 'features/discover/discoverSlice';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import TableFilm from 'components/TableFilm';
 import TableFilmLoading from 'components/TableFilm/TableFilmLoading';
 import Filter from './components/Filter';
 import { useParams } from 'react-router-dom';
 import NotFound from 'components/NotFound';
 import styles from './Discover.module.scss';
+import clsx from 'clsx';
+import useResize from 'hooks/useResize';
 
 function Discover() {
+    const [column, setColumn] = useState(2);
+    const { onMobile } = useResize();
+
     const dispatch = useDispatch();
     const { id } = useParams();
     const movie = useAppSelector(discoverMovieSelector);
@@ -77,16 +82,32 @@ function Discover() {
     return (
         <div className={styles.root}>
             <Filter id={parseInt(id)} />
+            {onMobile && (
+                <div className={styles.filter}>
+                    Số phim hiển thị mỗi hàng
+                    {[2, 3].map((item) => (
+                        <span
+                            key={item}
+                            onClick={() => setColumn(item)}
+                            className={clsx(styles.filterNum, {
+                                [styles.filterNumActive]: item === column,
+                            })}
+                        >
+                            {item}
+                        </span>
+                    ))}
+                </div>
+            )}
             {data.isLoading ? (
-                <TableFilmLoading mt={20} quantity={18} />
+                <TableFilmLoading mt={20} quantity={18} column={column} />
             ) : (
                 <InfiniteScroll
                     dataLength={data.data.length}
                     next={fetchMoreData}
                     hasMore={data.hasMore}
-                    loader={<TableFilmLoading mt={0} quantity={12} />}
+                    loader={<TableFilmLoading mt={0} quantity={12} column={column} />}
                 >
-                    <TableFilm data={data.data} />
+                    <TableFilm data={data.data} column={column} />
                 </InfiniteScroll>
             )}
         </div>

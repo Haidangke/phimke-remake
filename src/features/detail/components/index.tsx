@@ -6,7 +6,7 @@ import styles from './Introduce.module.scss';
 import Score from 'components/Score';
 import Image from 'components/ImageLoading';
 import { useAppSelector } from 'app/hooks';
-import { resizeImage } from 'utils/resizeImage';
+import { verticalSize, horizontalSize } from 'utils/resizeImage';
 import useResize from 'hooks/useResize';
 import { dramaTypes } from 'config/dramaType';
 
@@ -33,13 +33,13 @@ function Introduce() {
                 ></div>
                 <div className={styles.posterMobile}>
                     <Image
-                        smallSrc={resizeImage(detail.coverVerticalUrl)}
+                        smallSrc={verticalSize(detail.coverVerticalUrl, 500)}
                         largeSrc={detail.coverVerticalUrl}
                     />
                 </div>
                 <div className={styles.backdropMobile}>
                     <Image
-                        smallSrc={resizeImage(detail.coverHorizontalUrl)}
+                        smallSrc={horizontalSize(detail.coverHorizontalUrl, 800)}
                         largeSrc={detail.coverHorizontalUrl}
                     />
                 </div>
@@ -53,7 +53,7 @@ function Introduce() {
                 <div className={styles.backdrop}>
                     <div className={styles.image}>
                         <Image
-                            smallSrc={resizeImage(detail.coverHorizontalUrl)}
+                            smallSrc={horizontalSize(detail.coverHorizontalUrl, 800)}
                             largeSrc={detail.coverHorizontalUrl}
                         />
                     </div>
@@ -70,7 +70,7 @@ function Introduce() {
                 <div className={styles.content}>
                     <div className={styles.poster}>
                         <Image
-                            smallSrc={resizeImage(detail.coverVerticalUrl)}
+                            smallSrc={verticalSize(detail.coverVerticalUrl, 500)}
                             largeSrc={detail.coverVerticalUrl}
                         />
                     </div>

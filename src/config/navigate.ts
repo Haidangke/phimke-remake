@@ -10,14 +10,14 @@ export const navigate: Navigate[] = [
     },
     {
         path: '/discover/1',
-        name: 'Điện ảnh',
+        name: 'Phim lẻ',
     },
     {
         path: '/discover/2',
-        name: 'TV Series',
+        name: 'Phim bộ',
     },
     {
         path: '/discover/3',
-        name: 'Hoạt hình',
+        name: 'Anime',
     },
 ];

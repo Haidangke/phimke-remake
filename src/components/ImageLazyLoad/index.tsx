@@ -1,11 +1,11 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { resizeImage } from 'utils/resizeImage';
+import { verticalSize } from 'utils/resizeImage';
 import styles from './ImageLazyLoad.module.scss';
 
 interface ImageLazyLoadProps {
     name: string;
     coverVerticalUrl: string;
-    size: string;
+    size: number;
     horizontal?: boolean;
 }
 
@@ -16,7 +16,7 @@ function ImageLazyLoad({ name, coverVerticalUrl, size }: ImageLazyLoadProps) {
             <LazyLoadImage
                 className={styles.image}
                 alt={name}
-                src={resizeImage(coverVerticalUrl, size)}
+                src={verticalSize(coverVerticalUrl, size)}
                 effect='opacity'
             />
         </>

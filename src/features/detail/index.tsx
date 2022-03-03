@@ -9,7 +9,7 @@ import Introduce from './components';
 import { RecommendContentVO } from 'models/loklok';
 import WatchsPage from 'features/watchs';
 import { Link } from 'react-router-dom';
-import { resizeImage } from 'utils/resizeImage';
+import { verticalSize } from 'utils/resizeImage';
 
 function Detail() {
     const dispatch = useAppDispatch();
@@ -55,7 +55,7 @@ function Detail() {
                                             >
                                                 <img
                                                     alt={film.title}
-                                                    src={resizeImage(film.imageUrl, '200')}
+                                                    src={verticalSize(film.imageUrl, 300)}
                                                 />
                                                 <div className={styles.name}>{film.title}</div>
                                             </Link>

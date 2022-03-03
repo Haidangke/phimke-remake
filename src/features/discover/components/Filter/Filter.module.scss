@@ -3,8 +3,13 @@
     display: flex;
 }
 
+.wrapLoading {
+    height: 32px;
+    margin-bottom: 5px;
+}
+
 .itemLoading {
-    height: 36px;
+    height: 100%;
     width: 120px !important;
     margin-right: 10px;
 }

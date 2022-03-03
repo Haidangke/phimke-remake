@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import styles from './ListFilm.module.scss';
 import { RecommendContentVO } from 'models/loklok';
-import { resizeImage } from 'utils/resizeImage';
+import { verticalSize } from 'utils/resizeImage';
 
 interface ItemFilmProps {
     item: RecommendContentVO;
@@ -16,9 +16,10 @@ function ItemFilm({ item }: ItemFilmProps) {
                 <LazyLoadImage
                     className={styles.image}
                     alt={item.title}
-                    src={resizeImage(item.imageUrl, '200')}
+                    src={verticalSize(item.imageUrl, 300)}
                     effect='opacity'
                 />
+
                 <div className={styles.dramaType}>{item.contentType}</div>
             </div>
             <div className={styles.bottom}>

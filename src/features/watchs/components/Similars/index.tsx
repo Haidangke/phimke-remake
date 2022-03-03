@@ -2,7 +2,7 @@ import styles from './Similars.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import { RefList } from 'models/loklok';
-import { resizeImage } from 'utils/resizeImage';
+import { verticalSize } from 'utils/resizeImage';
 
 interface SimilarsProps {
     isLoading: boolean;
@@ -39,7 +39,7 @@ function Similars({ data, isLoading }: SimilarsProps) {
                                   key={film.id}
                                   className={styles.item}
                               >
-                                  <img alt={film.name} src={resizeImage(film.coverVerticalUrl, '200')} />
+                                  <img alt={film.name} src={verticalSize(film.coverVerticalUrl, 300)} />
                                   <div className={styles.info}>
                                       {parseInt(category as string) === 1 ? 'Mùa' : 'Phần'}: {film.seriesNo}
                                   </div>

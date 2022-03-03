@@ -1,6 +1,7 @@
 @use 'styles/' as *;
 .root {
-    max-width: 1320px;
+    max-width: 1400px;
+    padding: 0 40px;
     margin: 0 auto;
     padding-top: 20px;
     min-height: calc(100% - 64px);
@@ -13,6 +14,24 @@
     margin: 0 auto;
     font-size: 1.8rem;
     color: black;
+}
+
+.filter {
+    color: black;
+    margin-top: 20px;
+    margin-bottom: -4px;
+    font-size: 1.6rem;
+    & > .filterNum {
+        background-color: #e7ebed;
+        padding: 2px 24px;
+        font-size: 1.6rem;
+        margin-left: 8px;
+        border-radius: 2px;
+    }
+    & > .filterNumActive {
+        background-color: #3e8afa;
+        color: white;
+    }
 }
 
 @include tablet {

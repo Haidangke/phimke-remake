@@ -10,7 +10,7 @@ import useScroll from 'hooks/useScroll';
 import { fetchSearch, fetchSearchSuccess, setIsSearch } from 'features/search/searchSlice';
 
 import styles from './SearchHeader.module.scss';
-import { resizeImage } from 'utils/resizeImage';
+import { verticalSize } from 'utils/resizeImage';
 import { SearchWithKeyword } from 'models/search';
 
 function SearchHeader() {
@@ -97,7 +97,7 @@ function SearchHeader() {
                                     >
                                         <div className={styles.image}>
                                             <img
-                                                src={resizeImage(film?.coverVerticalUrl, '100')}
+                                                src={verticalSize(film.coverVerticalUrl, 150)}
                                                 alt={film?.name}
                                             />
                                         </div>

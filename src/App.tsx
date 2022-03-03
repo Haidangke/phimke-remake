@@ -9,6 +9,7 @@ import DiscoverPage from 'features/discover';
 import DetailPage from 'features/detail';
 import SearchPage from 'features/search';
 import LoginPage from 'features/auth/page/Login';
+import HistoryPage from 'features/history';
 import './App.scss';
 import 'react-lazy-load-image-component/src/effects/opacity.css';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -29,6 +30,7 @@ function App() {
                                 <Route path='/discover/:id' element={<DiscoverPage />} />
                                 <Route path='/:category/:id/*' element={<DetailPage />} />
                                 <Route path='/search/:keyword' element={<SearchPage />} />
+                                <Route path='/history' element={<HistoryPage />} />
                                 <Route path='*' element={<NotFoundPage />} />
                             </Routes>
                             <Footer />

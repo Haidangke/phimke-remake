@@ -49,7 +49,7 @@ function Search() {
                         <Link key={film.id} className={styles.item} to={`/${film.domainType}/${film.id}`}>
                             <ImageLazyLoad
                                 coverVerticalUrl={film.coverVerticalUrl}
-                                size='200'
+                                size={300}
                                 name={film.name}
                             />
                             <div className={styles.name}>{film.name}</div>

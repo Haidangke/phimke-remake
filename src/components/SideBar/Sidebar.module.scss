@@ -1,5 +1,14 @@
 @use 'styles/' as *;
-
+.overplay {
+    z-index: 9998;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: $transition-base;
+}
 .root {
     position: fixed;
     left: 0;
