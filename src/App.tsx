@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import Header from 'components/Header';
-import Footer from 'components/Footer';
 import NotFoundPage from 'components/NotFound';
 import HomePage from 'features/browse';
 import DiscoverPage from 'features/discover';
@@ -33,7 +32,6 @@ function App() {
                                 <Route path='/history' element={<HistoryPage />} />
                                 <Route path='*' element={<NotFoundPage />} />
                             </Routes>
-                            <Footer />
                         </div>
                     }
                 />

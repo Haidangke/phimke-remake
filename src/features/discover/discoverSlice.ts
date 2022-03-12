@@ -20,13 +20,14 @@ interface InitialState {
 const initialState: InitialState = {
     movie: {
         filter: {
-            size: 50,
+            size: 36,
             params: 'MOVIE,TVSPECIAL',
             area: '',
             category: '',
             year: '',
             subtitles: '',
             order: 'count',
+            sort: '',
         },
         data: [],
         isLoading: false,
@@ -36,13 +37,14 @@ const initialState: InitialState = {
     },
     tv: {
         filter: {
-            size: 50,
+            size: 36,
             params: 'TV,SETI,MINISERIES,VARIETY,TALK,COMIC,DOCUMENTARY',
             area: '',
             category: '',
             year: '',
             subtitles: '',
             order: 'count',
+            sort: '',
         },
         data: [],
         isLoading: false,
@@ -52,13 +54,14 @@ const initialState: InitialState = {
     },
     anime: {
         filter: {
-            size: 50,
+            size: 36,
             params: 'COMIC',
             area: '',
             category: '',
             year: '',
             subtitles: '',
             order: 'count',
+            sort: '',
         },
         data: [],
         isLoading: false,

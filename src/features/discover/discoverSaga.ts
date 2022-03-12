@@ -19,27 +19,19 @@ import {
 
 function* fetchMovie(action: PayloadAction<AdvancedSearchParams>) {
     const params = action.payload;
-    const size = params.size;
     try {
         const response: AdvancedSearch = yield call(searchApi.advancedSearch, params);
         const response2: AdvancedSearch = yield call(searchApi.advancedSearch, {
             ...params,
-            size: params.size + 25,
+            sort: response.searchResults.slice(-1).pop()?.sort || '',
         });
-        if (!Boolean(response2.searchResults.length === params.size + 25)) {
+        if (response2.searchResults.length === 0) {
             yield put(setHasMoreMovie());
         }
-        if (size === 50) {
-            yield put(setMovie(response.searchResults));
+        if (params.sort) {
+            yield put(fetchMovieSuccess(response.searchResults));
         } else {
-            yield put(
-                fetchMovieSuccess(
-                    response.searchResults.slice(
-                        response.searchResults.length - 25,
-                        response.searchResults.length
-                    )
-                )
-            );
+            yield put(setMovie(response.searchResults));
         }
     } catch (error) {
         yield put(fetchMovieFailed());
@@ -48,27 +40,19 @@ function* fetchMovie(action: PayloadAction<AdvancedSearchParams>) {
 
 function* fetchTv(action: PayloadAction<AdvancedSearchParams>) {
     const params = action.payload;
-    const size = params.size;
     try {
         const response: AdvancedSearch = yield call(searchApi.advancedSearch, params);
         const response2: AdvancedSearch = yield call(searchApi.advancedSearch, {
             ...params,
-            size: params.size + 25,
+            sort: response.searchResults.slice(-1).pop()?.sort || '',
         });
-        if (!Boolean(response2.searchResults.length === params.size + 25)) {
+        if (response2.searchResults.length === 0) {
             yield put(setHasMoreTv());
         }
-        if (size === 50) {
-            yield put(setTv(response.searchResults));
+        if (params.sort) {
+            yield put(fetchTvSuccess(response.searchResults));
         } else {
-            yield put(
-                fetchTvSuccess(
-                    response.searchResults.slice(
-                        response.searchResults.length - 25,
-                        response.searchResults.length
-                    )
-                )
-            );
+            yield put(setTv(response.searchResults));
         }
     } catch (error) {
         yield put(fetchTvFailed());
@@ -77,27 +61,19 @@ function* fetchTv(action: PayloadAction<AdvancedSearchParams>) {
 
 function* fetchAnime(action: PayloadAction<AdvancedSearchParams>) {
     const params = action.payload;
-    const size = params.size;
     try {
         const response: AdvancedSearch = yield call(searchApi.advancedSearch, params);
         const response2: AdvancedSearch = yield call(searchApi.advancedSearch, {
             ...params,
-            size: params.size + 25,
+            sort: response.searchResults.slice(-1).pop()?.sort || '',
         });
-        if (!Boolean(response2.searchResults.length === params.size + 25)) {
+        if (response2.searchResults.length === 0) {
             yield put(setHasMoreAnime());
         }
-        if (size === 50) {
-            yield put(setAnime(response.searchResults));
+        if (params.sort) {
+            yield put(fetchAnimeSuccess(response.searchResults));
         } else {
-            yield put(
-                fetchAnimeSuccess(
-                    response.searchResults.slice(
-                        response.searchResults.length - 25,
-                        response.searchResults.length
-                    )
-                )
-            );
+            yield put(setAnime(response.searchResults));
         }
     } catch (error) {
         yield put(fetchAnimeFailed());

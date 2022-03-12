@@ -29,6 +29,7 @@ function Watchs() {
                     year: `${detail.year - 6},${detail.year}`,
                     subtitles: '',
                     order: 'up',
+                    sort: '',
                 });
                 setSimilars(response);
             }

@@ -26,12 +26,12 @@ function ItemFilter({ filter, id }: ItemFilterProps) {
             id === 1
                 ? setFilterMovie({
                       ...filterMovie,
-                      size: 50,
+                      sort: '',
                       [`${screeningType}`]: params,
                   })
                 : id === 2
-                ? setFilterTv({ ...filterTv, size: 50, [`${screeningType}`]: params })
-                : setFilterAnime({ ...filterAnime, size: 50, [`${screeningType}`]: params })
+                ? setFilterTv({ ...filterTv, sort: '', [`${screeningType}`]: params })
+                : setFilterAnime({ ...filterAnime, sort: '', [`${screeningType}`]: params })
         );
     };
 

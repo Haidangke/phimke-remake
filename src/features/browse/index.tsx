@@ -28,28 +28,26 @@ function Browse() {
         <div className={styles.root}>
             <div className={styles.wrapper}>
                 <Banner />
-                <div className={styles.main}>
-                    <InfiniteScroll
-                        dataLength={browse?.length || 0}
-                        next={fetchMoreData}
-                        hasMore={hasMore}
-                        loader={<ListFilmLoading />}
-                    >
-                        {browse.length === 0 ? (
-                            <ListFilmLoading />
-                        ) : (
-                            browse
-                                .filter((x) => x.homeSectionId !== 81012 && x.homeSectionId !== 80404)
-                                .map((listFilm, index) => (
-                                    <ListFilm
-                                        key={index}
-                                        data={listFilm?.recommendContentVOList}
-                                        title={listFilm?.homeSectionName}
-                                    />
-                                ))
-                        )}
-                    </InfiniteScroll>
-                </div>
+                <InfiniteScroll
+                    dataLength={browse?.length || 0}
+                    next={fetchMoreData}
+                    hasMore={hasMore}
+                    loader={<ListFilmLoading />}
+                >
+                    {browse.length === 0 ? (
+                        <ListFilmLoading />
+                    ) : (
+                        browse
+                            .filter((x) => x.homeSectionId !== 81012 && x.homeSectionId !== 80404)
+                            .map((listFilm, index) => (
+                                <ListFilm
+                                    key={index}
+                                    data={listFilm?.recommendContentVOList}
+                                    title={listFilm?.homeSectionName}
+                                />
+                            ))
+                    )}
+                </InfiniteScroll>
             </div>
         </div>
     );

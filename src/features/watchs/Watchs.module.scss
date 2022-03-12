@@ -17,6 +17,7 @@
     min-height: calc(100vh - 64px - 100vw * 0.5625);
 }
 .name {
+    @include text-overflow(1);
     padding: 0 40px;
     height: 40px;
     line-height: 40px;
@@ -37,7 +38,6 @@
 .titleSimilar {
     font-size: 1.94rem;
     color: $blackColor;
-    text-transform: capitalize;
     margin-bottom: -6px;
     padding-top: 4px;
     line-height: 1;

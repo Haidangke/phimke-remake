@@ -85,5 +85,6 @@ export interface AdvancedSearchParams {
     year: string;
     subtitles: string;
     order: string;
+    sort: string;
     [key: string]: any;
 }

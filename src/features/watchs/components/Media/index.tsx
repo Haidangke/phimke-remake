@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import clsx from 'clsx';
 import ReactLoading from 'react-loading';
@@ -16,6 +16,7 @@ function Media() {
     const { media, isLoading, isError } = useAppSelector((state) => state.watchs);
 
     const [searchParams, setSearchParams] = useSearchParams();
+    const [definition, setDefinition] = useState('');
     const episode = parseInt(searchParams.get('episode') || '0') || 0;
 
     const cdtEpisode = useCallback(
@@ -25,6 +26,10 @@ function Media() {
     );
 
     useEffect(() => {
+        setDefinition('');
+    }, [episode]);
+
+    useEffect(() => {
         if ((detail.episodeVo, detail.id)) {
             if (!cdtEpisode(episode)) {
                 setSearchParams({ episode: '0' });
@@ -32,13 +37,13 @@ function Media() {
             dispatch(
                 fetchData({
                     category,
-                    definition: 'GROOT_HD',
+                    definition: definition || detail.episodeVo[episode]?.definitionList[0].code,
                     contentId: detail.id,
                     episodeId: detail.episodeVo[episode]?.id,
                 })
             );
         }
-    }, [category, episode, detail.episodeVo, detail.id, dispatch, setSearchParams, cdtEpisode]);
+    }, [category, episode, detail.episodeVo, detail.id, dispatch, setSearchParams, cdtEpisode, definition]);
 
     const subs =
         detail?.episodeVo?.length > 0 && cdtEpisode(episode)
@@ -66,6 +71,24 @@ function Media() {
             ) : (
                 <Player url={media.mediaUrl} subs={subs} indexSub={indexSub} />
             )}
+
+            <div className={styles.clickError}>
+                Chú ý: Nếu phim không xem được hoặc thời gian load trên 15s, vui lòng nhấn
+                <span
+                    onClick={() =>
+                        dispatch(
+                            fetchData({
+                                category,
+                                definition: definition || detail.episodeVo[episode]?.definitionList[0].code,
+                                contentId: detail.id,
+                                episodeId: detail.episodeVo[episode]?.id,
+                            })
+                        )
+                    }
+                >
+                    Vào đây
+                </span>
+            </div>
 
             {detail.category === 1 &&
                 detail.id &&

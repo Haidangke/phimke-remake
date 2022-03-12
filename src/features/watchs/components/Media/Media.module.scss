@@ -19,6 +19,17 @@
     transform: translate(-50%, -50%);
 }
 
+.clickError {
+    font-size: 1.6rem;
+    color: $blackColor;
+    margin: -10px 0 10px;
+    & > span {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-left: 6px;
+    }
+}
+
 .titleEpisode {
     color: $blackColor;
     font-size: 2rem;
@@ -93,5 +104,12 @@
     .player {
         width: 100vw;
         height: 56.25vw;
+    }
+    .titleEpisode {
+        font-size: 1.8rem;
+    }
+    .clickError {
+        padding: 0 20px;
+        margin: -5px 0 20px;
     }
 }
