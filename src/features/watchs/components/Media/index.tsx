@@ -72,7 +72,7 @@ function Media() {
                 <Player url={media.mediaUrl} subs={subs} indexSub={indexSub} />
             )}
 
-            <div className={styles.clickError}>
+            {/* <div className={styles.clickError}>
                 Chú ý: Nếu phim không xem được hoặc thời gian load trên 15s, vui lòng nhấn
                 <span
                     onClick={() =>
@@ -88,7 +88,7 @@ function Media() {
                 >
                     Vào đây
                 </span>
-            </div>
+            </div> */}
 
             {detail.category === 1 &&
                 detail.id &&

@@ -20,4 +20,8 @@ export const navigate: Navigate[] = [
         path: '/discover/3',
         name: 'Anime',
     },
+    {
+        path: '/history',
+        name: 'Lịch sử xem',
+    },
 ];

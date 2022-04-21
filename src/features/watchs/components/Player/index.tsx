@@ -31,7 +31,7 @@ function Player({ url, subs, indexSub }: PLayerProps) {
                     controls
                     autoPlay={false}
                     playerRef={videoRef}
-                    src={url}
+                    src={'https://ezexpress.tk/' + url}
                     onLoadedData={() => {
                         setLoadedData(true);
                         const currentTime = Number(
@@ -49,7 +49,7 @@ function Player({ url, subs, indexSub }: PLayerProps) {
                     {loadedData &&
                         subs.map((sub, index) => (
                             <track
-                                key={sub.src}
+                                key={index}
                                 kind='subtitles'
                                 srcLang={sub.srcLang}
                                 label={sub.label}

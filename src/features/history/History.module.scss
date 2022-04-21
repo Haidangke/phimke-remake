@@ -1,0 +1,40 @@
+@use 'styles/' as *;
+.root {
+    max-width: 1400px;
+    padding: 0 40px;
+    margin: 0 auto;
+    padding-top: 10px;
+    min-height: calc(100% - 64px);
+}
+
+.error {
+    color: $blackColor;
+    font-size: 1.84rem;
+    line-height: 1.4;
+    font-weight: 500;
+    & > span {
+        font-weight: 600;
+        font-size: 1.84rem;
+    }
+}
+
+.title {
+    color: $blackColor;
+    font-size: 1.92rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    
+}
+
+@include mobile-tablet {
+    .root {
+        padding: 10px 20px 0 20px;
+    }
+}
+
+@include mobile {
+    .keyword {
+        padding-top: 10px;
+    }
+}
+

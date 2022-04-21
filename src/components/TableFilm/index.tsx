@@ -27,7 +27,8 @@ function TableFilm({ data, newPage }: TableFilmProps) {
                             key={index}
                             className={styles.item}
                             onClick={() =>
-                                window.open(`https://phimke.site/${film.domainType}/${film.id}`, '_blank')
+                                // window.open(`https://phimke.site/${film.domainType}/${film.id}`, '_blank')
+                                window.open(`/${film.domainType}/${film.id}`, '_blank')
                             }
                         >
                             <ImageLazyLoad

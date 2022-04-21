@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import { IoClose } from 'react-icons/io5';
@@ -12,6 +12,7 @@ import { fetchSearch, fetchSearchSuccess, setIsSearch } from 'features/search/se
 import styles from './SearchHeader.module.scss';
 import { verticalSize } from 'utils/resizeImage';
 import { SearchWithKeyword } from 'models/search';
+import HistorySearch from './History';
 
 function SearchHeader() {
     const dispatch = useAppDispatch();
@@ -20,6 +21,10 @@ function SearchHeader() {
     const inputRef = useRef<HTMLInputElement>(null);
     const { listWithKeyword, query, isLoading, isSearch, isFetched } = useAppSelector(
         (state) => state.search
+    );
+
+    const [localCache, setLocalCache] = useState<string[]>(
+        JSON.parse(localStorage.getItem('search_history') as string) || []
     );
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +36,26 @@ function SearchHeader() {
         if (query) {
             navigate(`search/${query}`);
             dispatch(setIsSearch(false));
+
+            const localData: string[] = JSON.parse(localStorage.getItem('search_history') as string) || [];
+            if (localData.some((x) => x === query)) {
+                localData.splice(localData.indexOf(query), 1);
+            }
+            if (localData.length === 10) {
+                localData.pop();
+            }
+            localData.unshift(query);
+            setLocalCache(localData);
+            localStorage.setItem('search_history', JSON.stringify(localData));
         }
+    };
+
+    const handleRemoveHistory = (query: string) => {
+        const newLocalData = [...localCache];
+        newLocalData.splice(localCache.indexOf(query), 1);
+        setLocalCache(newLocalData);
+
+        localStorage.setItem('search_history', JSON.stringify(newLocalData));
     };
 
     const handleKeyDown = (e: any) => {
@@ -73,14 +97,18 @@ function SearchHeader() {
                     {isLoading ? (
                         <ReactLoading type='spin' color='rgba(0, 0, 0, 0.2)' height='20px' width='20px' />
                     ) : (
-                        <IoClose onClick={handleClearKeyword} />
+                        query && <IoClose onClick={handleClearKeyword} />
                     )}
                 </div>
             </div>
             {!query ? (
-                <div className={styles.wrapper}>
-                    <div className={styles.notQuery}>Vui lòng nhập từ khóa để tìm kiếm !</div>
-                </div>
+                localCache.length === 0 ? (
+                    <div className={styles.wrapper}>
+                        <div className={styles.notQuery}>Vui lòng nhập từ khóa để tìm kiếm !</div>
+                    </div>
+                ) : (
+                    <HistorySearch history={localCache} onRemove={handleRemoveHistory} />
+                )
             ) : (
                 <div className={styles.wrapper}>
                     {listWithKeyword?.searchResults?.length === 0 && isFetched && (

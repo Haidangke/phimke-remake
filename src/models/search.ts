@@ -70,7 +70,7 @@ export interface SearchResults {
     domainType: number;
     id: string;
     name: string;
-    sort: string;
+    sort?: string;
 }
 
 export interface AdvancedSearch {

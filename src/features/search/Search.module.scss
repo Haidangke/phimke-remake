@@ -1,7 +1,7 @@
 @use 'styles/' as *;
 .root {
     max-width: 1400px;
-    padding: 30px 40px;
+    padding: 10px 40px;
     margin: 0 auto;
     min-height: calc(100vh - 64px);
 }
@@ -74,13 +74,6 @@
 }
 
 @include mobile {
-    .error {
-        padding-top: 20px;
-    }
-    .keyword {
-        padding-top: 10px;
-    }
-
     .item {
         flex-basis: calc(100% / 3 - 20px / 3);
         width: calc(100% / 3 - 20px / 3);
@@ -116,5 +109,11 @@
 @include mobile-tablet {
     .root {
         padding: 0 20px;
+    }
+    .keyword {
+        padding-top: 10px;
+    }
+    .error {
+        padding-top: 10px;
     }
 }

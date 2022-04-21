@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
 import { GoPrimitiveDot } from 'react-icons/go';
 
@@ -9,6 +9,7 @@ import { useAppSelector } from 'app/hooks';
 import { verticalSize, horizontalSize } from 'utils/resizeImage';
 import useResize from 'hooks/useResize';
 import { dramaTypes } from 'config/dramaType';
+import { SearchResults } from 'models/search';
 
 function Introduce() {
     const { pathname } = useLocation();
@@ -22,6 +23,27 @@ function Introduce() {
             navigate(duplicate[0].page);
         }
     };
+
+    const handleAddHistory = () => {
+        const data: SearchResults = {
+            coverVerticalUrl: detail.coverVerticalUrl,
+            domainType: detail.category,
+            id: detail.id.toString(),
+            name: detail.name,
+        };
+
+        const localData: SearchResults[] = JSON.parse(localStorage.getItem('history') as string) || [];
+
+        if (!localData?.map((x) => x.id).some((x) => x === data.id)) {
+            if (localData.length === 100) {
+                localData.pop();
+            }
+            localData.unshift(data);
+            localStorage.setItem('history', JSON.stringify(localData));
+        }
+        navigate(`${pathname}/watchs`);
+    };
+
     return (
         <div className={styles.root}>
             <div className={styles.mobile}>
@@ -113,9 +135,9 @@ function Introduce() {
                                 />
                             </div>
                             <div className={styles.textScore}>User Score</div>
-                            <Link to={`${pathname}/watchs`} className={styles.watchs}>
+                            <div onClick={handleAddHistory} className={styles.watchs}>
                                 Xem phim
-                            </Link>
+                            </div>
                         </div>
                         <div className={styles.main}>
                             <div className={styles.description}>

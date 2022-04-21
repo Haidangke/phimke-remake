@@ -1,0 +1,47 @@
+@use 'styles/' as *;
+.root {
+    width: 100%;
+}
+.list {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+.item {
+    position: relative;
+    @include flex(unset, center);
+    padding: 10px 0;
+}
+.icon,
+.cancel {
+    & > svg {
+        @include flex(center, center);
+        color: rgba(0, 0, 0, 0.7);
+        font-size: 2.2rem;
+    }
+}
+.name {
+    color: $blackColor;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 0 10px;
+}
+.name:hover {
+    text-decoration: underline;
+}
+.cancel {
+    position: absolute;
+    right: 0;
+}
+
+@include mobile-tablet {
+    .list {
+        padding: 0 20px;
+    }
+    .icon,
+    .cancel {
+        & > svg {
+            font-size: 1.8rem;
+        }
+    }
+}
