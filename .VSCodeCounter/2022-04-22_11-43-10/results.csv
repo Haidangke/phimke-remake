@@ -1,0 +1,126 @@
+"filename", "language", "JSON with Comments", "TypeScript", "JSON", "TypeScript React", "SCSS", "HTML", "comment", "blank", "total"
+"c:\products\phimke-remake\.prettierrc", "JSON", 0, 0, 19, 0, 0, 0, 0, 0, 19
+"c:\products\phimke-remake\firebase.json", "JSON", 0, 0, 7, 0, 0, 0, 10, 0, 17
+"c:\products\phimke-remake\package.json", "JSON", 0, 0, 72, 0, 0, 0, 0, 1, 73
+"c:\products\phimke-remake\public\index.html", "HTML", 0, 0, 0, 0, 0, 37, 0, 4, 41
+"c:\products\phimke-remake\public\manifest.json", "JSON", 0, 0, 25, 0, 0, 0, 0, 1, 26
+"c:\products\phimke-remake\src\App.scss", "SCSS", 0, 0, 0, 0, 69, 0, 0, 15, 84
+"c:\products\phimke-remake\src\App.test.tsx", "TypeScript React", 0, 0, 0, 13, 0, 0, 0, 3, 16
+"c:\products\phimke-remake\src\App.tsx", "TypeScript React", 0, 0, 0, 28, 0, 0, 14, 2, 44
+"c:\products\phimke-remake\src\Firebase\config.ts", "TypeScript", 0, 18, 0, 0, 0, 0, 0, 4, 22
+"c:\products\phimke-remake\src\apis\cmtApi.ts", "TypeScript", 0, 26, 0, 0, 0, 0, 0, 5, 31
+"c:\products\phimke-remake\src\apis\loklokApi.ts", "TypeScript", 0, 21, 0, 0, 0, 0, 0, 4, 25
+"c:\products\phimke-remake\src\apis\loklokClient.ts", "TypeScript", 0, 21, 0, 0, 0, 0, 0, 5, 26
+"c:\products\phimke-remake\src\apis\searchApi.ts", "TypeScript", 0, 57, 0, 0, 0, 0, 0, 3, 60
+"c:\products\phimke-remake\src\app\hooks.ts", "TypeScript", 0, 4, 0, 0, 0, 0, 0, 2, 6
+"c:\products\phimke-remake\src\app\rootSaga.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 2, 11
+"c:\products\phimke-remake\src\app\store.ts", "TypeScript", 0, 26, 0, 0, 0, 0, 0, 6, 32
+"c:\products\phimke-remake\src\components\Header\Header.module.scss", "SCSS", 0, 0, 0, 0, 127, 0, 0, 13, 140
+"c:\products\phimke-remake\src\components\Header\index.tsx", "TypeScript React", 0, 0, 0, 82, 0, 0, 0, 9, 91
+"c:\products\phimke-remake\src\components\ImageLazyLoad\ImageLazyLoad.module.scss", "SCSS", 0, 0, 0, 0, 16, 0, 0, 2, 18
+"c:\products\phimke-remake\src\components\ImageLazyLoad\index.tsx", "TypeScript React", 0, 0, 0, 23, 0, 0, 0, 4, 27
+"c:\products\phimke-remake\src\components\ImageLoading\Image.module.scss", "SCSS", 0, 0, 0, 0, 26, 0, 0, 2, 28
+"c:\products\phimke-remake\src\components\ImageLoading\index.tsx", "TypeScript React", 0, 0, 0, 35, 0, 0, 0, 6, 41
+"c:\products\phimke-remake\src\components\ListFilm\ItemFilm.tsx", "TypeScript React", 0, 0, 0, 28, 0, 0, 0, 5, 33
+"c:\products\phimke-remake\src\components\ListFilm\ListFilm.module.scss", "SCSS", 0, 0, 0, 0, 146, 0, 0, 16, 162
+"c:\products\phimke-remake\src\components\ListFilm\ListFilmLoading.tsx", "TypeScript React", 0, 0, 0, 32, 0, 0, 0, 3, 35
+"c:\products\phimke-remake\src\components\ListFilm\index.tsx", "TypeScript React", 0, 0, 0, 23, 0, 0, 0, 6, 29
+"c:\products\phimke-remake\src\components\Loading\Loading.module.scss", "SCSS", 0, 0, 0, 0, 5, 0, 0, 1, 6
+"c:\products\phimke-remake\src\components\Loading\Loading.tsx", "TypeScript React", 0, 0, 0, 21, 0, 0, 0, 3, 24
+"c:\products\phimke-remake\src\components\NotFound\NotFound.module.scss", "SCSS", 0, 0, 0, 0, 11, 0, 0, 2, 13
+"c:\products\phimke-remake\src\components\NotFound\index.tsx", "TypeScript React", 0, 0, 0, 10, 0, 0, 0, 3, 13
+"c:\products\phimke-remake\src\components\Score\Score.module.scss", "SCSS", 0, 0, 0, 0, 20, 0, 0, 2, 22
+"c:\products\phimke-remake\src\components\Score\index.tsx", "TypeScript React", 0, 0, 0, 54, 0, 0, 0, 4, 58
+"c:\products\phimke-remake\src\components\ScrollToTop\index.tsx", "TypeScript React", 0, 0, 0, 9, 0, 0, 0, 4, 13
+"c:\products\phimke-remake\src\components\SideBar\Sidebar.module.scss", "SCSS", 0, 0, 0, 0, 72, 0, 0, 7, 79
+"c:\products\phimke-remake\src\components\SideBar\index.tsx", "TypeScript React", 0, 0, 0, 69, 0, 0, 0, 8, 77
+"c:\products\phimke-remake\src\components\TableFilm\TableFilm.module.scss", "SCSS", 0, 0, 0, 0, 88, 0, 0, 14, 102
+"c:\products\phimke-remake\src\components\TableFilm\TableFilmLoading.tsx", "TypeScript React", 0, 0, 0, 32, 0, 0, 0, 3, 35
+"c:\products\phimke-remake\src\components\TableFilm\index.tsx", "TypeScript React", 0, 0, 0, 49, 0, 0, 0, 4, 53
+"c:\products\phimke-remake\src\config\dramaType.ts", "TypeScript", 0, 18, 0, 0, 0, 0, 0, 2, 20
+"c:\products\phimke-remake\src\config\navigate.ts", "TypeScript", 0, 26, 0, 0, 0, 0, 0, 2, 28
+"c:\products\phimke-remake\src\features\auth\Auth.module.scss", "SCSS", 0, 0, 0, 0, 24, 0, 0, 5, 29
+"c:\products\phimke-remake\src\features\auth\authSlice.ts", "TypeScript", 0, 37, 0, 0, 0, 0, 0, 6, 43
+"c:\products\phimke-remake\src\features\auth\components\Popover.module.scss", "SCSS", 0, 0, 0, 0, 50, 0, 0, 7, 57
+"c:\products\phimke-remake\src\features\auth\components\Popover.tsx", "TypeScript React", 0, 0, 0, 27, 0, 0, 0, 6, 33
+"c:\products\phimke-remake\src\features\auth\index.tsx", "TypeScript React", 0, 0, 0, 57, 0, 0, 0, 8, 65
+"c:\products\phimke-remake\src\features\auth\page\Login.module.scss", "SCSS", 0, 0, 0, 0, 100, 0, 0, 16, 116
+"c:\products\phimke-remake\src\features\auth\page\Login.tsx", "TypeScript React", 0, 0, 0, 39, 0, 0, 0, 7, 46
+"c:\products\phimke-remake\src\features\banner\Banner.module.scss", "SCSS", 0, 0, 0, 0, 42, 0, 1, 9, 52
+"c:\products\phimke-remake\src\features\banner\Swiper.scss", "SCSS", 0, 0, 0, 0, 18, 0, 0, 2, 20
+"c:\products\phimke-remake\src\features\banner\index.tsx", "TypeScript React", 0, 0, 0, 52, 0, 0, 0, 6, 58
+"c:\products\phimke-remake\src\features\browse\Browse.module.scss", "SCSS", 0, 0, 0, 0, 79, 0, 0, 6, 85
+"c:\products\phimke-remake\src\features\browse\browseSaga.ts", "TypeScript", 0, 21, 0, 0, 0, 0, 0, 4, 25
+"c:\products\phimke-remake\src\features\browse\browseSlice.ts", "TypeScript", 0, 52, 0, 0, 0, 0, 0, 8, 60
+"c:\products\phimke-remake\src\features\browse\index.tsx", "TypeScript React", 0, 0, 0, 54, 0, 0, 0, 8, 62
+"c:\products\phimke-remake\src\features\comment\Comment.scss", "SCSS", 0, 0, 0, 0, 255, 0, 0, 14, 269
+"c:\products\phimke-remake\src\features\comment\components\Info\index.tsx", "TypeScript React", 0, 0, 0, 25, 0, 0, 0, 4, 29
+"c:\products\phimke-remake\src\features\comment\components\InputReply\index.tsx", "TypeScript React", 0, 0, 0, 85, 0, 0, 0, 12, 97
+"c:\products\phimke-remake\src\features\comment\components\Like\index.tsx", "TypeScript React", 0, 0, 0, 41, 0, 0, 0, 8, 49
+"c:\products\phimke-remake\src\features\comment\components\ListReply\index.tsx", "TypeScript React", 0, 0, 0, 77, 0, 0, 0, 8, 85
+"c:\products\phimke-remake\src\features\comment\components\User\User.module.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\products\phimke-remake\src\features\comment\components\User\index.tsx", "TypeScript React", 0, 0, 0, 66, 0, 0, 0, 7, 73
+"c:\products\phimke-remake\src\features\comment\index.tsx", "TypeScript React", 0, 0, 0, 111, 0, 0, 0, 17, 128
+"c:\products\phimke-remake\src\features\detail\Detail.module.scss", "SCSS", 0, 0, 0, 0, 111, 0, 0, 16, 127
+"c:\products\phimke-remake\src\features\detail\components\Introduce.module.scss", "SCSS", 0, 0, 0, 0, 404, 0, 0, 17, 421
+"c:\products\phimke-remake\src\features\detail\components\index.tsx", "TypeScript React", 0, 0, 0, 145, 0, 0, 0, 14, 159
+"c:\products\phimke-remake\src\features\detail\detailSaga.ts", "TypeScript", 0, 39, 0, 0, 0, 0, 0, 7, 46
+"c:\products\phimke-remake\src\features\detail\detailSlice.ts", "TypeScript", 0, 44, 0, 0, 0, 0, 0, 7, 51
+"c:\products\phimke-remake\src\features\detail\index.tsx", "TypeScript React", 0, 0, 0, 69, 0, 0, 0, 7, 76
+"c:\products\phimke-remake\src\features\discover\Discover.module.scss", "SCSS", 0, 0, 0, 0, 59, 0, 0, 11, 70
+"c:\products\phimke-remake\src\features\discover\components\Filter\Filter.module.scss", "SCSS", 0, 0, 0, 0, 31, 0, 0, 5, 36
+"c:\products\phimke-remake\src\features\discover\components\Filter\index.tsx", "TypeScript React", 0, 0, 0, 33, 0, 0, 0, 5, 38
+"c:\products\phimke-remake\src\features\discover\components\ItemFilter\ItemFilter.module.scss", "SCSS", 0, 0, 0, 0, 60, 0, 0, 4, 64
+"c:\products\phimke-remake\src\features\discover\components\ItemFilter\index.tsx", "TypeScript React", 0, 0, 0, 68, 0, 0, 0, 8, 76
+"c:\products\phimke-remake\src\features\discover\components\ScrollToTop\ScrollToTop.module.scss", "SCSS", 0, 0, 0, 0, 37, 0, 0, 7, 44
+"c:\products\phimke-remake\src\features\discover\components\ScrollToTop\index.tsx", "TypeScript React", 0, 0, 0, 21, 0, 0, 0, 2, 23
+"c:\products\phimke-remake\src\features\discover\discoverSaga.ts", "TypeScript", 0, 84, 0, 0, 0, 0, 0, 6, 90
+"c:\products\phimke-remake\src\features\discover\discoverSlice.ts", "TypeScript", 0, 195, 0, 0, 0, 0, 0, 8, 203
+"c:\products\phimke-remake\src\features\discover\index.tsx", "TypeScript React", 0, 0, 0, 71, 0, 0, 0, 10, 81
+"c:\products\phimke-remake\src\features\history\History.module.scss", "SCSS", 0, 0, 0, 0, 34, 0, 0, 7, 41
+"c:\products\phimke-remake\src\features\history\index.tsx", "TypeScript React", 0, 0, 0, 20, 0, 0, 0, 4, 24
+"c:\products\phimke-remake\src\features\search\Search.module.scss", "SCSS", 0, 0, 0, 0, 139, 0, 0, 12, 151
+"c:\products\phimke-remake\src\features\search\components\History\History.module.scss", "SCSS", 0, 0, 0, 0, 46, 0, 0, 2, 48
+"c:\products\phimke-remake\src\features\search\components\History\index.tsx", "TypeScript React", 0, 0, 0, 40, 0, 0, 0, 5, 45
+"c:\products\phimke-remake\src\features\search\components\SearchHeader.module.scss", "SCSS", 0, 0, 0, 0, 147, 0, 0, 8, 155
+"c:\products\phimke-remake\src\features\search\components\index.tsx", "TypeScript React", 0, 0, 0, 146, 0, 0, 0, 18, 164
+"c:\products\phimke-remake\src\features\search\index.tsx", "TypeScript React", 0, 0, 0, 64, 0, 0, 0, 9, 73
+"c:\products\phimke-remake\src\features\search\searchSaga.ts", "TypeScript", 0, 20, 0, 0, 0, 0, 0, 4, 24
+"c:\products\phimke-remake\src\features\search\searchSlice.ts", "TypeScript", 0, 51, 0, 0, 0, 0, 0, 5, 56
+"c:\products\phimke-remake\src\features\watchs\Watchs.module.scss", "SCSS", 0, 0, 0, 0, 86, 0, 0, 6, 92
+"c:\products\phimke-remake\src\features\watchs\components\Media\Media.module.scss", "SCSS", 0, 0, 0, 0, 116, 0, 0, 18, 134
+"c:\products\phimke-remake\src\features\watchs\components\Media\index.tsx", "TypeScript React", 0, 0, 0, 95, 0, 0, 0, 13, 108
+"c:\products\phimke-remake\src\features\watchs\components\Player\InputRange.scss", "SCSS", 0, 0, 0, 0, 16, 0, 0, 5, 21
+"c:\products\phimke-remake\src\features\watchs\components\Player\Player.module.scss", "SCSS", 0, 0, 0, 0, 226, 0, 0, 18, 244
+"c:\products\phimke-remake\src\features\watchs\components\Player\index.tsx", "TypeScript React", 0, 0, 0, 61, 0, 0, 0, 6, 67
+"c:\products\phimke-remake\src\features\watchs\components\Similars\Similars.module.scss", "SCSS", 0, 0, 0, 0, 54, 0, 0, 5, 59
+"c:\products\phimke-remake\src\features\watchs\components\Similars\index.tsx", "TypeScript React", 0, 0, 0, 48, 0, 0, 0, 6, 54
+"c:\products\phimke-remake\src\features\watchs\index.tsx", "TypeScript React", 0, 0, 0, 69, 0, 0, 0, 6, 75
+"c:\products\phimke-remake\src\features\watchs\watchsSaga.ts", "TypeScript", 0, 23, 0, 0, 0, 0, 0, 5, 28
+"c:\products\phimke-remake\src\features\watchs\watchsSlice.ts", "TypeScript", 0, 38, 0, 0, 0, 0, 0, 5, 43
+"c:\products\phimke-remake\src\hooks\useOnClickOutside.ts", "TypeScript", 0, 18, 0, 0, 0, 0, 0, 2, 20
+"c:\products\phimke-remake\src\hooks\useResize.ts", "TypeScript", 0, 23, 0, 0, 0, 0, 0, 6, 29
+"c:\products\phimke-remake\src\hooks\useScroll.ts", "TypeScript", 0, 25, 0, 0, 0, 0, 0, 5, 30
+"c:\products\phimke-remake\src\index.tsx", "TypeScript React", 0, 0, 0, 20, 0, 0, 0, 3, 23
+"c:\products\phimke-remake\src\models\comment.ts", "TypeScript", 0, 15, 0, 0, 0, 0, 0, 1, 16
+"c:\products\phimke-remake\src\models\common.ts", "TypeScript", 0, 173, 0, 0, 0, 0, 0, 21, 194
+"c:\products\phimke-remake\src\models\loklok.ts", "TypeScript", 0, 129, 0, 0, 0, 0, 0, 10, 139
+"c:\products\phimke-remake\src\models\search.ts", "TypeScript", 0, 81, 0, 0, 0, 0, 0, 10, 91
+"c:\products\phimke-remake\src\models\user.ts", "TypeScript", 0, 6, 0, 0, 0, 0, 0, 1, 7
+"c:\products\phimke-remake\src\react-app-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 1, 1, 2
+"c:\products\phimke-remake\src\serviceWorker.ts", "TypeScript", 0, 102, 0, 0, 0, 0, 31, 14, 147
+"c:\products\phimke-remake\src\setupTests.ts", "TypeScript", 0, 1, 0, 0, 0, 0, 4, 1, 6
+"c:\products\phimke-remake\src\styles\_animation.scss", "SCSS", 0, 0, 0, 0, 8, 0, 0, 1, 9
+"c:\products\phimke-remake\src\styles\_index.scss", "SCSS", 0, 0, 0, 0, 3, 0, 0, 1, 4
+"c:\products\phimke-remake\src\styles\_mixin.scss", "SCSS", 0, 0, 0, 0, 34, 0, 0, 6, 40
+"c:\products\phimke-remake\src\styles\_variables.scss", "SCSS", 0, 0, 0, 0, 14, 0, 0, 5, 19
+"c:\products\phimke-remake\src\utils\changeTitleFilter.ts", "TypeScript", 0, 7, 0, 0, 0, 0, 0, 1, 8
+"c:\products\phimke-remake\src\utils\convertSecondsToTime.ts", "TypeScript", 0, 21, 0, 0, 0, 0, 0, 2, 23
+"c:\products\phimke-remake\src\utils\convertTitle.ts", "TypeScript", 0, 6, 0, 0, 0, 0, 0, 1, 7
+"c:\products\phimke-remake\src\utils\formatTime.ts", "TypeScript", 0, 9, 0, 0, 0, 0, 0, 1, 10
+"c:\products\phimke-remake\src\utils\getBackground.ts", "TypeScript", 0, 13, 0, 0, 0, 0, 0, 3, 16
+"c:\products\phimke-remake\src\utils\getRunTime.ts", "TypeScript", 0, 11, 0, 0, 0, 0, 0, 1, 12
+"c:\products\phimke-remake\src\utils\history.ts", "TypeScript", 0, 3, 0, 0, 0, 0, 0, 1, 4
+"c:\products\phimke-remake\src\utils\resizeImage.ts", "TypeScript", 0, 7, 0, 0, 0, 0, 0, 2, 9
+"c:\products\phimke-remake\tsconfig.json", "JSON with Comments", 27, 0, 0, 0, 0, 0, 0, 1, 28
+"Total", "-", 27, 1480, 123, 2112, 2773, 37, 61, 753, 7366

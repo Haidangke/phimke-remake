@@ -35,12 +35,15 @@ function Introduce() {
         const localData: SearchResults[] = JSON.parse(localStorage.getItem('history') as string) || [];
 
         if (!localData?.map((x) => x.id).some((x) => x === data.id)) {
-            if (localData.length === 100) {
+            if (localData.length === 30) {
                 localData.pop();
             }
-            localData.unshift(data);
-            localStorage.setItem('history', JSON.stringify(localData));
+        } else {
+            const index = localData?.map((x) => x.id).indexOf(data.id);
+            localData.splice(index, 1);
         }
+        localData.unshift(data);
+        localStorage.setItem('history', JSON.stringify(localData));
         navigate(`${pathname}/watchs`);
     };
 

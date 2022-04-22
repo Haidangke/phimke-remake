@@ -21,18 +21,47 @@
 .item {
     flex-basis: calc(100% / 6 - 50px / 6);
     width: calc(100% / 6 - 50px / 6);
-    padding-bottom: calc((100% / 6 - 50px / 6) * 1.5 + 30px);
+    padding-bottom: calc((100% / 6 - 50px / 6) * 1.5 + 60px);
     position: relative;
     margin-right: 10px;
     margin-bottom: 10px;
 }
 .item > span > img {
-    height: calc(100% - 30px) !important;
+    height: calc(100% - 60px) !important;
+}
+
+.infoMore {
+    position: absolute;
+    height: 30px;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    z-index: 2;
+    color: black;
+    @include flex(space-between, unset);
+}
+
+.release {
+    font-size: 1.4rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.type {
+    height: fit-content;
+    text-transform: capitalize;
+    font-size: 1.24rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0px 3px;
+    border-radius: 2px;
+    font-weight: 500;
+    opacity: 0.8;
+    padding: 2px 8px;
 }
 
 .name {
     position: absolute;
-    bottom: 0;
+    bottom: 30px;
     width: 100%;
     height: 30px;
     color: $blackColor;
@@ -63,8 +92,10 @@
     top: 10px;
     color: black;
     text-transform: uppercase;
-    font-weight: 600;
-    padding: 3px 4px;
+    font-weight: 700;
+    padding: 1px 8px;
+    font-size: 1.2rem;
+    border-radius: 2px;
 }
 
 @include pc {
@@ -75,12 +106,12 @@
 
 @include mobile {
     .item {
-        flex-basis: calc(100% / 3 - 20px / 3);
-        width: calc(100% / 3 - 20px / 3);
-        padding-bottom: calc((100% / 3 - 20px / 3) * 1.5);
+        flex-basis: calc(100% / 2 - 10px / 2);
+        width: calc(100% / 2 - 10px / 2);
+        padding-bottom: calc((100% / 2 - 10px / 2) * 1.5 + 30px);
         position: relative;
     }
-    .item:nth-child(3n) {
+    .item:nth-child(2n) {
         margin-right: 0;
     }
     .dramaType {
@@ -96,7 +127,7 @@
     .item {
         flex-basis: calc(100% / 5 - 40px / 5);
         width: calc(100% / 5 - 40px / 5);
-        padding-bottom: calc((100% / 5 - 40px / 5) * 1.5);
+        padding-bottom: calc((100% / 5 - 40px / 5) * 1.5 + 30px);
         position: relative;
         margin-right: 10px;
         margin-bottom: 10px;

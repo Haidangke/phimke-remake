@@ -38,7 +38,12 @@ function Browse() {
                         <ListFilmLoading />
                     ) : (
                         browse
-                            .filter((x) => x.homeSectionId !== 81012 && x.homeSectionId !== 80404)
+                            .filter(
+                                (x) =>
+                                    x.homeSectionId !== 81012 &&
+                                    x.homeSectionId !== 80404 &&
+                                    x.homeSectionId !== 81164
+                            )
                             .map((listFilm, index) => (
                                 <ListFilm
                                     key={index}

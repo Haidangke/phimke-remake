@@ -18,6 +18,7 @@ import TableFilmLoading from 'components/TableFilm/TableFilmLoading';
 import Filter from './components/Filter';
 import NotFound from 'components/NotFound';
 import styles from './Discover.module.scss';
+import ScrollToTop from './components/ScrollToTop';
 
 function Discover() {
     const dispatch = useDispatch();
@@ -59,17 +60,17 @@ function Discover() {
     return (
         <div className={styles.root}>
             <Filter id={parseInt(id)} />
-
+            <ScrollToTop />
             {data.isLoading ? (
-                <TableFilmLoading mt={20} quantity={18} />
+                <TableFilmLoading mt={20} quantity={18} is2Mobile />
             ) : (
                 <InfiniteScroll
                     dataLength={data.data.length}
                     next={fetchMoreData}
                     hasMore={data.hasMore}
-                    loader={!isError ? <TableFilmLoading mt={0} quantity={12} /> : <></>}
+                    loader={!isError ? <TableFilmLoading mt={0} quantity={12} is2Mobile /> : <></>}
                 >
-                    <TableFilm data={data.data} newPage />
+                    <TableFilm data={data.data} newPage is2Mobile />
                 </InfiniteScroll>
             )}
         </div>

@@ -8,12 +8,13 @@ import styles from './Login.module.scss';
 import { auth } from 'Firebase/config';
 
 function Login() {
+    const pathname = localStorage.getItem('pathname');
     const navigate = useNavigate();
     const handleLoginWithEmail = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then(() => {
-                navigate('/');
+                navigate(pathname || '/');
             })
             .catch((error) => {
                 console.log(error);

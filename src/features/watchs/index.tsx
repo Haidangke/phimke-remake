@@ -10,11 +10,9 @@ import NotFound from 'components/NotFound';
 import { useEffect, useState } from 'react';
 import { AdvancedSearch } from 'models/search';
 import TableFilmLoading from 'components/TableFilm/TableFilmLoading';
-import useResize from 'hooks/useResize';
 import clsx from 'clsx';
 
 function Watchs() {
-    const { onPc } = useResize();
     const { detail, isLoading, isError } = useAppSelector((state) => state.detail);
     const [similars, setSimilars] = useState<AdvancedSearch>();
 
@@ -35,7 +33,6 @@ function Watchs() {
             }
         })();
     }, [detail.areaList, detail.drameTypeVo?.drameType, detail.id, detail.tagList, detail.year]);
-
     if (isError) return <NotFound />;
     return (
         <div className={clsx(styles.root)}>
@@ -50,21 +47,23 @@ function Watchs() {
             </div>
             <div className={styles.media}>{<Media />}</div>
             <div className={styles.main}>
-                <div className={styles.left}>{detail.id && onPc && <Comment filmId={detail.id} />}</div>
+                <div className={styles.left}>{detail.id && <Comment filmId={detail.id} />}</div>
                 <div className={styles.right}>
                     {detail?.refList?.length > 0 && <Similars data={detail?.refList} isLoading={isLoading} />}
 
                     {!similars?.searchResults ? (
                         <TableFilmLoading quantity={9} mt={20} />
                     ) : (
-                        <>
-                            <div className={styles.titleSimilar}>Các phim cùng thể loại</div>
-                            <TableFilm
-                                data={similars.searchResults
-                                    .filter((similar) => similar.id !== detail.id.toString())
-                                    .splice(0, 9)}
-                            />
-                        </>
+                        similars?.searchResults.length > 1 && (
+                            <>
+                                <div className={styles.titleSimilar}>Các phim cùng thể loại</div>
+                                <TableFilm
+                                    data={similars.searchResults
+                                        .filter((similar) => similar.id !== detail.id.toString())
+                                        .splice(0, 9)}
+                                />
+                            </>
+                        )
                     )}
                 </div>
             </div>

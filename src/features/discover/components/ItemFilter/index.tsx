@@ -5,6 +5,7 @@ import useOnClickOutside from 'hooks/useOnClickOutside';
 import { ScreeningItems } from 'models/search';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { changeTitleFilter } from 'utils/changeTitleFilter';
 import styles from './ItemFilter.module.scss';
 
 interface ItemFilterProps {
@@ -42,11 +43,13 @@ function ItemFilter({ filter, id }: ItemFilterProps) {
     return (
         <div className={styles.root} ref={ref}>
             <div onClick={() => setIsShow(!isShow)} className={styles.title}>
-                {filterData[`${filter.items[0].screeningType}`]
-                    ? filter.items.filter(
-                          (x) => x.params === filterData[`${filter.items[0].screeningType}`]
-                      )[0]?.name
-                    : filter.items[0].name}
+                {changeTitleFilter(
+                    filterData[`${filter.items[0].screeningType}`]
+                        ? filter.items.filter(
+                              (x) => x.params === filterData[`${filter.items[0].screeningType}`]
+                          )[0]?.name
+                        : filter.items[0].name
+                )}
             </div>
             {isShow && (
                 <div className={styles.list}>
@@ -60,7 +63,7 @@ function ItemFilter({ filter, id }: ItemFilterProps) {
                                     [styles.itemActive]: item.params === filterData[item.screeningType],
                                 })}
                             >
-                                {item.name}
+                                {changeTitleFilter(item.name)}
                             </div>
                         ))}
                 </div>

@@ -9,9 +9,12 @@ import CommentListReply from './components/ListReply';
 
 import './Comment.scss';
 import { useAppSelector } from 'app/hooks';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Comment({ filmId }: { filmId: any }) {
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const { isLoggedIn } = useAppSelector((state) => state.auth);
     const [totalComment, setTotalComment] = useState(0);
     const [isLoadComment, setIsLoadComment] = useState(false);
@@ -29,6 +32,11 @@ function Comment({ filmId }: { filmId: any }) {
 
         return unsubcribe;
     }, [filmId]);
+
+    const handleToLogin = () => {
+        localStorage.setItem('pathname', location.pathname);
+        navigate('/login');
+    };
 
     useEffect(() => {
         setListCommentFirst([]);
@@ -70,49 +78,48 @@ function Comment({ filmId }: { filmId: any }) {
         <div className='comment'>
             {!isLoggedIn && (
                 <div className='comment-plslog'>
-                    <Link to='/login' className='comment-plslog__link'>
+                    <span onClick={handleToLogin} className='comment-plslog__link'>
                         Đăng nhập
-                    </Link>
+                    </span>
                     <span> để bình luận !</span>
                 </div>
             )}
-            {isLoggedIn && (
-                <>
-                    <div className='comment-heading'>{totalComment} bình luận</div>
-                    {filmId && <CommentUser filmId={filmId} />}
-                    <div className='comment-main'>
-                        {listCommentFrist.slice(0, limitState).map((commentFirst: any) => (
-                            <div key={commentFirst.id} className='comment-group'>
-                                <div className='comment-item'>
-                                    <div className='comment-item__container'>
-                                        <img
-                                            className='comment-item__avatar'
-                                            src={commentFirst.photoURL}
-                                            alt='avatar'
-                                        />
-                                        <CommentInfo comment={commentFirst} />
-                                    </div>
-                                    <CommentInputReply
-                                        filmId={filmId}
-                                        comment={commentFirst}
-                                        commentFirst={commentFirst}
+
+            <>
+                <div className='comment-heading'>{totalComment} bình luận</div>
+                {isLoggedIn && filmId && <CommentUser filmId={filmId} />}
+                <div className='comment-main'>
+                    {listCommentFrist.slice(0, limitState).map((commentFirst: any) => (
+                        <div key={commentFirst.id} className='comment-group'>
+                            <div className='comment-item'>
+                                <div className='comment-item__container'>
+                                    <img
+                                        className='comment-item__avatar'
+                                        src={commentFirst.photoURL}
+                                        alt='avatar'
                                     />
+                                    <CommentInfo comment={commentFirst} />
                                 </div>
-                                <CommentListReply
+                                <CommentInputReply
                                     filmId={filmId}
                                     comment={commentFirst}
                                     commentFirst={commentFirst}
                                 />
                             </div>
-                        ))}
-                    </div>
-                    {isLoadComment && (
-                        <div className='comment-load' onClick={handleLoadAddCommment}>
-                            Tải thêm bình luận
+                            <CommentListReply
+                                filmId={filmId}
+                                comment={commentFirst}
+                                commentFirst={commentFirst}
+                            />
                         </div>
-                    )}
-                </>
-            )}
+                    ))}
+                </div>
+                {isLoadComment && (
+                    <div className='comment-load' onClick={handleLoadAddCommment}>
+                        Tải thêm bình luận
+                    </div>
+                )}
+            </>
         </div>
     );
 }

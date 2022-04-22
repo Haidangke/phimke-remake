@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import ImageLazyLoad from 'components/ImageLazyLoad';
 import { SearchResults } from 'models/search';
 import { Link } from 'react-router-dom';
@@ -6,9 +7,10 @@ import styles from './TableFilm.module.scss';
 interface TableFilmProps {
     data?: SearchResults[];
     newPage?: boolean;
+    is2Mobile?: boolean;
 }
 
-function TableFilm({ data, newPage }: TableFilmProps) {
+function TableFilm({ data, newPage, is2Mobile }: TableFilmProps) {
     return (
         <div className={styles.root}>
             <div className={styles.list}>
@@ -25,10 +27,12 @@ function TableFilm({ data, newPage }: TableFilmProps) {
                     ) : (
                         <div
                             key={index}
-                            className={styles.item}
+                            className={clsx(styles.item, {
+                                [styles.is2Mobile]: is2Mobile,
+                                [styles.is3Mobile]: !is2Mobile,
+                            })}
                             onClick={() =>
-                                // window.open(`https://phimke.site/${film.domainType}/${film.id}`, '_blank')
-                                window.open(`/${film.domainType}/${film.id}`, '_blank')
+                                window.open(`https://phimke.site/${film.domainType}/${film.id}`, '_blank')
                             }
                         >
                             <ImageLazyLoad

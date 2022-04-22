@@ -72,45 +72,29 @@ function Media() {
                 <Player url={media.mediaUrl} subs={subs} indexSub={indexSub} />
             )}
 
-            {/* <div className={styles.clickError}>
-                Chú ý: Nếu phim không xem được hoặc thời gian load trên 15s, vui lòng nhấn
-                <span
-                    onClick={() =>
-                        dispatch(
-                            fetchData({
-                                category,
-                                definition: definition || detail.episodeVo[episode]?.definitionList[0].code,
-                                contentId: detail.id,
-                                episodeId: detail.episodeVo[episode]?.id,
-                            })
-                        )
-                    }
-                >
-                    Vào đây
-                </span>
-            </div> */}
-
             {detail.category === 1 &&
                 detail.id &&
                 cdtEpisode(episode) &&
                 (!isError ? (
                     <>
                         <div className={styles.titleEpisode}>Các tập</div>
-                        <div className={styles.episodes}>
-                            {detail?.episodeVo?.length > 0 &&
-                                detail.episodeVo.map((item, index) => (
-                                    <div
-                                        onClick={() => {
-                                            setSearchParams({ episode: index.toString() });
-                                        }}
-                                        key={item.id}
-                                        className={clsx(styles.episode, {
-                                            [styles.episodeActive]: index === episode,
-                                        })}
-                                    >
-                                        Tập {index + 1}
-                                    </div>
-                                ))}
+                        <div className={styles.episodeWrapper}>
+                            <div className={styles.episodes}>
+                                {detail?.episodeVo?.length > 0 &&
+                                    detail.episodeVo.map((item, index) => (
+                                        <div
+                                            onClick={() => {
+                                                setSearchParams({ episode: index.toString() });
+                                            }}
+                                            key={item.id}
+                                            className={clsx(styles.episode, {
+                                                [styles.episodeActive]: index === episode,
+                                            })}
+                                        >
+                                            Tập {index + 1}
+                                        </div>
+                                    ))}
+                            </div>
                         </div>
                     </>
                 ) : (

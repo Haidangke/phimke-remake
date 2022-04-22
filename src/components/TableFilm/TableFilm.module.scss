@@ -21,8 +21,8 @@
 }
 
 .item:hover {
-    transition: opacity ease-in .3s ;
-    opacity: .9;
+    transition: opacity ease-in 0.3s;
+    opacity: 0.9;
 }
 
 .item > span > img {
@@ -71,7 +71,7 @@
 }
 
 @include mobile {
-    .item {
+    .is3Mobile {
         flex-basis: calc(100% / 3 - 10px / 3);
         width: calc(100% / 3 - 10px / 3);
         padding-bottom: calc((100% / 3 - 10px / 3) * 1.5);
@@ -79,11 +79,22 @@
         margin-right: 5px;
     }
 
-    .item:nth-child(3n) {
+    .is3Mobile:nth-child(3n) {
         margin-right: 0;
     }
 
-   
+    .is2Mobile {
+        flex-basis: calc(100% / 2 - 5px);
+        width: calc(100% / 2 - 5px);
+        padding-bottom: calc((100% / 2 - 10px) * 1.5);
+        position: relative;
+        margin-right: 10px;
+    }
+
+    .is2Mobile:nth-child(2n) {
+        margin-right: 0;
+    }
+
     .name {
         font-size: 1.4rem;
     }

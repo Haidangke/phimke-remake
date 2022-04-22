@@ -1,0 +1,203 @@
+Date : 2022-04-22 11:43:10
+Directory : c:\products\phimke-remake
+Total : 124 files,  6552 codes, 61 comments, 753 blanks, all 7366 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| SCSS               |         37 |      2,773 |          1 |        288 |      3,062 |
+| TypeScript React   |         41 |      2,112 |         14 |        274 |      2,400 |
+| TypeScript         |         40 |      1,480 |         36 |        184 |      1,700 |
+| JSON               |          4 |        123 |         10 |          2 |        135 |
+| HTML               |          1 |         37 |          0 |          4 |         41 |
+| JSON with Comments |          1 |         27 |          0 |          1 |         28 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                           | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                              |        124 |      6,552 |         61 |        753 |      7,366 |
+| public                                                                                         |          2 |         62 |          0 |          5 |         67 |
+| src                                                                                            |        118 |      6,365 |         51 |        746 |      7,162 |
+| src\Firebase                                                                                   |          1 |         18 |          0 |          4 |         22 |
+| src\apis                                                                                       |          4 |        125 |          0 |         17 |        142 |
+| src\app                                                                                        |          3 |         39 |          0 |         10 |         49 |
+| src\components                                                                                 |         22 |        978 |          0 |        121 |      1,099 |
+| src\components\Header                                                                          |          2 |        209 |          0 |         22 |        231 |
+| src\components\ImageLazyLoad                                                                   |          2 |         39 |          0 |          6 |         45 |
+| src\components\ImageLoading                                                                    |          2 |         61 |          0 |          8 |         69 |
+| src\components\ListFilm                                                                        |          4 |        229 |          0 |         30 |        259 |
+| src\components\Loading                                                                         |          2 |         26 |          0 |          4 |         30 |
+| src\components\NotFound                                                                        |          2 |         21 |          0 |          5 |         26 |
+| src\components\Score                                                                           |          2 |         74 |          0 |          6 |         80 |
+| src\components\ScrollToTop                                                                     |          1 |          9 |          0 |          4 |         13 |
+| src\components\SideBar                                                                         |          2 |        141 |          0 |         15 |        156 |
+| src\components\TableFilm                                                                       |          3 |        169 |          0 |         21 |        190 |
+| src\config                                                                                     |          2 |         44 |          0 |          4 |         48 |
+| src\features                                                                                   |         59 |      4,322 |          1 |        470 |      4,793 |
+| src\features\auth                                                                              |          7 |        334 |          0 |         55 |        389 |
+| src\features\auth\components                                                                   |          2 |         77 |          0 |         13 |         90 |
+| src\features\auth\page                                                                         |          2 |        139 |          0 |         23 |        162 |
+| src\features\banner                                                                            |          3 |        112 |          1 |         17 |        130 |
+| src\features\browse                                                                            |          4 |        206 |          0 |         26 |        232 |
+| src\features\comment                                                                           |          8 |        660 |          0 |         71 |        731 |
+| src\features\comment\components                                                                |          6 |        294 |          0 |         40 |        334 |
+| src\features\comment\components\Info                                                           |          1 |         25 |          0 |          4 |         29 |
+| src\features\comment\components\InputReply                                                     |          1 |         85 |          0 |         12 |         97 |
+| src\features\comment\components\Like                                                           |          1 |         41 |          0 |          8 |         49 |
+| src\features\comment\components\ListReply                                                      |          1 |         77 |          0 |          8 |         85 |
+| src\features\comment\components\User                                                           |          2 |         66 |          0 |          8 |         74 |
+| src\features\detail                                                                            |          6 |        812 |          0 |         68 |        880 |
+| src\features\detail\components                                                                 |          2 |        549 |          0 |         31 |        580 |
+| src\features\discover                                                                          |         10 |        659 |          0 |         66 |        725 |
+| src\features\discover\components                                                               |          6 |        250 |          0 |         31 |        281 |
+| src\features\discover\components\Filter                                                        |          2 |         64 |          0 |         10 |         74 |
+| src\features\discover\components\ItemFilter                                                    |          2 |        128 |          0 |         12 |        140 |
+| src\features\discover\components\ScrollToTop                                                   |          2 |         58 |          0 |          9 |         67 |
+| src\features\history                                                                           |          2 |         54 |          0 |         11 |         65 |
+| src\features\search                                                                            |          8 |        653 |          0 |         63 |        716 |
+| src\features\search\components                                                                 |          4 |        379 |          0 |         33 |        412 |
+| src\features\search\components\History                                                         |          2 |         86 |          0 |          7 |         93 |
+| src\features\watchs                                                                            |         11 |        832 |          0 |         93 |        925 |
+| src\features\watchs\components                                                                 |          7 |        616 |          0 |         71 |        687 |
+| src\features\watchs\components\Media                                                           |          2 |        211 |          0 |         31 |        242 |
+| src\features\watchs\components\Player                                                          |          3 |        303 |          0 |         29 |        332 |
+| src\features\watchs\components\Similars                                                        |          2 |        102 |          0 |         11 |        113 |
+| src\hooks                                                                                      |          3 |         66 |          0 |         13 |         79 |
+| src\models                                                                                     |          5 |        404 |          0 |         43 |        447 |
+| src\styles                                                                                     |          4 |         59 |          0 |         13 |         72 |
+| src\utils                                                                                      |          8 |         77 |          0 |         12 |         89 |
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                       | language           | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\products\phimke-remake\.prettierrc                                                          | JSON               |         19 |          0 |          0 |         19 |
+| c:\products\phimke-remake\firebase.json                                                        | JSON               |          7 |         10 |          0 |         17 |
+| c:\products\phimke-remake\package.json                                                         | JSON               |         72 |          0 |          1 |         73 |
+| c:\products\phimke-remake\public\index.html                                                    | HTML               |         37 |          0 |          4 |         41 |
+| c:\products\phimke-remake\public\manifest.json                                                 | JSON               |         25 |          0 |          1 |         26 |
+| c:\products\phimke-remake\src\App.scss                                                         | SCSS               |         69 |          0 |         15 |         84 |
+| c:\products\phimke-remake\src\App.test.tsx                                                     | TypeScript React   |         13 |          0 |          3 |         16 |
+| c:\products\phimke-remake\src\App.tsx                                                          | TypeScript React   |         28 |         14 |          2 |         44 |
+| c:\products\phimke-remake\src\Firebase\config.ts                                               | TypeScript         |         18 |          0 |          4 |         22 |
+| c:\products\phimke-remake\src\apis\cmtApi.ts                                                   | TypeScript         |         26 |          0 |          5 |         31 |
+| c:\products\phimke-remake\src\apis\loklokApi.ts                                                | TypeScript         |         21 |          0 |          4 |         25 |
+| c:\products\phimke-remake\src\apis\loklokClient.ts                                             | TypeScript         |         21 |          0 |          5 |         26 |
+| c:\products\phimke-remake\src\apis\searchApi.ts                                                | TypeScript         |         57 |          0 |          3 |         60 |
+| c:\products\phimke-remake\src\app\hooks.ts                                                     | TypeScript         |          4 |          0 |          2 |          6 |
+| c:\products\phimke-remake\src\app\rootSaga.ts                                                  | TypeScript         |          9 |          0 |          2 |         11 |
+| c:\products\phimke-remake\src\app\store.ts                                                     | TypeScript         |         26 |          0 |          6 |         32 |
+| c:\products\phimke-remake\src\components\Header\Header.module.scss                             | SCSS               |        127 |          0 |         13 |        140 |
+| c:\products\phimke-remake\src\components\Header\index.tsx                                      | TypeScript React   |         82 |          0 |          9 |         91 |
+| c:\products\phimke-remake\src\components\ImageLazyLoad\ImageLazyLoad.module.scss               | SCSS               |         16 |          0 |          2 |         18 |
+| c:\products\phimke-remake\src\components\ImageLazyLoad\index.tsx                               | TypeScript React   |         23 |          0 |          4 |         27 |
+| c:\products\phimke-remake\src\components\ImageLoading\Image.module.scss                        | SCSS               |         26 |          0 |          2 |         28 |
+| c:\products\phimke-remake\src\components\ImageLoading\index.tsx                                | TypeScript React   |         35 |          0 |          6 |         41 |
+| c:\products\phimke-remake\src\components\ListFilm\ItemFilm.tsx                                 | TypeScript React   |         28 |          0 |          5 |         33 |
+| c:\products\phimke-remake\src\components\ListFilm\ListFilm.module.scss                         | SCSS               |        146 |          0 |         16 |        162 |
+| c:\products\phimke-remake\src\components\ListFilm\ListFilmLoading.tsx                          | TypeScript React   |         32 |          0 |          3 |         35 |
+| c:\products\phimke-remake\src\components\ListFilm\index.tsx                                    | TypeScript React   |         23 |          0 |          6 |         29 |
+| c:\products\phimke-remake\src\components\Loading\Loading.module.scss                           | SCSS               |          5 |          0 |          1 |          6 |
+| c:\products\phimke-remake\src\components\Loading\Loading.tsx                                   | TypeScript React   |         21 |          0 |          3 |         24 |
+| c:\products\phimke-remake\src\components\NotFound\NotFound.module.scss                         | SCSS               |         11 |          0 |          2 |         13 |
+| c:\products\phimke-remake\src\components\NotFound\index.tsx                                    | TypeScript React   |         10 |          0 |          3 |         13 |
+| c:\products\phimke-remake\src\components\Score\Score.module.scss                               | SCSS               |         20 |          0 |          2 |         22 |
+| c:\products\phimke-remake\src\components\Score\index.tsx                                       | TypeScript React   |         54 |          0 |          4 |         58 |
+| c:\products\phimke-remake\src\components\ScrollToTop\index.tsx                                 | TypeScript React   |          9 |          0 |          4 |         13 |
+| c:\products\phimke-remake\src\components\SideBar\Sidebar.module.scss                           | SCSS               |         72 |          0 |          7 |         79 |
+| c:\products\phimke-remake\src\components\SideBar\index.tsx                                     | TypeScript React   |         69 |          0 |          8 |         77 |
+| c:\products\phimke-remake\src\components\TableFilm\TableFilm.module.scss                       | SCSS               |         88 |          0 |         14 |        102 |
+| c:\products\phimke-remake\src\components\TableFilm\TableFilmLoading.tsx                        | TypeScript React   |         32 |          0 |          3 |         35 |
+| c:\products\phimke-remake\src\components\TableFilm\index.tsx                                   | TypeScript React   |         49 |          0 |          4 |         53 |
+| c:\products\phimke-remake\src\config\dramaType.ts                                              | TypeScript         |         18 |          0 |          2 |         20 |
+| c:\products\phimke-remake\src\config\navigate.ts                                               | TypeScript         |         26 |          0 |          2 |         28 |
+| c:\products\phimke-remake\src\features\auth\Auth.module.scss                                   | SCSS               |         24 |          0 |          5 |         29 |
+| c:\products\phimke-remake\src\features\auth\authSlice.ts                                       | TypeScript         |         37 |          0 |          6 |         43 |
+| c:\products\phimke-remake\src\features\auth\components\Popover.module.scss                     | SCSS               |         50 |          0 |          7 |         57 |
+| c:\products\phimke-remake\src\features\auth\components\Popover.tsx                             | TypeScript React   |         27 |          0 |          6 |         33 |
+| c:\products\phimke-remake\src\features\auth\index.tsx                                          | TypeScript React   |         57 |          0 |          8 |         65 |
+| c:\products\phimke-remake\src\features\auth\page\Login.module.scss                             | SCSS               |        100 |          0 |         16 |        116 |
+| c:\products\phimke-remake\src\features\auth\page\Login.tsx                                     | TypeScript React   |         39 |          0 |          7 |         46 |
+| c:\products\phimke-remake\src\features\banner\Banner.module.scss                               | SCSS               |         42 |          1 |          9 |         52 |
+| c:\products\phimke-remake\src\features\banner\Swiper.scss                                      | SCSS               |         18 |          0 |          2 |         20 |
+| c:\products\phimke-remake\src\features\banner\index.tsx                                        | TypeScript React   |         52 |          0 |          6 |         58 |
+| c:\products\phimke-remake\src\features\browse\Browse.module.scss                               | SCSS               |         79 |          0 |          6 |         85 |
+| c:\products\phimke-remake\src\features\browse\browseSaga.ts                                    | TypeScript         |         21 |          0 |          4 |         25 |
+| c:\products\phimke-remake\src\features\browse\browseSlice.ts                                   | TypeScript         |         52 |          0 |          8 |         60 |
+| c:\products\phimke-remake\src\features\browse\index.tsx                                        | TypeScript React   |         54 |          0 |          8 |         62 |
+| c:\products\phimke-remake\src\features\comment\Comment.scss                                    | SCSS               |        255 |          0 |         14 |        269 |
+| c:\products\phimke-remake\src\features\comment\components\Info\index.tsx                       | TypeScript React   |         25 |          0 |          4 |         29 |
+| c:\products\phimke-remake\src\features\comment\components\InputReply\index.tsx                 | TypeScript React   |         85 |          0 |         12 |         97 |
+| c:\products\phimke-remake\src\features\comment\components\Like\index.tsx                       | TypeScript React   |         41 |          0 |          8 |         49 |
+| c:\products\phimke-remake\src\features\comment\components\ListReply\index.tsx                  | TypeScript React   |         77 |          0 |          8 |         85 |
+| c:\products\phimke-remake\src\features\comment\components\User\User.module.scss                | SCSS               |          0 |          0 |          1 |          1 |
+| c:\products\phimke-remake\src\features\comment\components\User\index.tsx                       | TypeScript React   |         66 |          0 |          7 |         73 |
+| c:\products\phimke-remake\src\features\comment\index.tsx                                       | TypeScript React   |        111 |          0 |         17 |        128 |
+| c:\products\phimke-remake\src\features\detail\Detail.module.scss                               | SCSS               |        111 |          0 |         16 |        127 |
+| c:\products\phimke-remake\src\features\detail\components\Introduce.module.scss                 | SCSS               |        404 |          0 |         17 |        421 |
+| c:\products\phimke-remake\src\features\detail\components\index.tsx                             | TypeScript React   |        145 |          0 |         14 |        159 |
+| c:\products\phimke-remake\src\features\detail\detailSaga.ts                                    | TypeScript         |         39 |          0 |          7 |         46 |
+| c:\products\phimke-remake\src\features\detail\detailSlice.ts                                   | TypeScript         |         44 |          0 |          7 |         51 |
+| c:\products\phimke-remake\src\features\detail\index.tsx                                        | TypeScript React   |         69 |          0 |          7 |         76 |
+| c:\products\phimke-remake\src\features\discover\Discover.module.scss                           | SCSS               |         59 |          0 |         11 |         70 |
+| c:\products\phimke-remake\src\features\discover\components\Filter\Filter.module.scss           | SCSS               |         31 |          0 |          5 |         36 |
+| c:\products\phimke-remake\src\features\discover\components\Filter\index.tsx                    | TypeScript React   |         33 |          0 |          5 |         38 |
+| c:\products\phimke-remake\src\features\discover\components\ItemFilter\ItemFilter.module.scss   | SCSS               |         60 |          0 |          4 |         64 |
+| c:\products\phimke-remake\src\features\discover\components\ItemFilter\index.tsx                | TypeScript React   |         68 |          0 |          8 |         76 |
+| c:\products\phimke-remake\src\features\discover\components\ScrollToTop\ScrollToTop.module.scss | SCSS               |         37 |          0 |          7 |         44 |
+| c:\products\phimke-remake\src\features\discover\components\ScrollToTop\index.tsx               | TypeScript React   |         21 |          0 |          2 |         23 |
+| c:\products\phimke-remake\src\features\discover\discoverSaga.ts                                | TypeScript         |         84 |          0 |          6 |         90 |
+| c:\products\phimke-remake\src\features\discover\discoverSlice.ts                               | TypeScript         |        195 |          0 |          8 |        203 |
+| c:\products\phimke-remake\src\features\discover\index.tsx                                      | TypeScript React   |         71 |          0 |         10 |         81 |
+| c:\products\phimke-remake\src\features\history\History.module.scss                             | SCSS               |         34 |          0 |          7 |         41 |
+| c:\products\phimke-remake\src\features\history\index.tsx                                       | TypeScript React   |         20 |          0 |          4 |         24 |
+| c:\products\phimke-remake\src\features\search\Search.module.scss                               | SCSS               |        139 |          0 |         12 |        151 |
+| c:\products\phimke-remake\src\features\search\components\History\History.module.scss           | SCSS               |         46 |          0 |          2 |         48 |
+| c:\products\phimke-remake\src\features\search\components\History\index.tsx                     | TypeScript React   |         40 |          0 |          5 |         45 |
+| c:\products\phimke-remake\src\features\search\components\SearchHeader.module.scss              | SCSS               |        147 |          0 |          8 |        155 |
+| c:\products\phimke-remake\src\features\search\components\index.tsx                             | TypeScript React   |        146 |          0 |         18 |        164 |
+| c:\products\phimke-remake\src\features\search\index.tsx                                        | TypeScript React   |         64 |          0 |          9 |         73 |
+| c:\products\phimke-remake\src\features\search\searchSaga.ts                                    | TypeScript         |         20 |          0 |          4 |         24 |
+| c:\products\phimke-remake\src\features\search\searchSlice.ts                                   | TypeScript         |         51 |          0 |          5 |         56 |
+| c:\products\phimke-remake\src\features\watchs\Watchs.module.scss                               | SCSS               |         86 |          0 |          6 |         92 |
+| c:\products\phimke-remake\src\features\watchs\components\Media\Media.module.scss               | SCSS               |        116 |          0 |         18 |        134 |
+| c:\products\phimke-remake\src\features\watchs\components\Media\index.tsx                       | TypeScript React   |         95 |          0 |         13 |        108 |
+| c:\products\phimke-remake\src\features\watchs\components\Player\InputRange.scss                | SCSS               |         16 |          0 |          5 |         21 |
+| c:\products\phimke-remake\src\features\watchs\components\Player\Player.module.scss             | SCSS               |        226 |          0 |         18 |        244 |
+| c:\products\phimke-remake\src\features\watchs\components\Player\index.tsx                      | TypeScript React   |         61 |          0 |          6 |         67 |
+| c:\products\phimke-remake\src\features\watchs\components\Similars\Similars.module.scss         | SCSS               |         54 |          0 |          5 |         59 |
+| c:\products\phimke-remake\src\features\watchs\components\Similars\index.tsx                    | TypeScript React   |         48 |          0 |          6 |         54 |
+| c:\products\phimke-remake\src\features\watchs\index.tsx                                        | TypeScript React   |         69 |          0 |          6 |         75 |
+| c:\products\phimke-remake\src\features\watchs\watchsSaga.ts                                    | TypeScript         |         23 |          0 |          5 |         28 |
+| c:\products\phimke-remake\src\features\watchs\watchsSlice.ts                                   | TypeScript         |         38 |          0 |          5 |         43 |
+| c:\products\phimke-remake\src\hooks\useOnClickOutside.ts                                       | TypeScript         |         18 |          0 |          2 |         20 |
+| c:\products\phimke-remake\src\hooks\useResize.ts                                               | TypeScript         |         23 |          0 |          6 |         29 |
+| c:\products\phimke-remake\src\hooks\useScroll.ts                                               | TypeScript         |         25 |          0 |          5 |         30 |
+| c:\products\phimke-remake\src\index.tsx                                                        | TypeScript React   |         20 |          0 |          3 |         23 |
+| c:\products\phimke-remake\src\models\comment.ts                                                | TypeScript         |         15 |          0 |          1 |         16 |
+| c:\products\phimke-remake\src\models\common.ts                                                 | TypeScript         |        173 |          0 |         21 |        194 |
+| c:\products\phimke-remake\src\models\loklok.ts                                                 | TypeScript         |        129 |          0 |         10 |        139 |
+| c:\products\phimke-remake\src\models\search.ts                                                 | TypeScript         |         81 |          0 |         10 |         91 |
+| c:\products\phimke-remake\src\models\user.ts                                                   | TypeScript         |          6 |          0 |          1 |          7 |
+| c:\products\phimke-remake\src\react-app-env.d.ts                                               | TypeScript         |          0 |          1 |          1 |          2 |
+| c:\products\phimke-remake\src\serviceWorker.ts                                                 | TypeScript         |        102 |         31 |         14 |        147 |
+| c:\products\phimke-remake\src\setupTests.ts                                                    | TypeScript         |          1 |          4 |          1 |          6 |
+| c:\products\phimke-remake\src\styles\_animation.scss                                           | SCSS               |          8 |          0 |          1 |          9 |
+| c:\products\phimke-remake\src\styles\_index.scss                                               | SCSS               |          3 |          0 |          1 |          4 |
+| c:\products\phimke-remake\src\styles\_mixin.scss                                               | SCSS               |         34 |          0 |          6 |         40 |
+| c:\products\phimke-remake\src\styles\_variables.scss                                           | SCSS               |         14 |          0 |          5 |         19 |
+| c:\products\phimke-remake\src\utils\changeTitleFilter.ts                                       | TypeScript         |          7 |          0 |          1 |          8 |
+| c:\products\phimke-remake\src\utils\convertSecondsToTime.ts                                    | TypeScript         |         21 |          0 |          2 |         23 |
+| c:\products\phimke-remake\src\utils\convertTitle.ts                                            | TypeScript         |          6 |          0 |          1 |          7 |
+| c:\products\phimke-remake\src\utils\formatTime.ts                                              | TypeScript         |          9 |          0 |          1 |         10 |
+| c:\products\phimke-remake\src\utils\getBackground.ts                                           | TypeScript         |         13 |          0 |          3 |         16 |
+| c:\products\phimke-remake\src\utils\getRunTime.ts                                              | TypeScript         |         11 |          0 |          1 |         12 |
+| c:\products\phimke-remake\src\utils\history.ts                                                 | TypeScript         |          3 |          0 |          1 |          4 |
+| c:\products\phimke-remake\src\utils\resizeImage.ts                                             | TypeScript         |          7 |          0 |          2 |          9 |
+| c:\products\phimke-remake\tsconfig.json                                                        | JSON with Comments |         27 |          0 |          1 |         28 |
+| Total                                                                                          |                    |      6,552 |         61 |        753 |      7,366 |
++------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

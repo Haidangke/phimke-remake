@@ -58,6 +58,15 @@ function SearchHeader() {
         localStorage.setItem('search_history', JSON.stringify(newLocalData));
     };
 
+    const handleReplaceHistory = (query: string) => {
+        const newLocalData = [...localCache];
+        newLocalData.splice(localCache.indexOf(query), 1);
+        newLocalData.unshift(query);
+        setLocalCache(newLocalData);
+
+        localStorage.setItem('search_history', JSON.stringify(newLocalData));
+    };
+
     const handleKeyDown = (e: any) => {
         if (e.key === 'Enter') {
             handleNavigate();
@@ -107,7 +116,7 @@ function SearchHeader() {
                         <div className={styles.notQuery}>Vui lòng nhập từ khóa để tìm kiếm !</div>
                     </div>
                 ) : (
-                    <HistorySearch history={localCache} onRemove={handleRemoveHistory} />
+                    <HistorySearch history={localCache} onRemove={handleRemoveHistory} onReplace={handleReplaceHistory}/>
                 )
             ) : (
                 <div className={styles.wrapper}>

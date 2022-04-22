@@ -18,6 +18,7 @@ function Search() {
             })
     );
 
+
     if (isFetched && data?.searchResults.length === 0) {
         return (
             <div className={styles.root}>
@@ -54,9 +55,12 @@ function Search() {
                             />
                             <div className={styles.name}>{film.name}</div>
 
-                            <div className={styles.dramaType}>
-                                {film.dramaType.code} {film.dramaType.code === 'TV' && 'Shows'}
+                            <div className={styles.infoMore}>
+                                <div className={styles.release}>{film.releaseTime}</div>
+                                <div className={styles.type}>{film.dramaType.code.toLowerCase()}</div>
                             </div>
+
+                            <div className={styles.dramaType}>HD</div>
                         </Link>
                     ))}
                 </div>

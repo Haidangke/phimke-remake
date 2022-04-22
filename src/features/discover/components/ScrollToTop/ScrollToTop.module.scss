@@ -1,0 +1,43 @@
+@use 'styles/' as *;
+
+.toTop {
+    position: fixed;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    background: white;
+    bottom: 20px;
+    right: 75px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 4px 10px rgb(0 0 0 / 20%);
+    cursor: pointer;
+    transition: $transition-base;
+    opacity: 0;
+
+    pointer-events: none;
+}
+.active {
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.toTop > svg {
+    font-size: 3rem;
+    color: black;
+}
+
+@include pc {
+    .toTop:hover {
+        opacity: 0.9;
+    }
+}
+
+@include mobile-tablet {
+    .toTop {
+        right: 10px;
+    }
+}
